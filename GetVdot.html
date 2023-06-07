@@ -16,23 +16,30 @@
     </head>
     <body>
         <!-- Fixed navbar -->
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"><a class="navbar-brand" href="#">LISA Project</a>
-            <a class="navbar-brand" href="#"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">LISA Project</a><a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html" data-pgc-field="documentation_link">Home</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" data-pgc-field="documentation_link">Home</a>
                     </li>
-                    <li class="nav-item"><a class="active nav-link" href="documentation.html" data-pgc-field="documentation_link">Documentation</a>
+                    <li class="nav-item">
+                        <a class="active nav-link" href="documentation.html" data-pgc-field="documentation_link">Documentation</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="theory.html" data-pgc-field="theory_link">Theory</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="theory.html" data-pgc-field="theory_link">Theory</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="procedures.html" data-pgc-field="procedures_link">Procedures</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="procedures.html" data-pgc-field="procedures_link">Procedures</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="education.html" data-pgc-field="education_link">Education</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="education.html" data-pgc-field="education_link">Education</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="testing.html" data-pgc-field="testing_link">Testing</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="testing.html" data-pgc-field="testing_link">Testing</a>
                     </li>
                 </ul>
                 <form class="form-inline mt-2 mt-md-0">
@@ -45,9 +52,8 @@
         <div class="container" data-pgc-field="page_content">
             <div class="mt-3">
                 <h1 data-pgc-field="page_heading">GetVdot</h1>
-                <div class="mt-3"><span class="badge badge-secondary">Method</span>
-                    <span class="badge badge-secondary">Spin Case</span>
-                    <span class="badge badge-secondary">EquationSolver</span>
+                <div class="mt-3">
+                    <span class="badge badge-secondary">Method</span><span class="badge badge-secondary">Spin Case</span><span class="badge badge-secondary">EquationSolver</span>
                     <div>
                         <p></p>
                     </div>
@@ -57,7 +63,7 @@
             <p class="lead" data-pgc-field="page_lead"></p>
             <p data-pgc-field="page_info"><dl>
                     <dt class="h5">Technical description:</dt> 
-                    <dd>This method calculates and returns&nbsp;\(\dot{v}\), the derivative of \(v\) with respect to a dimensionless time \( \tau_s = \frac{t_{s}}{M} \) in the source frame, given \(v\). The local variable \(\zeta\) is used as a placeholder to better organize the equations.</dd>
+                    <dd>This method calculates and returns&nbsp;\(\dot{v}\), the derivative of \(v\) with respect to a dimensionless time \( \tau_s = \frac{t_{s}}{M} \) in the source frame, given \(v\).</dd>
                     <table class="border table table-bordered" data-pgc="parameter_table" data-pgc-field="parameter_table"> 
                         <thead> 
                             <tr> 
@@ -94,11 +100,9 @@
                     <dd>See <a href="Theory1_2022.pdf">Equation (1.9)</a> of the Theory1 document for an expression for \(\dot{v}\).
                     </dd>
                     <dt class="h5">Usage locations:</dt>
-                    <dd>This method is used in the <a href="InitV.html">InitV</a>, <a href="InitDvdδ.html">InitDvdδ</a>,&nbsp;<a href="InitDvdχ2ℓ.html">InitDvdχ1ℓ</a>, and&nbsp;<a href="InitDvdχ2ℓ.html">InitDvdχ2ℓ</a> methods to intialize the first two values of each parameter. It is also used in the <a href="DoStep.html">DoStep</a> method to propagate \( v \) through time.
-                    </dd>
+                    <dd>This method is used in the InitV, InitDvdδ,&nbsp;InitDvdχ1ℓ, and&nbsp;InitDvdχ2ℓ methods to intialize the first two values of each parameter. It is also used in the DoStep method to propegate \( v \) through time.</dd>
                     <dt class="h5">Usage example:</dt>
-                    <dd class="bg-light ml-4 shadow-sm">
-                        <code class="text-secondary">mainEquation.GetVdot(vN)</code>
+                    <dd class="bg-light ml-4 shadow-sm"><code class="text-secondary">GetVdot(vN)</code>
                     </dd>
                 </dl></p>
         </div>

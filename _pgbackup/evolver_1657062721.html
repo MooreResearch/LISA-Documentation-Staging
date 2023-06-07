@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" data-pgc-master="master.html">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <meta name="description" content="" data-pgc-field="meta_description"/>
+        <meta name="author" content=""/>
+        <title data-pgc-field="page_title">Evolver</title>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <!-- Bootstrap core CSS -->
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
+        <!-- Custom styles for this template -->
+        <link href="sticky-footer-navbar.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="index.html">LISA Project</a><a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" data-pgc-field="documentation_link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="active nav-link" href="documentation.html" data-pgc-field="documentation_link">Documentation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="theory.html" data-pgc-field="theory_link">Theory</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="procedures.html" data-pgc-field="procedures_link">Procedures</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="education.html" data-pgc-field="education_link">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="testing.html" data-pgc-field="testing_link">Testing</a>
+                    </li>
+                </ul>
+                <form class="form-inline mt-2 mt-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"/>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+        <!-- Begin page content -->
+        <div class="container" data-pgc-field="page_content">
+            <div class="mt-3">
+                <h1 data-pgc-field="page_heading">Evolver</h1>
+                <span class="badge badge-secondary">Class</span>
+                <span class="badge badge-secondary">Time evolution</span>
+                <span class="badge badge-secondary"></span>
+                <span class="badge badge-secondary">etc.</span>
+                <div>
+                    <p></p>
+                </div>
+            </div>
+            <p class="lead" data-pgc-field="page_description">The Evolver class is meant to evolve four equations to obtain values of \(v\), \(\partial v \over \partial δ\), \(\partial v \over \partial χ_{1ℓ}\), and \(\partial v \over \partial χ_{2ℓ}\) over time. It takes some parameters from the main program and uses the leapfrog method to evolve these equations. Each step of the leapfrog method is then stored as a property that can be accessed by the main program.<br/></p>
+            <p></p>
+            <dl> 
+                <dt class="h5">Technical Description:</dt> 
+                <dd>The class&apos;s constructor takes the initial timestep, \(v\), \(δ\), \(χ_{1ℓ}\), and \(χ_{2ℓ}\) as parameters. It then uses these values to initialize the four evolutions, and it sets up a new instance of the EquationSolver class that has these base parameters. The initializing methods set up the first two values of each evolution and set those to the be &quot;current&quot; past and present values (which are properties of the class), respectively. Then, any time the DoStep method is called, the Evolver class performs a step using the leapfrog method and updates these past and present values.</dd>
+            </dl>
+            <p></p>
+            <p></p>
+            <table class="border table table-bordered" data-pgc-field="method_table"> 
+                <thead> 
+                    <tr> 
+                        <th class="bg-light shadow-sm text-body w-25">Method</th> 
+                        <th class="bg-light shadow-sm text-body w-25">Parameters</th> 
+                        <th class="bg-light shadow-sm text-body">Return</th> 
+                        <th class="bg-light shadow-sm text-body w-50">Description</th>
+                    </tr>                     
+                </thead>                 
+                <tbody> 
+                    <tr> 
+                        <th scope="row" class="font-weight-normal">Constructor</th> 
+                        <td><p>mydτ0 As Double, myv0 As Double, myδ As Double, myχ1ℓ As Double, myχ2ℓ As Double</p></td> 
+                        <td>N/A</td> 
+                        <td>Sets up the Evolver class. Called when a new instance of the class is created.</td>
+                    </tr>                     
+                    <tr> 
+                        <th scope="row" class="font-weight-normal">DoStep</th> 
+                        <td><p>dτ As Double</p></td>
+                        <td>N/A</td> 
+                        <td>Takes a past and present value of \(v\), \(\partial v \over \partial δ\), \(\partial v \over \partial χ_{1ℓ}\), and \(\partial v \over \partial χ_{2ℓ}\), and, using the centered difference equation, calculates the future values. Then sets the present value to the past value and the future value to the present value.</td>
+                    </tr>                     
+                    <tr> 
+                        <th scope="row" class="font-weight-normal">InitDvdδ</th> 
+                        <td>N/A</td> 
+                        <td>N/A</td> 
+                        <td>This method is called by the Evolver constructor, and it initializes \(\partial v \over \partial δ\) by setting up the first two values.</td>
+                    </tr>                     
+                    <tr>
+                        <td>InitDvdχ1ℓ</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                        <td>This method is called by the Evolver constructor, and it initializes \(\partial v \over \partial χ_{1ℓ}\) by setting up the first two values.</td>
+                    </tr>
+                    <tr>
+                        <td>InitDvdχ2ℓ</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                        <td>This method is called by the Evolver constructor, and it initializes \(\partial v \over \partial χ_{2ℓ}\) by setting up the first two values.</td>
+                    </tr>
+                    <tr>
+                        <td>InitV</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                        <td>This method is called by the Evolver constructor, and it initializes \(v\) by setting up the first two values.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="border table table-bordered" data-pgc-field="property_table"> 
+                <thead> 
+                    <tr> 
+                        <th class="bg-light shadow-sm text-body w-25">Property</th> 
+                        <th class="bg-light shadow-sm text-body w-auto">Type</th> 
+                        <th class="bg-light float-none shadow-sm text-body w-50">Description</th> 
+                    </tr>                     
+                </thead>                 
+                <tbody> 
+                    <tr> 
+                        <th scope="row" class="font-weight-normal">dvdδN</th> 
+                        <td>Double</td> 
+                        <td>The &quot;now&quot; value of \(\partial v \over \partial&nbsp;δ\).</td> 
+                    </tr>                     
+                    <tr> 
+                        <th scope="row" class="font-weight-normal">dvdδP</th> 
+                        <td>Double</td>
+                        <td>The &quot;past&quot; value of \(\partial v \over \partial δ\).</td> 
+                    </tr>                     
+                    <tr> 
+                        <th scope="row" class="font-weight-normal">dvdχ1ℓN</th> 
+                        <td>Double</td> 
+                        <td>The &quot;now&quot; value of \(\partial v \over \partial χ_{1ℓ}\).</td> 
+                    </tr>                     
+                    <tr>
+                        <td>dvdχ1ℓP</td>
+                        <td>Double</td>
+                        <td>The &quot;past&quot; value of \(\partial v \over \partial χ_{1ℓ}\).</td>
+                    </tr>
+                    <tr>
+                        <td>dvdχ2ℓN</td>
+                        <td>Double</td>
+                        <td>The &quot;now&quot; value of \(\partial v \over \partial χ_{2ℓ}\).</td>
+                    </tr>
+                    <tr>
+                        <td>dvdχ2ℓP</td>
+                        <td>Double</td>
+                        <td>The &quot;past&quot; value of \(\partial v \over \partial χ_{2ℓ}\).</td>
+                    </tr>
+                    <tr>
+                        <td>dηdδ</td>
+                        <td>Double</td>
+                        <td>The derivative of \(η\) with respect to \(δ\).</td>
+                    </tr>
+                    <tr>
+                        <td>dτ0</td>
+                        <td>Double</td>
+                        <td>The initial time step of \(τ\).</td>
+                    </tr>
+                    <tr>
+                        <td>dχadδ</td>
+                        <td>Double</td>
+                        <td>The derivative \(χ_a\) of with respect to \(δ\).</td>
+                    </tr>
+                    <tr>
+                        <td>dχadχ1ℓ</td>
+                        <td>Double</td>
+                        <td>The derivative of \(χ_a\) with respect to \(χ_{1ℓ}\).</td>
+                    </tr>
+                    <tr>
+                        <td>dχadχ2ℓ</td>
+                        <td>Double</td>
+                        <td>The derivative of \(χ_a\) with respect to \(χ_{2ℓ}\).</td>
+                    </tr>
+                    <tr>
+                        <td>dχsdδ</td>
+                        <td>Double</td>
+                        <td>The derivative of \(χ_s\) with respect to \(δ\).</td>
+                    </tr>
+                    <tr>
+                        <td>dχsdχ1ℓ</td>
+                        <td>Double</td>
+                        <td>The derivative of \(χ_s\) with respect to \(χ_{1ℓ}\).</td>
+                    </tr>
+                    <tr>
+                        <td>dχsdχ2ℓ</td>
+                        <td>Double</td>
+                        <td>The derivative of \(χ_s\) with respect to \(χ_{2ℓ}\).</td>
+                    </tr>
+                    <tr>
+                        <td>mainEquation</td>
+                        <td>EquationSolver</td>
+                        <td>The main instance of the EquationSolver class. It primarily handles the equations for the DoStep method.</td>
+                    </tr>
+                    <tr>
+                        <td>v0</td>
+                        <td>Double</td>
+                        <td>The initial value of \(v\).</td>
+                    </tr>
+                    <tr>
+                        <td>vN</td>
+                        <td>Double</td>
+                        <td>The &quot;now&quot; value of \(v\).</td>
+                    </tr>
+                    <tr>
+                        <td>vP</td>
+                        <td>Double</td>
+                        <td>The &quot;past&quot; value of \(v\).</td>
+                    </tr>
+                    <tr>
+                        <td>δ</td>
+                        <td>Double</td>
+                        <td>One of the initial parameters. It is defined as the difference between the two masses over their sum.</td>
+                    </tr>
+                    <tr>
+                        <td>χ1ℓ</td>
+                        <td>Double</td>
+                        <td>One of the initial parameters. It is defined as the projection of the star 1 spin vector onto the angular momentum vector.</td>
+                    </tr>
+                    <tr>
+                        <td>χ2ℓ</td>
+                        <td>Double</td>
+                        <td>One of the initial parameters. It is defined as the projection of the star 2 spin vector onto the angular momentum vector.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <dt class="h5">Theoretical Description:</dt>
+            <dd>An explanation of what the class does in terms of how it relates to the theory of gravitational waves.
+</dd>
+            <dd>This is an example of how we do math (this was written in LaTeX in the HTML code itself using class &quot;ml-auto mt-auto,&quot; but you can also just write LaTeX into a paragraph):</dd>
+            <dd class="ml-auto mt-auto">When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+                \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\] 
+</dd>
+            <p data-pgc-field="page_info"></p>
+            <p class="lead" data-pgc-field="page_lead"></p>
+        </div>
+        <footer class="footer ml-auto">&nbsp; &nbsp; Copyright 2022 Thomas Moore.</footer>
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/popper.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>

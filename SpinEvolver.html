@@ -16,23 +16,30 @@
     </head>
     <body>
         <!-- Fixed navbar -->
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"><a class="navbar-brand" href="#">LISA Project</a>
-            <a class="navbar-brand" href="#"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">LISA Project</a><a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html" data-pgc-field="documentation_link">Home</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" data-pgc-field="documentation_link">Home</a>
                     </li>
-                    <li class="nav-item"><a class="active nav-link" href="documentation.html" data-pgc-field="documentation_link">Documentation</a>
+                    <li class="nav-item">
+                        <a class="active nav-link" href="documentation.html" data-pgc-field="documentation_link">Documentation</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="theory.html" data-pgc-field="theory_link">Theory</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="theory.html" data-pgc-field="theory_link">Theory</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="procedures.html" data-pgc-field="procedures_link">Procedures</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="procedures.html" data-pgc-field="procedures_link">Procedures</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="education.html" data-pgc-field="education_link">Education</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="education.html" data-pgc-field="education_link">Education</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="testing.html" data-pgc-field="testing_link">Testing</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="testing.html" data-pgc-field="testing_link">Testing</a>
                     </li>
                 </ul>
                 <form class="form-inline mt-2 mt-md-0">
@@ -44,16 +51,36 @@
         <!-- Begin page content -->
         <div class="container" data-pgc-field="page_content">
             <div class="mt-3">
-                <h1 data-pgc-field="page_heading">SpinEvolver</h1><span class="badge badge-secondary">Class</span><span class="badge badge-secondary">Spin Case</span>
+                <h1 data-pgc-field="page_heading">SpinEvolver</h1>
+                <span class="badge badge-secondary">Class</span>
+                <span class="badge badge-secondary">Spin Case</span>
                 <div>
                     <p></p>
                 </div>
             </div>
-            <p class="lead" data-pgc-field="page_description">This class initializes and evolves \(\iota\) and \(\alpha\), as well as \(\dot{\alpha}\) and the components of \(\hat{\chi_1}\) and \(\hat{\chi_2}\).</p>
+            <p class="lead" data-pgc-field="page_description">This class initializes and evolves \(\iota\) and \(\alpha\).</p>
             <p><dl> 
                     <dt class="h5">Technical Description:</dt> 
-                    <dd>The purpose of this class is to evolve the angular momentum of the star or black hole system; it has five methods to accomplish this. Firstly, it has the <a href="SpinEvolverConstructor.html">Constructor</a> which intializes \(\iota\) and \(\alpha\), it then has three methods which aid in the calculations of the evolution of \(\hat{L}_N\), and finally the <a href="SpinDoStep.html">SpinDoStep</a> method which propagates&nbsp;\(\iota\) and \(\alpha\) by propagating \(\hat{L}_N\) and then recalculating&nbsp;\(\iota\) and \(\alpha\).
-                    </dd>                     
+                    <dd>The purpose of this class is to evolve the angular momentum of the star or black hole system; it has five methods to accomplish this. Firstly, it has the <a href="SpinEvolverConstructor.html">Constructor</a> which intializes \(\iota\) and \(\alpha\), it then has three methods which aid in the calculations of the evolution of \(\hat{L}_N\), and finally the <a href="SpinDoStep.html">SpinDoStep</a> method which propegates&nbsp;\(\iota\) and \(\alpha\) by propegating \(\hat{L}_N\) and then recalculating&nbsp;\(\iota\) and \(\alpha\).
+                    </dd>
+                    <table class="border table table-bordered" data-pgc="event_table" data-pgc-field="event_table"> 
+                        <thead> 
+                            <tr> 
+                                <th class="bg-light shadow-sm text-body w-25">Event</th> 
+                                <th class="bg-light shadow-sm text-body w-25">Parameters</th> 
+                                <th class="bg-light shadow-sm text-body">Return</th> 
+                                <th class="bg-light shadow-sm text-body w-50">Description</th>
+                            </tr>                             
+                        </thead>                         
+                        <tbody> 
+                            <tr> 
+                                <th scope="row" class="font-weight-normal">None</th> 
+                                <td>N/A</td> 
+                                <td>N/A</td> 
+                                <td>N/A</td>
+                            </tr>                             
+                        </tbody>
+                    </table>                     
                 </dl></p>
             <p></p>
             <table class="border table table-bordered" data-pgc="method_table" data-pgc-field="method_table"> 
@@ -68,36 +95,36 @@
                 <tbody> 
                     <tr> 
                         <th scope="row" class="font-weight-normal"><a href="ιαEvolverConstructor">Constructor</a></th> 
-                        <td>v0 as Double, dτ0 as Double, myδ as Double, Ln0 as Double, myι0 as Double, myα0 as Double, χ1x as Double, χ1y as Double, χ1z as Double, χ2x as Double, χ2y as Double, χ2z&nbsp;as Double<br/></td> 
+                        <td>v0, dτ0, myδ, Ln0, χ1x, χ1y, χ1z, χ2x, χ2y, χ2z</td> 
                         <td>N/A</td> 
-                        <td>Initaliazes necessary constants, \(\vec{\chi_1}\) and \(\vec{\chi_2}\), and then initializes \(\hat{\chi_1}\), \(\hat{\chi_2}\), \(\iota\), \(\alpha\), \(\dot{\alpha}\), and \(\hat{L}_N\) by setting the first two values. Then, calculates a suggested next time step based on the rate of change of&nbsp;\(\hat{L}_N\), \(\hat{\chi_1}\), and&nbsp;\(\hat{\chi_2}\).</td>
+                        <td>Initaliazes \(\chi_1\), \(\chi_2\), \(\iota\), \(\alpha\), and \(\hat{L}_N\)</td>
                     </tr>                     
                 </tbody>                 
                 <tbody> 
                     <tr> 
                         <th scope="row" class="font-weight-normal"><a href="SpinDoStep.html">SpinDoStep</a></th> 
-                        <td>dτ as Double, vN as Double</td> 
+                        <td>dτ, vN</td> 
                         <td>None</td> 
-                        <td>Propagates \(\hat{\chi_1}\), \(\hat{\chi_2}\), \(\iota\), \(\alpha\), and \(\hat{L}_N\) and calculates \(\dot{\alpha}\), and then calculates a suggested next time step based on the rate of change of \(\hat{L}_N\), \(\hat{\chi_1}\), and \(\hat{\chi_2}\).</td>
+                        <td>Propegates \(\chi_1\), \(\chi_2\), \(\iota\), \(\alpha\), and \(\hat{L}_N\)</td>
                     </tr>                     
                 </tbody>
                 <tr> 
                     <th scope="row" class="font-weight-normal"><a href="GetLNhatdot.html">GetLNhatdot</a></th> 
-                    <td>v as Double, χ1hat as Vector, χ2hat as Vector, Ω1 as Vector, Ω2 as Vector</td>
-                    <td>LNhatdot as Vector</td> 
-                    <td>Calculates and returns the value of&nbsp;\( \dot{\hat{L}}_N \).</td>
+                    <td>v, χ1hat, χ2hat, Ω1, Ω2</td>
+                    <td>LNhatdot</td> 
+                    <td>Calculates and returns the value of&nbsp;\( \dot{\hat{L}}_N \)</td>
                 </tr>
                 <tr> 
                     <th scope="row" class="font-weight-normal"><a href="GetΩ1Coef.html">GetΩ1Coef</a></th> 
-                    <td>v as Double</td> 
-                    <td>Ω1Coef as Double</td> 
-                    <td>Calulates and returns the coefficient on \( \vec{\Omega }_1 \) given \( v \).</td>
+                    <td>v</td> 
+                    <td>Ω1Coef</td> 
+                    <td>Calulates and returns the coeficient on \( \vec{\Omega }_1 \) given \( v \)</td>
                 </tr>
                 <tr> 
                     <th scope="row" class="font-weight-normal"><a href="GetΩ1Coef.html">GetΩ2Coef</a></th> 
-                    <td>v as Double</td> 
-                    <td>Ω1Coef as Double</td> 
-                    <td>Calulates and returns the coefficient on \( \vec{\Omega }_2 \) given \( v \).</td>
+                    <td>v</td> 
+                    <td>Ω1Coef</td> 
+                    <td>Calulates and returns the coeficient on \( \vec{\Omega }_2 \) given \( v \)</td>
                 </tr>
             </table>
             <table class="border table table-bordered" data-pgc="property_table" data-pgc-field="property_table"> 
@@ -109,26 +136,6 @@
                     </tr>                     
                 </thead>                 
                 <tbody> 
-                    <tr> 
-                        <th scope="row" class="font-weight-normal">dτLN</th> 
-                        <td>Double</td>
-                        <td>The ideal timestep calculated based on the rate of change of&nbsp;\(\hat{L}\).</td> 
-                    </tr>
-                    <tr> 
-                        <th scope="row" class="font-weight-normal">dτχ1</th> 
-                        <td>Double</td>
-                        <td>The ideal timestep calculated based on the rate of change of&nbsp;\(\hat{\chi_1}\).</td> 
-                    </tr>
-                    <tr> 
-                        <th scope="row" class="font-weight-normal">dτχ2</th> 
-                        <td>Double</td>
-                        <td>The ideal timestep calculated based on the rate of change of&nbsp;\(\hat{\chi_2}\).</td> 
-                    </tr>
-                    <tr> 
-                        <th scope="row" class="font-weight-normal">LNhatF</th> 
-                        <td>Vector</td> 
-                        <td>The calculated &quot;Future&quot; value of \(\hat{L}_N\); the unit vector that points in the direction of the system&apos;s angular momentum.&nbsp;</td> 
-                    </tr>
                     <tr> 
                         <th scope="row" class="font-weight-normal">LNhatN</th> 
                         <td>Vector</td> 
@@ -145,9 +152,9 @@
                         <td>The inital angle between our line-of-sight and the binary orbital angular momentum.</td> 
                     </tr>
                     <tr> 
-                        <th scope="row" class="font-weight-normal">ιF</th> 
+                        <th scope="row" class="font-weight-normal">ιN</th> 
                         <td>Double</td>
-                        <td>The calculated &quot;Future&quot; angle between our line-of-sight and the binary orbital angular momentum.</td> 
+                        <td>The current (&quot;Now&quot;) angle between our line-of-sight and the binary orbital angular momentum.</td> 
                     </tr>                     
                     <tr> 
                         <th scope="row" class="font-weight-normal">α0</th> 
@@ -155,19 +162,9 @@
                         <td>The initial angle between the projection of the system&apos;s orbital angular momentum in the xy plane, and the x axis.</td> 
                     </tr>
                     <tr> 
-                        <th scope="row" class="font-weight-normal">αF</th> 
+                        <th scope="row" class="font-weight-normal">αN</th> 
                         <td>Double</td> 
-                        <td>The calculated &quot;Future&quot; angle between the projection of the system&apos;s orbital angular momentum in the xy plane, and the x axis.</td> 
-                    </tr>
-                    <tr> 
-                        <th scope="row" class="font-weight-normal">αdot0</th> 
-                        <td>Double</td> 
-                        <td>The initial time derivative of \(\alpha\).</td> 
-                    </tr>
-                    <tr> 
-                        <th scope="row" class="font-weight-normal">αdotN</th> 
-                        <td>Double</td> 
-                        <td>The current (&quot;Now&quot;) time derivative of \(\alpha\), calculated from the future and past values of&nbsp;\(\alpha\).</td> 
+                        <td>The current (&quot;Now&quot;) angle between the projection of the system&apos;s orbital angular momentum in the xy plane, and the x axis.</td> 
                     </tr>
                     <tr> 
                         <th scope="row" class="font-weight-normal">δ</th> 
@@ -185,19 +182,14 @@
                         <td>Star 1&apos;s angular momentum in units of \(m_1^2\)</td> 
                     </tr>
                     <tr> 
-                        <th scope="row" class="font-weight-normal">χ1hatF</th> 
+                        <th scope="row" class="font-weight-normal">χ1hatP</th> 
                         <td>Vector</td> 
-                        <td>The &quot;Future&quot; value of the unit vector that points in the direction of star 1&apos;s angular momentum</td> 
+                        <td>The &quot;Past&quot; value of the unit vector that points in the direction of star 1&apos;s angular momentum</td> 
                     </tr>
                     <tr> 
                         <th scope="row" class="font-weight-normal">χ1hatN</th> 
                         <td>Vector</td> 
                         <td>The &quot;Now&quot; value of the unit vector that points in the direction of star 1&apos;s angular momentum</td> 
-                    </tr>
-                    <tr> 
-                        <th scope="row" class="font-weight-normal">χ1hatP</th> 
-                        <td>Vector</td> 
-                        <td>The &quot;Past&quot; value of the unit vector that points in the direction of star 1&apos;s angular momentum</td> 
                     </tr>
                     <tr> 
                         <th scope="row" class="font-weight-normal">χ1mag</th> 
@@ -210,9 +202,9 @@
                         <td>Star 2&apos;s angular momentum&nbsp;in units of \(m_2^2\)</td> 
                     </tr>
                     <tr> 
-                        <th scope="row" class="font-weight-normal">χ2hatF</th> 
+                        <th scope="row" class="font-weight-normal">χ2hatP</th> 
                         <td>Vector</td> 
-                        <td>The &quot;Future&quot; value of the unit vector that points in the direction of star 2&apos;s angular momentum</td> 
+                        <td>The &quot;Past&quot; value of the unit vector that points in the direction of star 2&apos;s angular momentum</td> 
                     </tr>
                     <tr> 
                         <th scope="row" class="font-weight-normal">χ2hatN</th> 
@@ -220,69 +212,9 @@
                         <td>The &quot;Now&quot; value of the unit vector that points in the direction of star 2&apos;s angular momentum</td> 
                     </tr>
                     <tr> 
-                        <th scope="row" class="font-weight-normal">χ2hatP</th> 
-                        <td>Vector</td> 
-                        <td>The &quot;Past&quot; value of the unit vector that points in the direction of star 2&apos;s angular momentum</td> 
-                    </tr>
-                    <tr> 
                         <th scope="row" class="font-weight-normal">χ2mag</th> 
                         <td>Double</td> 
                         <td>The magnitude of \(\vec{\chi_2}\)</td> 
-                    </tr>
-                    <tr> 
-                        <th scope="row" class="font-weight-normal">c1 - c9</th> 
-                        <td>Double</td> 
-                        <td>Constants needed to calculate \(\vec{\Omega_1}\) and \(\vec{\Omega_2}\).</td> 
-                    </tr>
-                    <tr> 
-                        <th scope="row" class="font-weight-normal">c1</th> 
-                        <td>Double</td> 
-                        <td>\(3 \over 4\)</td> 
-                    </tr>
-                    <tr> 
-                        <th scope="row" class="font-weight-normal">c2</th> 
-                        <td>Double</td> 
-                        <td>\(9 \over 16\)</td> 
-                    </tr>
-                    <tr> 
-                        <th scope="row" class="font-weight-normal">c3</th> 
-                        <td>Double</td> 
-                        <td>\(5 \over 4\)</td> 
-                    </tr>
-                    <tr> 
-                        <th scope="row" class="font-weight-normal">c4</th> 
-                        <td>Double</td> 
-                        <td>\(5 \over 8\)</td> 
-                    </tr>
-                    <tr> 
-                        <th scope="row" class="font-weight-normal">c5</th> 
-                        <td>Double</td> 
-                        <td>\(27 \over 32\)</td> 
-                    </tr>
-                    <tr> 
-                        <th scope="row" class="font-weight-normal">c6</th> 
-                        <td>Double</td> 
-                        <td>\(3 \over 16\)</td> 
-                    </tr>
-                    <tr> 
-                        <th scope="row" class="font-weight-normal">c7</th> 
-                        <td>Double</td> 
-                        <td>\(105 \over 32\)</td> 
-                    </tr>
-                    <tr> 
-                        <th scope="row" class="font-weight-normal">c8</th> 
-                        <td>Double</td> 
-                        <td>\(39 \over 8\)</td> 
-                    </tr>
-                    <tr> 
-                        <th scope="row" class="font-weight-normal">c9</th> 
-                        <td>Double</td> 
-                        <td>\(5 \over 32\)</td> 
-                    </tr>
-                    <tr> 
-                        <th scope="row" class="font-weight-normal">π</th> 
-                        <td>Double</td> 
-                        <td>\( \pi = 3.141592653589793238\)</td> 
                     </tr>                     
                 </tbody>
             </table>

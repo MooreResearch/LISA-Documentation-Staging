@@ -57,7 +57,7 @@
             <p data-pgc-field="page_info"></p>
             <dl> 
                 <dt class="h5">Technical description:</dt> 
-                <dd>This method calculates the scalar that \( \hat{L}_N \) must be multiplied by to obtain \( \vec{\Omega}_2 \). This method cleans up calculations done in the <a href="SpinEvolver.html">SpinEvolver</a> class&apos;s <a href="SpinDoStep.html">SpinDoStep</a> method.
+                <dd>This method calculates the scalar that \( \hat{L}_N \) must be multiplied by to obtain \( \vec{\Omega}_2 \). This method cleans up calculations done in the Evolver class&apos;s <a href="DoStep.html">DoStep</a> method.
                 </dd>
                 <table class="border table table-bordered" data-pgc="parameter_table" data-pgc-field="parameter_table"> 
                     <thead> 
@@ -69,9 +69,9 @@
                     </thead>                     
                     <tbody> 
                         <tr> 
-                            <th scope="row" class="font-weight-normal"><p>v</p></th> 
+                            <th scope="row" class="font-weight-normal"><p>dτ</p></th> 
                             <td>Double</td> 
-                            <td>Our post newtonian expansion factor \(v = (M \omega)^\frac{1}{3} \).</td> 
+                            <td>A small step of dimensionless&nbsp;time \( \tau_s = \frac{t_{s}}{M} \) in the source frame.</td> 
                         </tr>                         
                     </tbody>                     
                 </table>
@@ -95,10 +95,10 @@
                 <dd>See <a href="Theory1_2022.pdf">Equation (1.29)</a> of the Theory1 document to see the expression for \(\vec{\Omega}_2 \), as well as how it is used to calculate the rate of change of star 2&apos;s angular momentum.
                 </dd>
                 <dt class="h5">Usage locations:</dt>
-                <dd>This method is called in the <a href="SpinEvolver.html">SpinEvolver</a> class&apos;s&nbsp;constructor to intialiaze \( \hat{L}_N \). It is also called in the <a href="SpinDoStep.html">SpinDoStep</a> method to propagate \(\hat{ \chi_2 } \).
+                <dd>This method is called in the Evolver class&apos;s <a href="InitSpinVariables.html">InitSpinVariables</a> method to intialiaze \( \hat{L}_N \). It is also called in the <a href="DoStep.html">DoStep</a> method to propegate \(\hat{ \chi_2 } \).
                 </dd>
                 <dt class="h5">Usage example:</dt>
-                <dd class="bg-light ml-4 shadow-sm"><code class="text-secondary">GetΩ2Coef(v)</code>
+                <dd class="bg-light ml-4 shadow-sm"><code class="text-secondary">GetΩ2Coef(dτ)</code>
                 </dd>                 
             </dl>
             <p></p>

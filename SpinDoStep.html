@@ -16,30 +16,23 @@
     </head>
     <body>
         <!-- Fixed navbar -->
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <a class="navbar-brand" href="#">LISA Project</a><a class="navbar-brand" href="#"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"><a class="navbar-brand" href="#">LISA Project</a>
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html" data-pgc-field="documentation_link">Home</a>
+                    <li class="nav-item"><a class="nav-link" href="index.html" data-pgc-field="documentation_link">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="active nav-link" href="documentation.html" data-pgc-field="documentation_link">Documentation</a>
+                    <li class="nav-item"><a class="active nav-link" href="documentation.html" data-pgc-field="documentation_link">Documentation</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="theory.html" data-pgc-field="theory_link">Theory</a>
+                    <li class="nav-item"><a class="nav-link" href="theory.html" data-pgc-field="theory_link">Theory</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="procedures.html" data-pgc-field="procedures_link">Procedures</a>
+                    <li class="nav-item"><a class="nav-link" href="procedures.html" data-pgc-field="procedures_link">Procedures</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="education.html" data-pgc-field="education_link">Education</a>
+                    <li class="nav-item"><a class="nav-link" href="education.html" data-pgc-field="education_link">Education</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="testing.html" data-pgc-field="testing_link">Testing</a>
+                    <li class="nav-item"><a class="nav-link" href="testing.html" data-pgc-field="testing_link">Testing</a>
                     </li>
                 </ul>
                 <form class="form-inline mt-2 mt-md-0">
@@ -52,18 +45,21 @@
         <div class="container" data-pgc-field="page_content">
             <div class="mt-3">
                 <h1 data-pgc-field="page_heading">SpinDoStep</h1>
-                <div class="mt-3">
-                    <span class="badge badge-secondary">Method</span><span class="badge badge-secondary">Spin Case</span><span class="badge badge-secondary">SpinEvolver</span>
+                <div class="mt-3"><span class="badge badge-secondary">Method</span>
+                    <span class="badge badge-secondary">(Function, i.e. spin, matrix, time evolution, etc.)</span>
+                    <span class="badge badge-secondary">Parent Class</span>
+                    <span class="badge badge-secondary">etc.</span>
                     <div>
                         <p></p>
                     </div>
                 </div>
             </div>
-            <p class="lead" data-pgc-field="page_description">This method propagates \(\hat{\chi_1}\), \(\hat{\chi_2}\), and \(\hat{L}_N\), and then uses&nbsp; \(\hat{L}_N\) to calculate the values of \(\iota\) and \(\alpha\). It also calculates a present value of \(\dot{\alpha}\) and then calculates a suggested time step based on the&nbsp;rate of change of \(\hat{L}_N\), \( \hat{\chi}_1 \), and \( \hat{\chi}_2 \).</p>
+            <p class="lead" data-pgc-field="page_description">This method propegates \(\vec{\chi_1}\), \(\vec{\chi_2}\), and \(\hat{L}_N\), and then uses&nbsp; \(\hat{L}_N\) to calculate the values of \(\iota\) and \(\alpha\).&nbsp;</p>
             <p class="lead" data-pgc-field="page_lead"></p>
             <p data-pgc-field="page_info"><dl> 
                     <dt class="h5">Technical description:</dt> 
-                    <dd>This method starts by calculating new &quot;past&quot; values using interpolation and the past time step, and then reassigning previous &quot;future&quot; values to &quot;present&quot; values. It then propagates \(\hat{\chi_1}\) and&nbsp;\(\hat{\chi_2}\) by first calculating \(\vec{\Omega}_1 \) and&nbsp;\(\vec{\Omega}_2 \) using this class&apos;s&nbsp;<a href="GetΩ1Coef.html">GetΩ1Coef</a>, and&nbsp;<a href="GetΩ2Coef.html">GetΩ2Coef</a> functions respectively. The method then uses \(\vec{\Omega}_1 \) and \(\vec{\Omega}_2 \) in <a href="Theory1_2022.pdf">Equation (1.29a)</a> to find \(\frac{d\hat{\chi_{1}}}{d\tau} \) and \(\frac{d\hat{\chi_{2}}}{d\tau} \), these values are then used in the leapfrog equation to propagate \(\hat{\chi_1}\) and \(\hat{\chi_2}\). The method then propagates \(\hat{L}_N\) using the leapfrog equation and the <a href="GetLNhatdot.html">GetLNhatdot</a> method. \(\iota\) and \(\alpha\) are then re-calculated using this new value of&nbsp;\(\hat{L}_N\), and <a href="Theory1_2022.pdf">Equation (1.32)</a> in the Theory1 document.&nbsp;It then calculates a present value of \(\dot{\alpha}\) and finally calculates a suggested time step based on the rate of change of \(\hat{L}_N\), \( \hat{\chi}_1 \), and \( \hat{\chi}_2 \).
+                    <dd>This method propegates \(\vec{\chi_1}\) and&nbsp;\(\vec{\chi_2}\) by first calculating \(\vec{\Omega}_1 \) and&nbsp;\(\vec{\Omega}_2 \) using this class&apos;s&nbsp;<a href="GetΩ1Coef.html">GetΩ1Coef</a>, and&nbsp;<a href="GetΩ2Coef.html">GetΩ2Coef</a> functions respectively. The method then uses \(\vec{\Omega}_1 \) and \(\vec{\Omega}_2 \) in <a href="Theory1_2022.pdf">Equation (1.29a)</a> to find \(\frac{d\chi_{1}}{d\tau} \) and \(\frac{d\chi_{2}}{d\tau} \), these values are then used in the leapfrog equation to propegate \(\vec{\chi_1}\) and \(\vec{\chi_2}\). The method then propegates \(\hat{L}_N\) using the leapfrog equation and the <a href="GetLNhatdot.html">GetLNhatdot</a> method. \(\iota\) and \(\alpha\) are then re-calculated using this new value of&nbsp;\(\hat{L}_N\), and <a href="Theory1_2022.pdf">Equation (1.32)</a> in the Theory1 document. Finally, past and current values are updated.
+                        <p><br/></p>
                     </dd>
                     <table class="border table table-bordered" data-pgc="parameter_table" data-pgc-field="parameter_table"> 
                         <thead> 
@@ -75,14 +71,9 @@
                         </thead>                         
                         <tbody> 
                             <tr> 
-                                <th scope="row" class="font-weight-normal">dτP</th> 
+                                <th scope="row" class="font-weight-normal"><p>dτ</p></th> 
                                 <td>Double</td> 
-                                <td>The previous value of small step in unitless time \(\tau = \frac{t_s}{M} \) where \(t_s\) is time in the source frame.</td> 
-                            </tr>
-                            <tr> 
-                                <th scope="row" class="font-weight-normal">dτ</th> 
-                                <td>Double</td> 
-                                <td>The current value of a small step in unitless time \(\tau = \frac{t_s}{M} \) where \(t_s\) is time in the source frame.</td> 
+                                <td>A small step in unitless time \(\tau = \frac{t_s}{M} \) where \(t_s\) is time in the source frame.</td> 
                             </tr>                             
                             <tr> 
                                 <th scope="row" class="font-weight-normal">vN</th> 
@@ -111,11 +102,9 @@
                     <dd>See <a href="Theory1_2022.pdf">Equation 1.15</a> for more information on how and why the leapfrog method is used. See <a href="Theory1_2022.pdf">equations (1.29a) and (1.29b)</a> for more information on how&nbsp;\(\vec{\Omega}_1 \), \(\vec{\Omega}_2 \), \(\frac{d\chi_{1}}{d\tau} \) and \(\frac{d\chi_{2}}{d\tau} \) are calculated.
                     </dd>
                     <dt class="h5">Usage locations:</dt>
-                    <dd>The <a href="DoStep.html">DoStep</a> method of the <a href="evolver.html">Evolver</a> class calls this method for the necessary instances of the <a href="SpinEvolver.html">SpinEvolver</a> class. This method then reports the &quot;future&quot; values of the variables it propagates so that the <a href="evolver.html">Evolver</a> class can store them.
-                    </dd>
+                    <dd>(UPDATE LATER)</dd>
                     <dt class="h5">Usage example:</dt>
-                    <dd class="bg-light ml-4 shadow-sm">
-                        <code class="text-secondary">mainSpinEvolver.SpinDoStep(<span style="font-size: 12.8px;">dτP,&nbsp;</span><span style="font-size: 12.8px;">dτ, vN)</span></code>
+                    <dd class="bg-light ml-4 shadow-sm"><code class="text-secondary">ιαDoStep</code>
                     </dd>                     
                 </dl></p>
         </div>

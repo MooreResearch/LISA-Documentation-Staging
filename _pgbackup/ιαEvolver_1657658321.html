@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" data-pgc-master="master.html">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <meta name="description" content="" data-pgc-field="meta_description"/>
+        <meta name="author" content=""/>
+        <title data-pgc-field="page_title">Class Template</title>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <!-- Bootstrap core CSS -->
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
+        <!-- Custom styles for this template -->
+        <link href="sticky-footer-navbar.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">LISA Project</a><a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" data-pgc-field="documentation_link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="active nav-link" href="documentation.html" data-pgc-field="documentation_link">Documentation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="theory.html" data-pgc-field="theory_link">Theory</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="procedures.html" data-pgc-field="procedures_link">Procedures</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="education.html" data-pgc-field="education_link">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="testing.html" data-pgc-field="testing_link">Testing</a>
+                    </li>
+                </ul>
+                <form class="form-inline mt-2 mt-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"/>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+        <!-- Begin page content -->
+        <div class="container" data-pgc-field="page_content">
+            <div class="mt-3">
+                <h1 data-pgc-field="page_heading">ιαEvolver</h1>
+                <span class="badge badge-secondary">Class</span>
+                <span class="badge badge-secondary">Spin Case</span>
+                <div>
+                    <p></p>
+                </div>
+            </div>
+            <p class="lead" data-pgc-field="page_description">This class initializes and evolves \(\iota\) and \(\alpha\).</p>
+            <p><dl> 
+                    <dt class="h5">Technical Description:</dt> 
+                    <dd>This class has the Constructor which intializes \(\iota\) and \(\alpha\), it also has three methods which aid in the calculations of the evolution of \(\hat{L}_N\), and the DoStep method which propegates&nbsp;\(\iota\) and \(\alpha\) by propegating \(\hat{L}_N\) and then recalculating&nbsp;\(\iota\) and \(\alpha\).</dd>
+                    <table class="border table table-bordered" data-pgc="event_table" data-pgc-field="event_table"> 
+                        <thead> 
+                            <tr> 
+                                <th class="bg-light shadow-sm text-body w-25">Event</th> 
+                                <th class="bg-light shadow-sm text-body w-25">Parameters</th> 
+                                <th class="bg-light shadow-sm text-body">Return</th> 
+                                <th class="bg-light shadow-sm text-body w-50">Description</th>
+                            </tr>                             
+                        </thead>                         
+                        <tbody> 
+                            <tr> 
+                                <th scope="row" class="font-weight-normal">None</th> 
+                                <td>N/A</td> 
+                                <td>N/A</td> 
+                                <td>N/A</td>
+                            </tr>                                                                                       
+                        </tbody>
+                    </table>                     
+                </dl></p>
+            <p></p>
+            <table class="border table table-bordered" data-pgc="method_table" data-pgc-field="method_table"> 
+                <thead> 
+                    <tr> 
+                        <th class="bg-light shadow-sm text-body w-25">Method</th> 
+                        <th class="bg-light shadow-sm text-body w-25">Parameters</th> 
+                        <th class="bg-light shadow-sm text-body">Return</th> 
+                        <th class="bg-light shadow-sm text-body w-50">Description</th>
+                    </tr>                     
+                </thead>
+                <tbody> 
+                    <tr> 
+                        <th scope="row" class="font-weight-normal">Constructor</th> 
+                        <td>v0, dτ0, myδ, Ln0, χ1x, χ1y, χ1z, χ2x, χ2y, χ2z</td> 
+                        <td>N/A</td> 
+                        <td>Initaliazes \(\chi_1\), \(\chi_2\), \(\iota\), \(\alpha\), and \(\hat{L}_N\)</td>
+                    </tr>                     
+                </tbody>                 
+                <tbody>                                           
+                    <tr> 
+                        <th scope="row" class="font-weight-normal">ιαDoStep</th> 
+                        <td>dτ, vN</td> 
+                        <td>None</td> 
+                        <td>Propegates \(\chi_1\), \(\chi_2\), \(\iota\), \(\alpha\), and \(\hat{L}_N\)</td>
+                    </tr>                     
+                </tbody>
+                <tr> 
+                    <th scope="row" class="font-weight-normal"><a href="GetLNhatdot.html">GetLNhatdot</a></th> 
+                    <td>v, χ1hat, χ2hat, Ω1, Ω2</td>
+                    <td>LNhatdot</td> 
+                    <td>Calculates and returns the value of&nbsp;\( \dot{\hat{L}}_N \)</td>
+                </tr>
+                <tr> 
+                    <th scope="row" class="font-weight-normal"><a href="GetΩ1Coef.html">GetΩ1Coef</a></th> 
+                    <td>v</td> 
+                    <td>Ω1Coef</td> 
+                    <td>Calulates and returns the coeficient on \( \vec{\Omega }_1 \) given \( v \)</td>
+                </tr>
+                <tr> 
+                    <th scope="row" class="font-weight-normal"><a href="GetΩ1Coef.html">GetΩ2Coef</a></th> 
+                    <td>v</td> 
+                    <td>Ω1Coef</td> 
+                    <td>Calulates and returns the coeficient on \( \vec{\Omega }_2 \) given \( v \)</td>
+                </tr>
+            </table>
+            <table class="border table table-bordered" data-pgc="property_table" data-pgc-field="property_table"> 
+                <thead> 
+                    <tr> 
+                        <th class="bg-light shadow-sm text-body w-25">Property</th> 
+                        <th class="bg-light shadow-sm text-body w-auto">Type</th> 
+                        <th class="bg-light float-none shadow-sm text-body w-50">Description</th> 
+                    </tr>                     
+                </thead>                 
+                <tbody> 
+                    <tr> 
+                        <th scope="row" class="font-weight-normal">LNhatN</th> 
+                        <td>Vector</td> 
+                        <td>The current (&quot;Now&quot;) value of \(\hat{L}_N\); the unit vector that points in the direction of the system&apos;s angular momentum.&nbsp;</td> 
+                    </tr>
+                    <tr> 
+                        <th scope="row" class="font-weight-normal">LNhatP</th> 
+                        <td>Vector</td> 
+                        <td>The &quot;Past&quot; value of \(\hat{L}_N\); the unit vector that points in the direction of the system&apos;s orbital angular momentum.&nbsp;</td> 
+                    </tr>                     
+                    <tr> 
+                        <th scope="row" class="font-weight-normal">ι0</th> 
+                        <td>Double</td>
+                        <td>The inital angle between our line-of-sight and the binary orbital angular momentum.</td> 
+                    </tr>
+                    <tr> 
+                        <th scope="row" class="font-weight-normal">ιN</th> 
+                        <td>Double</td>
+                        <td>The current (&quot;Now&quot;) angle between our line-of-sight and the binary orbital angular momentum.</td> 
+                    </tr>                     
+                    <tr> 
+                        <th scope="row" class="font-weight-normal">α0</th> 
+                        <td>Double</td> 
+                        <td>The initial angle between the projection of the system&apos;s orbital angular momentum in the xy plane, and the x axis.</td> 
+                    </tr>
+                    <tr> 
+                        <th scope="row" class="font-weight-normal">α0</th> 
+                        <td>Double</td> 
+                        <td>The current (&quot;Now&quot;) angle between the projection of the system&apos;s orbital angular momentum in the xy plane, and the x axis.</td> 
+                    </tr>                     
+                </tbody>
+            </table>
+            <dt class="h5">Theoretical Description:</dt>
+            <dd>An explanation of what the class does in terms of how it relates to the theory of gravitational waves.
+                <dd>This is an example of how we do math (this was written in LaTeX in the HTML code itself using class &quot;ml-auto mt-auto,&quot; but you can also just write LaTeX into a paragraph):</dd>
+            </dd>
+            <dd class="ml-auto mt-auto">When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+                \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\] 
+</dd>
+            <p data-pgc-field="page_info"></p>
+            <p class="lead" data-pgc-field="page_lead"></p>
+        </div>
+        <footer class="footer ml-auto">&nbsp; &nbsp; Copyright 2022 Thomas Moore.</footer>
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/popper.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>

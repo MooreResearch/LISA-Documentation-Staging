@@ -3,7 +3,7 @@ window.onload = function() {
 
     var currentPage = window.location.pathname.split("/").pop();
 
-    if (currentPage !== 'index.html') {
+    if (currentPage !== 'index.html' && currentPage !== 'master.html') {
         // replace the links
         var links = document.querySelectorAll("#header .nav-item .nav-link");
         links.forEach(link => {
@@ -14,6 +14,16 @@ window.onload = function() {
             }
         });
     }
+	else{
+		var links = document.querySelectorAll("#header .nav-item .nav-link");
+        links.forEach(link => {
+            var href = link.getAttribute('href');
+            if (href.startsWith('../')) {
+                // Remove 'Headers/' from the start of the string
+                link.setAttribute('href', href.substring(3));
+            }
+        });	
+	}
 };
 var template = `
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">

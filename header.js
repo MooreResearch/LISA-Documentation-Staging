@@ -2,7 +2,6 @@ window.onload = function() {
     document.getElementById('header').innerHTML = template;
 
     var currentPage = window.location.pathname.split("/").pop();
-	console.log(currentPage);
    if (currentPage !== 'index.html' && currentPage !== '') {
         // replace the links
         var links = document.querySelectorAll("#header .nav-item .nav-link");
@@ -11,6 +10,10 @@ window.onload = function() {
             if (href.startsWith('Headers/')) {
                 // Remove 'Headers/' from the start of the string
                 link.setAttribute('href', href.substring(8));
+				if (href.substring(8) == currentPage){
+					//link.setAttribute("class" = "active nav-link");
+					link.className += ' active'
+				}
             }
         });
     }
@@ -21,9 +24,10 @@ window.onload = function() {
             if (href.startsWith('../')) {
                 // Remove 'Headers/' from the start of the string
                 link.setAttribute('href', href.substring(3));
+				link.className += ' active'
             }
         });	
-	}
+	} 
 };
 var template = `
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -34,7 +38,7 @@ var template = `
 	<div class="collapse navbar-collapse" id="navbarCollapse">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item">
-				<a class="active nav-link" href="../index.html" data-pgc-field="documentation_link">Home</a>
+				<a class="nav-link" href="../index.html" data-pgc-field="documentation_link">Home</a>
 			</li>
 	 
 			<li class="nav-item">

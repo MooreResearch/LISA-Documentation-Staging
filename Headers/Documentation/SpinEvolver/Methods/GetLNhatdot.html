@@ -6,13 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
         <meta name="description" content="" data-pgc-field="meta_description"/>
         <meta name="author" content=""/>
-        <title data-pgc-field="page_title">InitDvdδ</title>
+        <title data-pgc-field="page_title">GetLNhatdot</title>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <!-- Bootstrap core CSS -->
-        <link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
+        <link href="../../../../bootstrap/css/bootstrap.css" rel="stylesheet"/>
         <!-- Custom styles for this template -->
-        <link href="sticky-footer-navbar.css" rel="stylesheet"/>
+        <link href="../../../../sticky-footer-navbar.css" rel="stylesheet"/>
     </head>
     <body>
         <!-- Fixed navbar -->
@@ -44,21 +44,20 @@
         <!-- Begin page content -->
         <div class="container" data-pgc-field="page_content">
             <div class="mt-3">
-                <h1 data-pgc-field="page_heading">InitDvdδ</h1>
+                <h1 data-pgc-field="page_heading">GetLNhatdot</h1>
                 <div class="mt-3"><span class="badge badge-secondary">Method</span>
                     <span class="badge badge-secondary">Spin Case</span>
-                    <span class="badge badge-secondary">Evolver</span>
+                    <span class="badge badge-secondary">EquationSolver</span>
                     <div>
                         <p></p>
                     </div>
                 </div>
             </div>
-            <p class="lead" data-pgc-field="page_description">This method initializes&nbsp;\( \partial v \over \partial \delta \) by calculating and setting its first two values.</p>
+            <p class="lead" data-pgc-field="page_description">This method calculates and returns \(\dot{\hat{L}}_N \)</p>
             <p class="lead" data-pgc-field="page_lead"></p>
-            <p data-pgc-field="page_info"><dl>
+            <p data-pgc-field="page_info"><dl> 
                     <dt class="h5">Technical description:</dt> 
-                    <dd>In order to initialize \( \partial v \over \partial \delta \) we must calculate both the past and current value of&nbsp;\( \partial v \over \partial \delta \). The code first calculates the past value of&nbsp;\( \partial \dot{v} \over \partial \delta \)&nbsp;which is the derivative of \( \partial v \over \partial \delta \) with respect to unitless time \(\tau_s = \frac{t_s}{M}\) in the source frame. It does this by creating two paralell simulations with differing values of \( \delta \) ; one simulation uses a value of \( \delta + \Delta \delta \) and the other uses \( \delta - \Delta \delta \). Currently the code uses a value of \( \Delta \delta = 10^{-6}\). The code then performs the cenetered difference between these two paralell simulations to obtain \( \partial \dot{v} \over \partial \delta \). The code then feeds this value to the EquationSolver class&apos;s <a href="GetDvdδ.html">GetDvdδ</a> method which contains an analytic solution for&nbsp;\( \partial v \over \partial \delta \) given \(v_0\) and \( \partial \dot{v} \over \partial \delta \). This becomes the past value of&nbsp;\( \partial v \over \partial \delta \), and Euler&apos;s method is used to obtain the present value of&nbsp;\( \partial v \over \partial \delta \).&nbsp;
-                    </dd>
+                    <dd>The purpose of this code is to determine \(\dot{\hat{L}}_N \): the rate of change of&nbsp;\(\hat{L}_N\) with respect to a dimensionless time \( \tau_s = \frac{t_{s}}{M} \) in the source frame. The code first defines two vectors:&nbsp; \( \vec{v}_1 = |\vec{\chi_1}|(1+\delta)^2 \vec{\Omega}_1 \times\hat{\chi}_1 \) and&nbsp; \( \vec{v}_2 = |\vec{\chi_2}|(1-\delta)^2 \vec{\Omega}_2 \times \hat{\chi}_2 \). Then it calculates \( \dot{\hat{L}}_N = - \frac{v}{4 \eta} (\vec{v}_1 + \vec{v}_2) \). Finally the code returns \(\dot{\hat{L}}_N\). See the theororetical description for an expanation on how these equations were derived.</dd>
                     <table class="border table table-bordered" data-pgc="parameter_table" data-pgc-field="parameter_table"> 
                         <thead> 
                             <tr> 
@@ -69,9 +68,29 @@
                         </thead>                         
                         <tbody> 
                             <tr> 
-                                <th scope="row" class="font-weight-normal">None</th> 
-                                <td>N/A</td> 
-                                <td>N/A</td> 
+                                <th scope="row" class="font-weight-normal">v</th> 
+                                <td>Double</td> 
+                                <td>Our post newtonian expansion factor \(v = (M \omega)^\frac{1}{3} \).</td> 
+                            </tr>                             
+                            <tr> 
+                                <th scope="row" class="font-weight-normal"><p>χ1hat</p></th> 
+                                <td>Vector</td>
+                                <td>The unit vector that points in the direction of star 1&apos;s spin angular momentum.</td> 
+                            </tr>                             
+                            <tr> 
+                                <th scope="row" class="font-weight-normal"><p>χ1hat</p></th> 
+                                <td>Vector</td> 
+                                <td>The unit vector that points in the direction of star 2&apos;s spin angular momentum.</td> 
+                            </tr>
+                            <tr> 
+                                <th scope="row" class="font-weight-normal"><p>Ω1</p></th> 
+                                <td>Vector</td> 
+                                <td>\( \vec{\Omega}_1 \) is a quantity useful in calculating the rate of change of star 1&apos;s angular momentum. See <a href="Theory1_2022.html">Equation 1.29b</a> for the definition of \( \vec{\Omega}_1 \).</td> 
+                            </tr>
+                            <tr> 
+                                <th scope="row" class="font-weight-normal"><p>Ω2</p></th> 
+                                <td>Vector</td> 
+                                <td>\( \vec{\Omega}_2 \) is a quantity useful in calculating the rate of star 2&apos;s angular momentum. See <a href="file:///Users/coreydibianco/Downloads/InProgress/Theory1_2022.html">Equation 1.29b</a> for the definition of \( \vec{\Omega}_2 \).</td> 
                             </tr>                             
                         </tbody>                         
                     </table>
@@ -85,28 +104,29 @@
                         </thead>                         
                         <tbody> 
                             <tr> 
-                                <th scope="row" class="font-weight-normal">None</th> 
-                                <td>N/A</td> 
-                                <td>N/A</td> 
+                                <th scope="row" class="font-weight-normal">LNhatdot</th> 
+                                <td>Vector</td> 
+                                <td>The rate of change of the direction of the total angualar momentum of our system.&nbsp;</td> 
                             </tr>                             
                         </tbody>                         
                     </table>                     
                     <dt class="h5">Theoretical description:</dt> 
-                    <dd>This method provides the initial two values for \( \partial v \over \partial \delta \) that will be used to propegate the simulation forward in time. This method uses the centered difference equation to obtain an initial value for&nbsp;\( \partial \dot{v} \over \partial \delta \), see <a href="Theory1_2022.pdf">Equation (1.16)</a> of the Theory1 document for more information on the centered difference method. This method then uses Euler&apos;s equation to obtain the second value of&nbsp;\( \partial v \over \partial \delta \). See the discussion surrounding <a href="Theory1_2022.pdf">Equation (1.13)</a> in the Theory1 document for more regarding Euler&apos;s method.
+                    <dd>The derivation for how&nbsp;\( \dot{\hat{L}}_N \) can be calculated can be found on page 9 of the theory doument in <a href="Theory1_2022.html">Equation 1.31</a>.
                     </dd>
                     <dt class="h5">Usage locations:</dt>
-                    <dd>This method is called only once in the constructor for the Evolver class.&nbsp;</dd>
-                    <dt class="h5">Usage example:</dt>
-                    <dd class="bg-light ml-4 shadow-sm"><code class="text-secondary">InitDvdδ</code>
+                    <dd>This method is called in the InitSpinVariables method of the evolver class, and in the <a href="DoStep.html">DoStep</a> method of the evolver class.
                     </dd>
+                    <dt class="h5">Usage example:</dt>
+                    <dd class="bg-light ml-4 shadow-sm"><code class="text-secondary">GetdLNhatdot(vN, χ1hatN, χ2hatN, Ω1hatN, Ω2hatN)</code>
+                    </dd>                     
                 </dl></p>
         </div>
         <footer class="footer ml-auto">&nbsp; &nbsp; Copyright 2022 Thomas Moore.</footer>
         <!-- Bootstrap core JavaScript
     ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/popper.js"></script>
-        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="../../../../assets/js/jquery.min.js"></script>
+        <script src="../../../../assets/js/popper.js"></script>
+        <script src="../../../../bootstrap/js/bootstrap.min.js"></script>
     </body>
 </html>

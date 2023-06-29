@@ -2,8 +2,8 @@ window.onload = function() {
     document.getElementById('header').innerHTML = template;
 
     var currentPage = window.location.pathname.split("/").pop();
-	console.log(currentPage)
-   if (currentPage !== 'index.html' || currentPage !== '') {
+	console.log(currentPage);
+   if (currentPage !== 'index.html' && currentPage !== '') {
         // replace the links
         var links = document.querySelectorAll("#header .nav-item .nav-link");
         links.forEach(link => {

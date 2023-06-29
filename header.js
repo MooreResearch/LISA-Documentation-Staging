@@ -3,7 +3,7 @@ window.onload = function() {
 
     var currentPage = window.location.pathname.split("/").pop();
 	console.log(currentPage)
-   if (currentPage !== 'index.html') {
+   if (currentPage !== 'index.html' || currentPage !== '') {
         // replace the links
         var links = document.querySelectorAll("#header .nav-item .nav-link");
         links.forEach(link => {

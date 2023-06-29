@@ -3,7 +3,7 @@ window.onload = function() {
 
     var currentPage = window.location.pathname.split("/").pop();
 
-    if (currentPage !== 'index.html' && currentPage !== 'master.html') {
+  /* if (currentPage !== 'index.html') {
         // replace the links
         var links = document.querySelectorAll("#header .nav-item .nav-link");
         links.forEach(link => {
@@ -23,7 +23,7 @@ window.onload = function() {
                 link.setAttribute('href', href.substring(3));
             }
         });	
-	}
+	}*/
 };
 var template = `
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">

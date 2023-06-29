@@ -34,7 +34,7 @@ var template = `
 	<div class="collapse navbar-collapse" id="navbarCollapse">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item">
-				<a class="active nav-link" href="../index.html" data-pgc-field="documentation_link">Home</a>
+				<a class="active nav-link" href="../index123.html" data-pgc-field="documentation_link">Home</a>
 			</li>
 	 
 			<li class="nav-item">

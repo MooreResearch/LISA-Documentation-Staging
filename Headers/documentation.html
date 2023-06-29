@@ -7,6 +7,7 @@
         <meta name="description" content="" data-pgc-field="meta_description"/>
         <meta name="author" content=""/>
         <title data-pgc-field="page_title">Documentation</title>
+		<script src="../header.js"></script>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <!-- Bootstrap core CSS -->
@@ -109,7 +110,7 @@
                         </div>                         
                         <div id="collapse4" class="collapse" role="tabpanel" aria-labelledby="headingFour" data-parent="#panels1"> 
                             <div class="card-body">
-                                <p><a href="evolver.html">Evolver Class.</a></p>
+                                <p><a href="Documentation/Evolver/evolver.html">Evolver Class.</a></p>
                                 <div class="card"> 
                                     <div class="card-header" role="tab"> 
                                         <h5 class="font-weight-normal mb-0"> <a class="collapsed" data-toggle="collapse" href="#collapse13" aria-expanded="false" aria-controls="collapse13">                                Methods                            </a> </h5> 
@@ -126,37 +127,37 @@
                                             </thead>                                             
                                             <tbody> 
                                                 <tr> 
-                                                    <th scope="row" class="font-weight-normal"><a href="EvolverConstructor.html">Constructor</a></th> 
+                                                    <th scope="row" class="font-weight-normal"><a href="Documentation/Evolver/Methods/EvolverConstructor.html">Constructor</a></th> 
                                                     <td><p>mydτ0 As Double, myv0 As Double, myδ As Double, myχ1ℓ As Double, myχ2ℓ As Double</p></td> 
                                                     <td>N/A</td> 
                                                     <td>Sets up the Evolver class. Called when a new instance of the class is created.</td>
                                                 </tr>                                                 
                                                 <tr> 
-                                                    <th scope="row" class="font-weight-normal"><a href="DoStep.html">DoStep</a></th> 
+                                                    <th scope="row" class="font-weight-normal"><a href="Documentation/Evolver/Methods/DoStep.html">DoStep</a></th> 
                                                     <td><p>dτ As Double</p></td>
                                                     <td>N/A</td> 
                                                     <td>Takes a past and present value of \(v\), \(\partial v \over \partial δ\), \(\partial v \over \partial χ_{1ℓ}\), and \(\partial v \over \partial χ_{2ℓ}\), and, using the centered difference equation, calculates the future values. Then sets the present value to the past value and the future value to the present value.</td>
                                                 </tr>                                                 
                                                 <tr> 
-                                                    <th scope="row" class="font-weight-normal"><a href="InitDvdδ.html">InitDvdδ</a></th> 
+                                                    <th scope="row" class="font-weight-normal"><a href="Documentation/Evolver/Methods/InitDvdδ.html">InitDvdδ</a></th> 
                                                     <td>N/A</td> 
                                                     <td>N/A</td> 
                                                     <td>This method is called by the Evolver constructor, and it initializes \(\partial v \over \partial δ\) by setting up the first two values.</td>
                                                 </tr>                                                 
                                                 <tr>
-                                                    <td><a href="InitDvdχ1ℓ.html">InitDvdχ1ℓ</a></td>
+                                                    <td><a href="Documentation/Evolver/Methods/InitDvdχ1ℓ.html">InitDvdχ1ℓ</a></td>
                                                     <td>N/A</td>
                                                     <td>N/A</td>
                                                     <td>This method is called by the Evolver constructor, and it initializes \(\partial v \over \partial χ_{1ℓ}\) by setting up the first two values.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td><a href="InitDvdχ2ℓ.html">InitDvdχ2ℓ</a></td>
+                                                    <td><a href="Documentation/Evolver/Methods/InitDvdχ2ℓ.html">InitDvdχ2ℓ</a></td>
                                                     <td>N/A</td>
                                                     <td>N/A</td>
                                                     <td>This method is called by the Evolver constructor, and it initializes \(\partial v \over \partial χ_{2ℓ}\) by setting up the first two values.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td><a href="InitV.html">InitV</a></td>
+                                                    <td><a href="Documentation/Evolver/Methods/InitV.html">InitV</a></td>
                                                     <td>N/A</td>
                                                     <td>N/A</td>
                                                     <td>This method is called by the Evolver constructor, and it initializes \(v\) by setting up the first two values.</td>
@@ -297,7 +298,7 @@
                         </div>                         
                         <div id="collapse5" class="collapse" role="tabpanel" aria-labelledby="heading" data-parent="#panels1"> 
                             <div class="card-body">
-                                <p><a href="EquationSolver.html">EquationSolver Class</a></p>
+                                <p><a href="Documentation/EquationSolver/EquationSolver.html">EquationSolver Class</a></p>
                                 <div class="card"> 
                                     <div class="card-header" role="tab"> 
                                         <h5 class="font-weight-normal mb-0"> <a class="collapsed" data-toggle="collapse" href="#collapse15" aria-expanded="false" aria-controls="collapse15">                                Methods                            </a> </h5> 
@@ -314,49 +315,49 @@
                                             </thead>                                             
                                             <tbody> 
                                                 <tr> 
-                                                    <th scope="row" class="font-weight-normal"><a href="EquationSolverConstructor.html">Constructor</a></th> 
+                                                    <th scope="row" class="font-weight-normal"><a href="Documentation/EquationSolver/Methods/EquationSolverConstructor.html">Constructor</a></th> 
                                                     <td><p>myδ,&nbsp;<span style="background-color: transparent; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 1rem;">χ1ℓ,&nbsp;</span><span style="background-color: transparent; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 1rem;">χ2ℓ</span></p></td> 
                                                     <td>N/A</td> 
                                                     <td>Sets up instances of the EquationSolver class by defining the values of constants, various parameters, and several derivatives of these parameters.</td>
                                                 </tr>
                                                 <tr> 
-                                                    <th scope="row" class="font-weight-normal"><a href="GetVdot.html">GetVdot</a></th> 
+                                                    <th scope="row" class="font-weight-normal"><a href="Documentation/EquationSolver/Methods/GetVdot.html">GetVdot</a></th> 
                                                     <td>v</td> 
                                                     <td>vdot</td> 
                                                     <td>Calulates and returns \( \dot{v} \) given \(v\)</td>
                                                 </tr>                                                 
                                                 <tr> 
-                                                    <th scope="row" class="font-weight-normal"><a href="GetDvdδdot.html">GetDvdδdot</a></th> 
+                                                    <th scope="row" class="font-weight-normal"><a href="Documentation/EquationSolver/Methods/GetDvdδdot.html">GetDvdδdot</a></th> 
                                                     <td>v, dvdδ</td> 
                                                     <td>dvdδdot</td> 
                                                     <td>Calulates and returns&nbsp;\( \partial \dot{v} \over \partial \delta \) given \(v\) and&nbsp; \( \partial v \over \partial \delta \)</td>
                                                 </tr>
                                                 <tr> 
-                                                    <th scope="row" class="font-weight-normal"><a href="GetDvdδ.html">GetDvdδ</a></th> 
+                                                    <th scope="row" class="font-weight-normal"><a href=Documentation/EquationSolver/Methods/GetDvdδ.html">GetDvdδ</a></th> 
                                                     <td>v, dvdδdot</td> 
                                                     <td>dvdδ</td> 
                                                     <td>Calulates and returns&nbsp;\( \partial v \over \partial \delta \) given \(v\) and \( \partial \dot{v} \over \partial \delta \)</td>
                                                 </tr>
                                                 <tr> 
-                                                    <th scope="row" class="font-weight-normal"><a href="GetDvdχ1ℓdot.html">GetDvdχ1ℓdot</a></th> 
+                                                    <th scope="row" class="font-weight-normal"><a href="Documentation/EquationSolver/Methods/GetDvdχ1ℓdot.html">GetDvdχ1ℓdot</a></th> 
                                                     <td>v, dvdχ1ℓ</td> 
                                                     <td>dvdχ1ℓdot</td> 
                                                     <td>Calulates and returns&nbsp;\( \partial \dot{v} \over \partial \chi_{1 \ell} \) given \(v\) and&nbsp;\( \partial v \over \partial \chi_{1 \ell} \)</td>
                                                 </tr>
                                                 <tr> 
-                                                    <th scope="row" class="font-weight-normal"><a href="GetDvdχ1ℓ.html">GetDvdχ1ℓ</a></th> 
+                                                    <th scope="row" class="font-weight-normal"><a href="Documentation/EquationSolver/Methods/GetDvdχ1ℓ.html">GetDvdχ1ℓ</a></th> 
                                                     <td>v, dvdχ1ℓdot</td> 
                                                     <td>dvdχ1ℓ</td> 
                                                     <td>Calulates and returns \( \partial v \over \partial \chi_{1 \ell} \) given \(v\) and \( \partial \dot{v} \over \partial \chi_{1 \ell} \)</td>
                                                 </tr>
                                                 <tr> 
-                                                    <th scope="row" class="font-weight-normal"><a href="GetDvdχ2ℓdot.html">GetDvdχ2ℓdot</a></th> 
+                                                    <th scope="row" class="font-weight-normal"><a href="Documentation/EquationSolver/Methods/GetDvdχ2ℓdot.html">GetDvdχ2ℓdot</a></th> 
                                                     <td>v, dvdχ2ℓ</td> 
                                                     <td>dvdχ1ℓdot</td> 
                                                     <td>Calulates and returns \( \partial \dot{v} \over \partial \chi_{2 \ell} \) given \(v\) and \( \partial v \over \partial \chi_{2 \ell} \)</td>
                                                 </tr>
                                                 <tr> 
-                                                    <th scope="row" class="font-weight-normal"><a href="GetDvdχ2ℓ.html">GetDvdχ2ℓ</a></th> 
+                                                    <th scope="row" class="font-weight-normal"><a href="Documentation/EquationSolver/Methods/GetDvdχ2ℓ.html">GetDvdχ2ℓ</a></th> 
                                                     <td>v, dvdχ2ℓdot</td> 
                                                     <td>dvdχ2ℓ</td> 
                                                     <td>Calulates and returns \( \partial v \over \partial \chi_{2 \ell} \) given \(v\) and \( \partial \dot{v} \over \partial \chi_{2 \ell} \)</td>
@@ -597,7 +598,7 @@
                         </div>                         
                         <div id="collapse6" class="collapse" role="tabpanel" aria-labelledby="heading" data-parent="#panels1"> 
                             <div class="card-body">
-                                <p><a href="SpinEvolver.html">SpinEvolver</a></p>
+                                <p><a href="Documentation/SpinEvolver/SpinEvolver.html">SpinEvolver</a></p>
                                 <div class="card"> 
                                     <div class="card-header" role="tab"> 
                                         <h5 class="font-weight-normal mb-0"> <a class="collapsed" data-toggle="collapse" href="#collapse17" aria-expanded="false" aria-controls="collapse17">Methods</a> </h5> 
@@ -614,7 +615,7 @@
                                             </tr>
                                             <tbody> 
                                                 <tr> 
-                                                    <th scope="row" class="font-weight-normal"><a href="SpinEvolverConstructor.html">Constructor</a></th> 
+                                                    <th scope="row" class="font-weight-normal"><a href="Documentation/SpinEvolver/Methods/SpinEvolverConstructor.html">Constructor</a></th> 
                                                     <td>v0, dτ0, myδ, Ln0, χ1x, χ1y, χ1z, χ2x, χ2y, χ2z</td> 
                                                     <td>N/A</td> 
                                                     <td>Initaliazes \(\chi_1\), \(\chi_2\), \(\iota\), \(\alpha\), and \(\hat{L}_N\)</td>
@@ -622,26 +623,26 @@
                                             </tbody>                                             
                                             <tbody> 
                                                 <tr> 
-                                                    <th scope="row" class="font-weight-normal"><a href="SpinDoStep.html">SpinDoStep</a></th> 
+                                                    <th scope="row" class="font-weight-normal"><a href="Documentation/SpinEvolver/Methods/SpinDoStep.html">SpinDoStep</a></th> 
                                                     <td>dτ, vN</td> 
                                                     <td>None</td> 
                                                     <td>Propegates \(\chi_1\), \(\chi_2\), \(\iota\), \(\alpha\), and \(\hat{L}_N\)</td>
                                                 </tr>                                                 
                                             </tbody>
                                             <tr> 
-                                                <th scope="row" class="font-weight-normal"><a href="GetLNhatdot.html">GetLNhatdot</a></th> 
+                                                <th scope="row" class="font-weight-normal"><a href="Documentation/SpinEvolver/Methods/GetLNhatdot.html">GetLNhatdot</a></th> 
                                                 <td>v, χ1hat, χ2hat, Ω1, Ω2</td>
                                                 <td>LNhatdot</td> 
                                                 <td>Calculates and returns the value of&nbsp;\( \dot{\hat{L}}_N \)</td>
                                             </tr>
                                             <tr> 
-                                                <th scope="row" class="font-weight-normal"><a href="GetΩ1Coef.html">GetΩ1Coef</a></th> 
+                                                <th scope="row" class="font-weight-normal"><a href="Documentation/SpinEvolver/Methods/GetΩ1Coef.html">GetΩ1Coef</a></th> 
                                                 <td>v</td> 
                                                 <td>Ω1Coef</td> 
                                                 <td>Calulates and returns the coeficient on \( \vec{\Omega }_1 \) given \( v \)</td>
                                             </tr>
                                             <tr> 
-                                                <th scope="row" class="font-weight-normal"><a href="GetΩ1Coef.html">GetΩ2Coef</a></th> 
+                                                <th scope="row" class="font-weight-normal"><a href="Documentation/SpinEvolver/Methods/GetΩ2Coef.html">GetΩ2Coef</a></th> 
                                                 <td>v</td> 
                                                 <td>Ω1Coef</td> 
                                                 <td>Calulates and returns the coeficient on \( \vec{\Omega }_2 \) given \( v \)</td>
@@ -766,6 +767,5 @@
         <script src="../assets/js/jquery.min.js"></script>
         <script src="../assets/js/popper.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
-		<script src="../header.js"></script>
     </body>
 </html>

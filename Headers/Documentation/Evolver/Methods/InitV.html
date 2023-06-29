@@ -6,13 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
         <meta name="description" content="" data-pgc-field="meta_description"/>
         <meta name="author" content=""/>
-        <title data-pgc-field="page_title">GetDvdχ2ℓ</title>
+        <title data-pgc-field="page_title">InitV</title>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <!-- Bootstrap core CSS -->
-        <link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
+        <link href="../../../../bootstrap/css/bootstrap.css" rel="stylesheet"/>
         <!-- Custom styles for this template -->
-        <link href="sticky-footer-navbar.css" rel="stylesheet"/>
+        <link href="../../../../sticky-footer-navbar.css" rel="stylesheet"/>
     </head>
     <body>
         <!-- Fixed navbar -->
@@ -44,21 +44,21 @@
         <!-- Begin page content -->
         <div class="container" data-pgc-field="page_content">
             <div class="mt-3">
-                <h1 data-pgc-field="page_heading">GetDvdχ2ℓ</h1>
+                <h1 data-pgc-field="page_heading">InitV</h1>
                 <div class="mt-3"><span class="badge badge-secondary">Method</span>
-                    <span class="badge badge-secondary">(Function, i.e. spin, matrix, time evolution, etc.)</span>
-                    <span class="badge badge-secondary">Parent Class</span>
-                    <span class="badge badge-secondary">etc.</span>
+                    <span class="badge badge-secondary">Spin Case</span>
+                    <span class="badge badge-secondary">Evolver</span>
                     <div>
                         <p></p>
                     </div>
                 </div>
             </div>
-            <p class="lead" data-pgc-field="page_description">This method calculates and returns \(&nbsp; \partial v \over \partial \chi_{2 \ell } \) given \(v\) and&nbsp;\(  \partial \dot{v} \over \partial \chi_{2 \ell } \).</p>
+            <p class="lead" data-pgc-field="page_description">this method initializes \(v\) by calculating and setting its first two values.</p>
             <p class="lead" data-pgc-field="page_lead"></p>
             <p data-pgc-field="page_info"><dl> 
                     <dt class="h5">Technical description:</dt> 
-                    <dd>This method calculates and returns \(  \partial v \over \partial \chi_{2 \ell } \) given \(v\) and \( \partial \dot{v} \over \partial \chi_{2 \ell } \). See the theoretical description for how a formula for&nbsp;\(  \partial v \over \partial \chi_{2 \ell } \) was derived.</dd>
+                    <dd>The parameter \(v_0\) is passed into the program by the user and is set as the past value of \(v\). This method then uses the EquationSolver class&apos;s <a href="GetVdot.html">GetVdot</a> method to analytically calculate \(\dot{v}\); the derivative of \(v\) with respect to unitless time \(\tau_s = \frac{t_s}{M} \) in the source frame. Using this time derivative and Euler&apos;s method, this method then calculates and sets the present value of \(v\).
+                    </dd>
                     <table class="border table table-bordered" data-pgc="parameter_table" data-pgc-field="parameter_table"> 
                         <thead> 
                             <tr> 
@@ -69,14 +69,9 @@
                         </thead>                         
                         <tbody> 
                             <tr> 
-                                <th scope="row" class="font-weight-normal">v</th> 
-                                <td>Double</td> 
-                                <td>Our post newtonian expansion factor \(v = (M \omega)^\frac{1}{3} \).</td> 
-                            </tr>                             
-                            <tr> 
-                                <th scope="row" class="font-weight-normal">dvdχ2ℓdot</th> 
-                                <td>Double</td>
-                                <td>\( \partial \dot{v} \over \partial \chi_{2 \ell } \), the time derivative of \( \partial v \over \partial \chi_{2 \ell } \).</td> 
+                                <th scope="row" class="font-weight-normal">None</th> 
+                                <td>N/A</td> 
+                                <td>N/A</td> 
                             </tr>                             
                         </tbody>                         
                     </table>
@@ -90,21 +85,19 @@
                         </thead>                         
                         <tbody> 
                             <tr> 
-                                <th scope="row" class="font-weight-normal">dvdχ2ℓ</th> 
-                                <td>Double</td> 
-                                <td>\( \partial v \over \partial \chi_{2 \ell } \)</td> 
+                                <th scope="row" class="font-weight-normal">None</th> 
+                                <td>N/A</td> 
+                                <td>N/A</td> 
                             </tr>                             
                         </tbody>                         
                     </table>                     
                     <dt class="h5">Theoretical description:</dt> 
-                    <dd>The formula for&nbsp;\(  \partial v \over \partial \chi_{2 \ell } \) was obtained by rearranging <a href="DerivativeExpresions.html">Equation (8)</a> of the DerivativeExpressions document to solve for&nbsp;\(  \partial v \over \partial \chi_{2 \ell } \).&nbsp;
+                    <dd>This method is passed \(v_0 \) and uses Euler&apos;s method to initialize the second value of \(v\). For all future values of \(v\) the leapfrog method is used. See the discussion surround <a href="Theory1_2022.pdf">Equation (1.13)</a> in the Theory1 document for more.
                     </dd>
                     <dt class="h5">Usage locations:</dt>
-                    <dd>This method is called only once in the&nbsp;<a href="InitDvdχ1ℓ.html">InitDvdχ2ℓ</a> method of the Evolver class to intialize \( \partial v \over \partial \chi_{2 \ell } \). For all other calculations of&nbsp;\( \partial v \over \partial \chi_{2 \ell } \) the leapfrog method is used.&nbsp;
-                    </dd>
+                    <dd>This method is called once in the constructor of the Evolver class.&nbsp;</dd>
                     <dt class="h5">Usage example:</dt>
-                    <dd class="bg-light ml-4 shadow-sm">
-                        <code class="text-secondary">GetDvdχ2ℓ(vN, dvdχ2ℓdot0)</code>
+                    <dd class="bg-light ml-4 shadow-sm"><code class="text-secondary">InitV</code>
                     </dd>                     
                 </dl></p>
         </div>
@@ -112,8 +105,8 @@
         <!-- Bootstrap core JavaScript
     ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/popper.js"></script>
-        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="../../../../assets/js/jquery.min.js"></script>
+        <script src="../../../../assets/js/popper.js"></script>
+        <script src="../../../../bootstrap/js/bootstrap.min.js"></script>
     </body>
 </html>

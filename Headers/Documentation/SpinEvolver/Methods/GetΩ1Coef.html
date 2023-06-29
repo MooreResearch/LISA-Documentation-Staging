@@ -6,13 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
         <meta name="description" content="" data-pgc-field="meta_description"/>
         <meta name="author" content=""/>
-        <title data-pgc-field="page_title">GetDvdχ1ℓ</title>
+        <title data-pgc-field="page_title">GetΩ1Coef</title>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <!-- Bootstrap core CSS -->
-        <link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
+        <link href="../../../../bootstrap/css/bootstrap.css" rel="stylesheet"/>
         <!-- Custom styles for this template -->
-        <link href="sticky-footer-navbar.css" rel="stylesheet"/>
+        <link href="../../../../sticky-footer-navbar.css" rel="stylesheet"/>
     </head>
     <body>
         <!-- Fixed navbar -->
@@ -51,19 +51,20 @@
         <!-- Begin page content -->
         <div class="container" data-pgc-field="page_content">
             <div class="mt-3">
-                <h1 data-pgc-field="page_heading">GetDvdχ1ℓ</h1>
+                <h1 data-pgc-field="page_heading">GetΩ1Coef</h1>
                 <div class="mt-3">
-                    <span class="badge badge-secondary">Method</span><span class="badge badge-secondary">(Function, i.e. spin, matrix, time evolution, etc.)</span><span class="badge badge-secondary">Parent Class</span><span class="badge badge-secondary">etc.</span>
+                    <span class="badge badge-secondary">Method</span><span class="badge badge-secondary">Spin Case</span><span class="badge badge-secondary">EquationSolver</span>
                     <div>
                         <p></p>
                     </div>
                 </div>
             </div>
-            <p class="lead" data-pgc-field="page_description">This method calculates and returns \(&nbsp; \partial v \over \partial \chi_{1 \ell } \) given \(v\) and&nbsp;\(  \partial \dot{v} \over \partial \chi_{1 \ell } \).</p>
+            <p class="lead" data-pgc-field="page_description">This method calculates the scalar that \( \hat{L}_N \) must be multiplied by to obtain \( \vec{\Omega}_1 \).</p>
             <p class="lead" data-pgc-field="page_lead"></p>
             <p data-pgc-field="page_info"><dl> 
                     <dt class="h5">Technical description:</dt> 
-                    <dd>This method calculates and returns \(  \partial v \over \partial \chi_{1 \ell } \) given \(v\) and \( \partial \dot{v} \over \partial \chi_{1 \ell } \). See the theoretical description for how a formula for&nbsp;\(  \partial v \over \partial \chi_{1 \ell } \) was derived.</dd>
+                    <dd>This method calculates the scalar that \( \hat{L}_N \) must be multiplied by to obtain \( \vec{\Omega}_1 \). This method cleans up calculations done in the Evolver class&apos;s <a href="DoStep.html">DoStep</a> method.
+                    </dd>
                     <table class="border table table-bordered" data-pgc="parameter_table" data-pgc-field="parameter_table"> 
                         <thead> 
                             <tr> 
@@ -74,14 +75,9 @@
                         </thead>                         
                         <tbody> 
                             <tr> 
-                                <th scope="row" class="font-weight-normal">v</th> 
+                                <th scope="row" class="font-weight-normal"><p>dτ</p></th> 
                                 <td>Double</td> 
-                                <td>Our post newtonian expansion factor \(v = (M \omega)^\frac{1}{3} \).</td> 
-                            </tr>                             
-                            <tr> 
-                                <th scope="row" class="font-weight-normal">dvdχ1ℓdot</th> 
-                                <td>Double</td>
-                                <td>\( \partial \dot{v} \over \partial \chi_{1 \ell } \), the time derivative of \( \partial v \over \partial \chi_{1 \ell } \).</td> 
+                                <td>A small step of dimensionless&nbsp;time \( \tau_s = \frac{t_{s}}{M} \) in the source frame.</td> 
                             </tr>                             
                         </tbody>                         
                     </table>
@@ -95,20 +91,20 @@
                         </thead>                         
                         <tbody> 
                             <tr> 
-                                <th scope="row" class="font-weight-normal">dvdχ1ℓ</th> 
+                                <th scope="row" class="font-weight-normal">Ω1Coef</th> 
                                 <td>Double</td> 
-                                <td>\( \partial v \over \partial \chi_{1 \ell } \)</td> 
+                                <td>The coefficient that will multiply&nbsp; \( \hat{L}_N \) to obtain \( \vec{\Omega}_1 \).</td> 
                             </tr>                             
                         </tbody>                         
                     </table>                     
                     <dt class="h5">Theoretical description:</dt> 
-                    <dd>The formula for&nbsp;\(  \partial v \over \partial \chi_{1 \ell } \) was obtained by rearranging <a href="DerivativeExpresions.html">Equation (5)</a> of the DerivativeExpressions document to solve for&nbsp;\(  \partial v \over \partial \chi_{1 \ell } \).&nbsp;
+                    <dd>See <a href="Theory1_2022.pdf">Equation (1.29)</a> of the Theory1 document to see the expression for \(\vec{\Omega}_1 \), as well as how it is used to calculate the rate of change of star 1&apos;s angular momentum.
                     </dd>
                     <dt class="h5">Usage locations:</dt>
-                    <dd>This method is called only once in the&nbsp;<a href="InitDvdχ1ℓ.html">InitDvdχ1ℓ</a> method of the Evolver class to intialize \( \partial v \over \partial \chi_{1 \ell } \). For all other calculations of&nbsp;\( \partial v \over \partial \chi_{1 \ell } \) the leapfrog method is used.&nbsp;
+                    <dd>This method is called in the Evolver class&apos;s <a href="InitSpinVariables.html">InitSpinVariables</a> method to intialiaze \( \hat{L}_N \). It is also called in the <a href="DoStep.html">DoStep</a> method to propegate \(\hat{ \chi_1 } \).
                     </dd>
                     <dt class="h5">Usage example:</dt>
-                    <dd class="bg-light ml-4 shadow-sm"><code class="text-secondary">GetDvdχ1ℓ(vN, dvdχ1ℓdot0)</code>
+                    <dd class="bg-light ml-4 shadow-sm"><code class="text-secondary">GetΩ1Coef(dτ)</code>
                     </dd>                     
                 </dl></p>
         </div>
@@ -116,8 +112,8 @@
         <!-- Bootstrap core JavaScript
     ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/popper.js"></script>
-        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="../../../../assets/js/jquery.min.js"></script>
+        <script src="../../../../assets/js/popper.js"></script>
+        <script src="../../../../bootstrap/js/bootstrap.min.js"></script>
     </body>
 </html>

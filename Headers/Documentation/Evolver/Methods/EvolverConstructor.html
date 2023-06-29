@@ -6,13 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
         <meta name="description" content="" data-pgc-field="meta_description"/>
         <meta name="author" content=""/>
-        <title data-pgc-field="page_title">GetDvdχ1ℓdot</title>
+        <title data-pgc-field="page_title">Evolver Constructor</title>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <!-- Bootstrap core CSS -->
-        <link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
+        <link href="../../../../bootstrap/css/bootstrap.css" rel="stylesheet"/>
         <!-- Custom styles for this template -->
-        <link href="sticky-footer-navbar.css" rel="stylesheet"/>
+        <link href="../../../../sticky-footer-navbar.css" rel="stylesheet"/>
     </head>
     <body>
         <!-- Fixed navbar -->
@@ -51,19 +51,19 @@
         <!-- Begin page content -->
         <div class="container" data-pgc-field="page_content">
             <div class="mt-3">
-                <h1 data-pgc-field="page_heading">GetDvdχ1ℓdot</h1>
+                <h1 data-pgc-field="page_heading">Evolver Constructor</h1>
                 <div class="mt-3">
-                    <span class="badge badge-secondary">Method</span><span class="badge badge-secondary">Spin Case</span><span class="badge badge-secondary">EquationSolver</span>
+                    <span class="badge badge-secondary">Method</span><span class="badge badge-secondary">Spin Case</span><span class="badge badge-secondary">Evolver</span>
                     <div>
                         <p></p>
                     </div>
                 </div>
             </div>
-            <p class="lead" data-pgc-field="page_description">This method calculates and returns \( \partial \dot{v} \over \partial \chi_{1 \ell} \).</p>
+            <p class="lead" data-pgc-field="page_description">Sets the intiail values \( d \tau \), \(v\),\(\delta\),\(\chi_{1 \ell}\), and&nbsp;\(\chi_{2 \ell}\) using parameters passed into the constuctor. Also initializes the first two values of \(v\), \( \partial v \over \partial \delta \),&nbsp;\( \partial v \over \partial \chi_{1 \ell} \), and&nbsp;\( \partial v \over \partial \chi_{2 \ell} \).&nbsp;</p>
             <p class="lead" data-pgc-field="page_lead"></p>
             <p data-pgc-field="page_info"><dl> 
                     <dt class="h5">Technical description:</dt> 
-                    <dd>The purpose of this code is to determine \( \partial \dot{v} \over \partial \chi_{2 \ell} \): the rate of change of \( \partial v \over \partial \chi_{2 \ell} \) with respect to a dimensionless time \( \tau_s = \frac{t_{s}}{M} \) in the source frame.  See the theororetical description for information about how a formula for \( \partial \dot{v} \over \partial \chi_{1 \ell} \) was derived.</dd>
+                    <dd>This constructor uses parameters passed into it to set initial values for&nbsp;\( d \tau \), \(v\),\(\delta\),\(\chi_{1 \ell}\), and \(\chi_{2 \ell}\). The code then calls InitV, InitDvdδ,&nbsp;InitDvdχ1ℓ, and&nbsp;InitDvdχ2ℓ to set up the first two values of&nbsp;\(v\),&nbsp;\( \partial v \over \partial \delta \),&nbsp;\( \partial v \over \partial \chi_{1 \ell} \), and \( \partial v \over \partial \chi_{2 \ell} \) respectively.</dd>
                     <table class="border table table-bordered" data-pgc="parameter_table" data-pgc-field="parameter_table"> 
                         <thead> 
                             <tr> 
@@ -74,14 +74,29 @@
                         </thead>                         
                         <tbody> 
                             <tr> 
-                                <th scope="row" class="font-weight-normal">v</th> 
+                                <th scope="row" class="font-weight-normal">mydτ0</th> 
                                 <td>Double</td> 
-                                <td>Our post newtonian expansion factor \(v = (M \omega)^\frac{1}{3} \).</td> 
+                                <td>The initial timestep to be used in the centered difference equation to propegate each value.</td> 
                             </tr>                             
                             <tr> 
-                                <th scope="row" class="font-weight-normal"><p>dvdχ1ℓ</p></th> 
+                                <th scope="row" class="font-weight-normal"><p>myv0</p></th> 
                                 <td>Double</td>
-                                <td>\( \partial v \over \partial \chi_{1 \ell} \).</td> 
+                                <td>The initial value of v, equal to \((2\pi M f_0)^{1/3} \)</td> 
+                            </tr>
+                            <tr> 
+                                <th scope="row" class="font-weight-normal"><p>myδ</p></th> 
+                                <td>Double</td>
+                                <td>The intial value of&nbsp; \(\delta = \) \( m_1 - m_2 \over m_1 + m_2 \)</td> 
+                            </tr>
+                            <tr> 
+                                <th scope="row" class="font-weight-normal"><p>myχ1ℓ</p><p></p></th> 
+                                <td>Double</td>
+                                <td>The initial value of \( \chi_{1 \ell} \), which is passed in by the user</td> 
+                            </tr>                             
+                            <tr> 
+                                <th scope="row" class="font-weight-normal"><p>myχ2ℓ</p></th> 
+                                <td>Double</td> 
+                                <td>The initial value of \( \chi_{2 \ell} \), which is passed in by the user</td> 
                             </tr>                             
                         </tbody>                         
                     </table>
@@ -95,29 +110,24 @@
                         </thead>                         
                         <tbody> 
                             <tr> 
-                                <th scope="row" class="font-weight-normal">dvdχ1ℓdot</th> 
-                                <td>Double</td> 
-                                <td>\( \partial \dot{v} \over \partial \chi_{1 \ell} \).</td> 
+                                <th scope="row" class="font-weight-normal">None</th> 
+                                <td>N/A</td> 
+                                <td>N/A</td> 
                             </tr>                             
                         </tbody>                         
                     </table>                     
-                    <dt class="h5">Theoretical description:</dt> 
-                    <dd>The derivation of a formula for \( \partial \dot{v} \over \partial \chi_{1 \ell} \) can be found in <a href="DerivativeExpressions">Equation (5)</a> of the DerivativeExpressions document.&nbsp;
-                    </dd>
                     <dt class="h5">Usage locations:</dt>
-                    <dd>This method is used in the <a href="InitDvdχ1ℓ.html">InitDvdχ1ℓ</a>&nbsp;method of the Evolver class to initialize the first two values of&nbsp;\( \partial v \over \partial \chi_{1 \ell} \), it is also used in the <a href="DoStep.html">DoStep</a> method to propegate \( \partial v \over \partial \chi_{1 \ell} \) through time.&nbsp;
-                    </dd>
-                    <dt class="h5">Usage example:</dt>
-                    <dd class="bg-light ml-4 shadow-sm"><code class="text-secondary">GetDvdχ1ℓdot(vN,dvdδN)</code>
-                    </dd>                     
+                    <dd>UPDATE LATER</dd>
+                    <dd class="bg-light ml-4 shadow-sm">
+</dd>                     
                 </dl></p>
         </div>
         <footer class="footer ml-auto">&nbsp; &nbsp; Copyright 2022 Thomas Moore.</footer>
         <!-- Bootstrap core JavaScript
     ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/popper.js"></script>
-        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="../../../../assets/js/jquery.min.js"></script>
+        <script src="../../../../assets/js/popper.js"></script>
+        <script src="../../../../bootstrap/js/bootstrap.min.js"></script>
     </body>
 </html>

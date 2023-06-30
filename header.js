@@ -1,34 +1,3 @@
-window.onload = function() {
-    document.getElementById('header').innerHTML = template;
-
-    var currentPage = window.location.pathname.split("/").pop();
-   if (currentPage !== 'index.html' && currentPage !== '') {
-        // replace the links
-        var links = document.querySelectorAll("#header .nav-item .nav-link");
-        links.forEach(link => {
-            var href = link.getAttribute('href');
-            if (href.startsWith('Headers/')) {
-                // Remove 'Headers/' from the start of the string
-                link.setAttribute('href', href.substring(8));
-				if (href.substring(8) == currentPage){
-					//link.setAttribute("class" = "active nav-link");
-					link.className += ' active'
-				}
-            }
-        });
-    }
-	else{
-		var links = document.querySelectorAll("#header .nav-item .nav-link");
-        links.forEach(link => {
-            var href = link.getAttribute('href');
-            if (href.startsWith('../')) {
-                // Remove 'Headers/' from the start of the string
-                link.setAttribute('href', href.substring(3));
-				link.className += ' active'
-            }
-        });	
-	} 
-};
 var template = `
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 	<a class="navbar-brand" href="#">LISA Project</a><a class="navbar-brand" href="#"></a>
@@ -66,4 +35,58 @@ var template = `
 </nav>
 `;
 
-document.getElementById('header').innerHTML = template;
+
+window.onload = function() {
+    document.getElementById('header').innerHTML = template;
+	var arr = window.location.pathname.split("/")
+	var i = 0
+	//Calculates how far from base directory current user is
+	while(arr.pop()!=="LISA-Documentation"){
+		i +=1
+	} 
+	//Name of Current Page
+    var currentPage = window.location.pathname.split("/").pop();
+    if (i >1) {
+		//Gets header Links
+		var links = document.querySelectorAll("#header .nav-item .nav-link");
+		//String to adjust link location
+		var s = ""
+		//Creates adjustment string
+		while (i>2){
+			s += "../"
+			i -=1
+		}
+        links.forEach(link => {
+            var href = link.getAttribute('href')
+		
+            if (href.startsWith('Headers/')) {
+                // Remove 'Headers/' from the start of the link
+				//Adds apporiate amount of '../' to the start of the link
+                link.setAttribute('href', s + href.substring(8));
+				console.log(link.getAttribute('href'))
+            }
+			if (href.startsWith('../') && s !== "") {
+                // Adds '../' to the start of the link
+                link.setAttribute('href', s + href);
+				console.log(link.getAttribute('href'))
+            }
+			if (href.substring(8) == currentPage){
+				link.className += ' active'
+			}
+        });
+    }
+	else{
+		var links = document.querySelectorAll("#header .nav-item .nav-link");
+        links.forEach(link => {
+            var href = link.getAttribute('href');
+            if (href.startsWith('../')) {
+                // Remove 'Headers/' from the start of the string
+                link.setAttribute('href', href.substring(3));
+				link.className += ' active'
+            }
+        });	
+	} 
+};
+
+
+

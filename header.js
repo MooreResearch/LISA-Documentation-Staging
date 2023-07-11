@@ -44,7 +44,7 @@ window.onload = function() {
 	while(true){
 		let popped = arr.pop();
   		if (popped === "LISA-Documentation" || popped === "LISA-Documentation-Staging") {
-    		break;
+    	break;
 		}
 		i +=1
 	} 

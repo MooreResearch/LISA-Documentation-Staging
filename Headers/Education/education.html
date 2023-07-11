@@ -8,6 +8,8 @@
         <meta name="author" content=""/>
         <title data-pgc-field="page_title">Education</title>
         <script src="../../header.js"></script>
+		<link href="../../sticky-footer-navbar.css" rel="stylesheet"/>
+
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         
@@ -20,21 +22,38 @@
         <link href="../../bootstrap/css/bootstrap.css" rel="stylesheet"/>
         <!-- Custom styles for this template -->
         <link href="../../sticky-footer-navbar.css" rel="stylesheet"/>
+		<style>
+           /* Custom CSS */
+		   .nav-scroll {
+                overflow-x: auto;
+                white-space: nowrap;
+                -ms-overflow-style: none;  /* IE and Edge */
+                scrollbar-width: none;  /* Firefox */
+            }
+            .nav-scroll::-webkit-scrollbar {
+                display: none;  /* Chrome, Safari and Opera */
+            }
+            .nav-link {
+                display: inline-block;
+                padding: 10px;
+            }
+        </style>
     </head>
     <body>
         <!-- Fixed navbar -->
         <div id="header"></div>
 		
-        <!-- Begin page content -->
-        <div class="container" data-pgc-field="page_content">
+		 <div class="container" data-pgc-field="page_content">
             <div class="mt-3">
                 <h1 data-pgc-field="page_heading">Education</h1>
+                <div id="navbar" class="nav-scroll">
+                    <!-- Add your nav links here. This is just an example. -->
+                    <!-- They will scroll horizontally when there are too many to fit in the viewport. -->
+                    <a class="nav-link load-content" href="ResearchPrep1/ResearchPrep1.html">Research Prep 1</a>
+                    <!-- Repeat the above line as necessary -->
+                </div>
             </div>
-            <p class="lead" data-pgc-field="page_description">This page contains the educational content for various knowledge levels.</p>
-            <p class="lead"></p>
-            <p><a class="load-content" href="ResearchPrep1/ResearchPrep1.html">Research Prep 1</a></p>
-            <!-- container to load content into -->
-            <div id="content-container"></div>
+		<div id="content-container"></div>	
             <p data-pgc-field="page_info">Content.</p>
         </div>
         <footer class="footer ml-auto">&nbsp; &nbsp; Copyright 2022 Thomas Moore.</footer>

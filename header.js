@@ -21,7 +21,7 @@ var template = `
 				<a class="nav-link" href="Headers/procedures.html" data-pgc-field="procedures_link">Procedures</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="Headers/education.html" data-pgc-field="education_link">Education</a>
+				<a class="nav-link" href="Headers/Education/education.html" data-pgc-field="education_link">Education</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="Headers/testing.html" data-pgc-field="testing_link">Testing</a>
@@ -43,7 +43,8 @@ window.onload = function() {
 	//Calculates how far from base directory current user is
 	while(true){
 		let popped = arr.pop();
-  		if (popped === "LISA-Documentation" || popped === "LISA-Documentation-Staging") {
+		console.log(popped)
+  		if (popped === "LISA-Documentation" || popped === "LISA-Documentation-Staging" || popped === "127.0.0.1:3000" || popped=== "") {
     	break;
 		}
 		i +=1

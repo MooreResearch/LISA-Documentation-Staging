@@ -7,17 +7,24 @@
         <meta name="description" content="" data-pgc-field="meta_description"/>
         <meta name="author" content=""/>
         <title data-pgc-field="page_title">Education</title>
-        <script src="../header.js"></script>
+        <script src="../../header.js"></script>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-        <!-- Bootstrap core CSS -->
-        <link href="../bootstrap/css/bootstrap.css" rel="stylesheet"/>
+        
+		<link href="https://fonts.googleapis.com/css?family=Segoe+UI:400,700|Courier+New:400,700&display=swap" rel="stylesheet">
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script
+		src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+		type="text/javascript"></script>
+<!-- Bootstrap core CSS -->
+        <link href="../../bootstrap/css/bootstrap.css" rel="stylesheet"/>
         <!-- Custom styles for this template -->
-        <link href="../sticky-footer-navbar.css" rel="stylesheet"/>
+        <link href="../../sticky-footer-navbar.css" rel="stylesheet"/>
     </head>
     <body>
         <!-- Fixed navbar -->
         <div id="header"></div>
+		
         <!-- Begin page content -->
         <div class="container" data-pgc-field="page_content">
             <div class="mt-3">
@@ -25,7 +32,7 @@
             </div>
             <p class="lead" data-pgc-field="page_description">This page contains the educational content for various knowledge levels.</p>
             <p class="lead"></p>
-            <p><a class="load-content" href="Education/ResearchPrep1/ResearchPrep1.html">Research Prep 1</a></p>
+            <p><a class="load-content" href="ResearchPrep1/ResearchPrep1.html">Research Prep 1</a></p>
             <!-- container to load content into -->
             <div id="content-container"></div>
             <p data-pgc-field="page_info">Content.</p>
@@ -34,18 +41,29 @@
         <!-- Bootstrap core JavaScript
     ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="../assets/js/jquery.min.js"></script>
-        <script src="../assets/js/popper.js"></script>
-        <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script src="../../assets/js/jquery.min.js"></script>
+        <script src="../../assets/js/popper.js"></script>
+        <script src="../../bootstrap/js/bootstrap.min.js"></script>
 
         <script>
-        $(document).ready(function() {
-            $('.load-content').click(function(e) {
-                e.preventDefault(); // prevent default link click action
-                var url = $(this).attr('href'); // get the href of the clicked link
-                $('#content-container').load(url); // load content from the href into the div
-            });
-        });
+       $(document).ready(function() {
+		$('.load-content').click(function(e) {
+			e.preventDefault(); // prevent default link click action
+			var url = $(this).attr('href'); // get the href of the clicked link
+			$('#content-container').load(url, function() {
+				// Replace img src attribute with new path
+				console.log("test")
+
+				$('#content-container embed').each(function() {
+					console.log("test")
+					var imgSrc = $(this).attr('src');
+					var newImgSrc = 'ResearchPrep1/' + imgSrc; // Add your new path here
+					$(this).attr('src', newImgSrc);
+				});
+				MathJax.typesetPromise();
+			}); 
+		});
+	});
         </script>
     </body>
 </html>

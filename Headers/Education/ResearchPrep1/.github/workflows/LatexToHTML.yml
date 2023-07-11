@@ -2,8 +2,7 @@ name: Convert Latex to HTML and Move Files to Another Repo
 
 on:
   push:
-    paths:
-    - '**.tex'
+ 
 
 jobs:
   build:

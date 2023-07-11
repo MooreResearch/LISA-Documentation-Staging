@@ -41,7 +41,11 @@ window.onload = function() {
 	var arr = window.location.pathname.split("/")
 	var i = 0
 	//Calculates how far from base directory current user is
-	while(arr.pop()!=="LISA-Documentation"){
+	while(true){
+		let popped = arr.pop();
+  		if (popped === "LISA-Documentation" || popped === "LISA-Documentation-Staging") {
+    		break;
+		}
 		i +=1
 	} 
 	//Name of Current Page

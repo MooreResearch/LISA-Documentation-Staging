@@ -2,7 +2,7 @@ name: Convert Latex to HTML and Move Files to Another Repo
 
 on:
   push:
- 
+  workflow_dispatch:
 
 jobs:
   build:

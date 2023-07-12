@@ -4,11 +4,6 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-   <link href="https://fonts.googleapis.com/css?family=Segoe+UI:400,700|Courier+New:400,700&display=swap" rel="stylesheet">
-   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script
-src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
-type="text/javascript"></script>
   <title>main</title>
   <style>
     code{white-space: pre-wrap;}
@@ -18,221 +13,263 @@ type="text/javascript"></script>
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
   </style>
-
+  <script src="/usr/share/javascript/mathjax/tex-mml-chtml.js" type="text/javascript"></script>
 </head>
 <body>
 <p><strong>General Relativity and Gravitational Waves</strong></p>
-<p><strong>Session 1: Overview and Special Relativity</strong></p>
+<p><strong>Session 2: Tensor Equations</strong></p>
 <h2 id="SessOverv">Overview of this Session</h2>
-<p>Here is a summary of what I plan to do in the remaining sections in this session:</p>
+<p>Here is a summary of what I plan to do in the sections in this session:</p>
 <ul>
-<li><p><strong>Overview of General Relativity</strong> provides a large-scale conceptual overview of the theory.</p></li>
-<li><p><strong>The Geometric Analogy and the Metric Equation</strong> briefly discusses the geometric analogy as an approach to special relativity, discusses the three kinds of time, and introduces the metric equation.</p></li>
-<li><p><strong>Index Notation</strong> introduces the index notation and the Einstein summation convention.</p></li>
-<li><p><strong>Four-Vectors</strong> reviews the concept of a four-vector.</p></li>
+<li><p><strong>Tensors</strong> introduces the concept of a tensor.</p></li>
+<li><p><strong>Covariant Equations</strong> shows how to use tensors to construct an equation that is valid in any inertial reference frame.</p></li>
+<li><p><strong>Maxwell’s Equations</strong> illustrates the power of tensor equations by “deriving” Maxwell’s equations from the requirements that Gauss’s law and the definition of the electric field be frame-independent.</p></li>
 </ul>
-<h2 id="SGR">Overview of General Relativity</h2>
-<p>Perhaps the defining characteristic of Einstein’s thought was his ability to discern simple principles behind complex phenomena. His entire theory of special relativity follows from two simple and credible principles: (1) the <strong>principle of relativity</strong> (which states that the laws of physics are independent of inertial reference frame), and (2) his assertion that Maxwell’s equations are such laws (which in turn implies that <strong>the speed of light is frame-independent</strong>).</p>
-<p>His theory of general relativity has a reputation for being complicated and abstruse, but it similarly rests on two simple principles: (1) the <strong>geodesic hypothesis</strong>, which states that free particles follow geodesics in spacetime) and (2) the <strong>principle of coordinate independence</strong>, which states that the laws of physics are independent of <em>any</em> choice of coordinates. The latter might seem to be an obvious generalization of the principle of relativity, but people (even Einstein himself) have found it hard to fully appreciate that spacetime coordinates have <em>no intrinsic physical meaning</em>, so underlining this principle is valuable. I will have much more to say about it as we go along.</p>
-<p>Now, conceptual treatments of general relativity often follow Einstein’s own mental trajectory by starting with the <strong>equivalence principle</strong>, which such treatments usually describe as stating that a reference frame at rest on a gravitating object is equivalent to an accelerating laboratory in deep space. I have found such approaches to be difficult both philosophically and pedagogically. The geodesic hypothesis, on the other hand, is less ambiguous and more directly focuses one on the essence of general relativity. One can more properly consider the equivalence principle to be a <em>consequence</em> of the geodesic hypothesis, as we will see.</p>
-<p>The geodesic hypothesis is based on an empirical observation that goes back at least as far as Galileo: in a gravitational field, <em>all objects fall with the same acceleration</em>. In particular, this means that <em>every</em> particle launched from a given position with a given initial velocity in a given gravitational field will follow the <em>same</em> trajectory,irrespective of that particle’s characteristics. Since Galileo, this statement has been empirically checked with increasing accuracy to the point that we now know that the gravitational accelerations of very different objects differ by less than one part in about <span class="math inline">\(10^{13}\)</span>. This behavior is quite different than that of objects in other fields: for example, in an given electric field, electrons, muons, positrons, and neutrinos follow quite different trajectories, even if launched from the same point with the same initial velocity.</p>
-<p>We can explain the unique behavior of particles in a gravitational field if we assume that a free particle’s trajectory is <em>not</em> determined by that particle’s interaction with the field but rather <em>only</em> by the spacetime through which the particle moves. But how can spacetime itself uniquely specify a trajectory? We know that the shape of a simple two-dimensional surface uniquely defines curves on that surface that we call <em>geodesics</em>, which we can define as either being the curve between two points that has an extremal pathlength or that is “as straight as possible.” The geodesic hypothesis simply extends this idea to the case at hand: a “free” particle (one does not interact with anything else) hypothetically follows a geodesic in spacetime.</p>
-<p>Note that the geodesic hypothesis only works in spacetime, not in ordinary three-dimensional space. For example, suppose that we toss a ball with an initial horizontal velocity component of 5 m/s between two points <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> separated by 10 meters in space. We can also fire a bullet with an initial horizontal velocity component of 500 m/s in such a way that it travels between the same two points. Both objects hypothetically follow geodesics, but if we only pay attention their trajectories <em>in space</em>, we would conclude that we have at least two possible geodesics between the spatial points <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, meaning that the “geodesic between <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>” is poorly defined (see figure <a href="#BallBullet" data-reference-type="ref" data-reference="BallBullet">1</a>a). If we plot the trajectories on a spacetime diagram, though (see figure <a href="#BallBullet" data-reference-type="ref" data-reference="BallBullet">1</a>b), then we see that these objects do not travel between the same points (events) in spacetime at all, because their velocities are very different. Objects that pass through the same position in space <em>with the same velocity</em> would follow identical trajectories in spacetime, meaning that the geodesic is indeed unique <em>in spacetime</em>. But an interesting thing is that even the <em>different</em> geodesics of the bullet and ball have the <em>same</em> radius of curvature (measured by matching their respective parabolas as closely as possible to circles) of about 1 ly! This suggests that geodesics near the earth’s surface are indeed curved in a similar way.</p>
-<figure>
-<embed src="Fig1-1.pdf" id="BallBullet" /><figcaption>(a) The trajectory of a free object traveling between two points in space is not unique. (b) But when viewed in spacetime, the bullet and ball do not move between the same two “points” (events), and thus follow different geodesics. However, both geodesics have the same curvature. Adapted from Misner, Thorne, and Wheeler, <em>Gravitation</em>, Freeman, 1977, p. 33.</figcaption>
-</figure>
-<p>Note also that since all objects fall in a gravitational field with the same acceleration, if we view a set of objects in a freely falling reference frame (for example, inside the International Space Station), their relative accelerations will be very nearly zero, meaning that in such a frame we will see free objects moving with constant velocities, consistent with Newton’s first law. Now, we <em>define</em> an inertial frame to be reference frame in which a “free object” obeys Newton’s first law. In Newtonian mechanics, however, we typically assume that a frame at rest on the Earth’s surface is inertial, and explain away the accelerated paths of falling objects by saying that they are not really free, but rather subject to a “force of gravity.” But we see that the geodesic hypothesis implies that even near the surface of the Earth we can always find a reference frame (a freely falling frame) where <em>all</em> objects free from non-gravitational interactions obey Newton’s first law, and so we can always make “the force of gravity” disappear by changing our reference frame. Any other force that we can make appear or disappear by changing frames we would call a fictitious force. So to be consistent, we really should take the definition of an inertial frame <em>literally</em> and say that near the surface of the Earth, the truly inertial frames are not those frames which are at rest (or moving at a constant velocity) with respect to the Earth’s surface, but rather frames that are freely falling. A frame that is at rest on the surface of the earth is accelerating upward relative to any inertial frames in the vicinity, and so is analogous to a frame in deep space that is accelerating upward with respect to a neighboring freely floating frame (hence the “equivalence principle” and all its consequences).</p>
-<p>In particular, this implies the equivalence of inertial and gravitational mass. If one seeks to measure an object’s gravitational mass by putting it on a scale in either a frame at rest on the earth’s surface or a frame accelerating in deep space, the upward force the scale exerts on the object is simply the force required to accelerate the object relative to its geodesic (which at each instant is accelerating downward relative to the object) in each case. Therefore, what we call an object’s “weight” must <em>by definition</em> be proportional to its inertial mass, which is what determines how much force one needs to deliver a certain acceleration.</p>
-<p>So, we can make “the force of gravity” completely disappear in a freely falling frame. Does that make gravity entirely fictitious? No! The “gravitational force” is fictitious, but there is an aspect of gravity that we can observe even in a freely falling frame. To see this, consider a large room that is freely falling near the earth’s surface. Suppose we place four balls so that they float initially at rest above and below and to the right and left of the room’s center of mass. Let’s compare what happens to such balls to the behavior of balls similarly deployed in a frame floating in deep space (see figure <a href="#BigRoom" data-reference-type="ref" data-reference="BigRoom">2</a>).</p>
-<p>To see what happens, let’s retreat into the Newtonian mind-set (which will predict the right behavior even if it interprets that behavior differently). According to Newtonian mechanics, the room’s center of mass falls toward the earth with a certain acceleration. The ball above the center of mass is a bit further from the earth’s center, so it falls with a bit smaller acceleration, and ball below the center of mass falls with a bit greater acceleration. The balls to the right and left accelerate toward the earth’s center along lines that make a small inward angle with respect to the trajectory of the room’s center of mass. So as time passes, we see the top and bottom balls slowly accelerating <em>away</em> from the room’s center and the side balls accelerating <em>toward</em> that center, <em>unlike</em> the balls in the frame floating in deep space (which remain strictly at rest).</p>
-<figure>
-<embed src="Fig1-2.pdf" id="BigRoom" /><figcaption>(a) Because the gravitational field of any gravitating object is non-uniform, off-center floating balls in a freely falling frame will accelerate slightly relative to the room’s center of mass. (b) Such accelerations are not seen in an inertial frame floating far from a gravitating object. From Moore, <em>A General Relativity Workbook,</em> University Science Books, 2013, p. 7.</figcaption>
-</figure>
-<figure>
-<embed src="Fig1-3.pdf" id="CurvedWLs" /><figcaption>Plotted on a spacetime diagram, the side balls’ initially parallel trajectories curve toward each other as time passes.</figcaption>
-</figure>
-<p>Since we can observe these <strong>tidal effects</strong> of gravity even in an inertial (freely falling frame) near a gravitating object but not in an analogous inertial frame in deep space, they are a frame-independent and thus non-fictitious indication that we are near a gravitating object.</p>
-<p>Figure <a href="#CurvedWLs" data-reference-type="ref" data-reference="CurvedWLs">3</a> shows a spacetime diagram of the trajectories of the side balls in our falling-room thought experiment. Since these balls are initially at rest in our reference frame, their paths in spacetime are initially parallel. But as time passes, their relative accelerations curve the paths toward each other.</p>
-<p>But these paths are <em>geodesics</em>, which are by definition the straightest possible lines we have in spacetime. A basic axiom of Euclidean (plane) geometry is that initially parallel lines (geodesics) remain parallel. Since initially parallel geodesics in the spacetime near a gravitating object do <em>not</em> remain parallel, that spacetime must be <em>curved</em> (non-Euclidean). <em>Gravity curves spacetime.</em></p>
-<p>The core task of general relativity is therefore to predict <em>how</em> a gravitating object affects the curvature of spacetime (as indicated by the relative acceleration of neighboring geodesics). The Einstein Equation</p>
-<p><span class="math display">\[G^{\mu\nu} = 8\pi GT^{\mu\nu}\]</span> does precisely this. <span class="math inline">\(G^{\mu\nu}\)</span> is a <span class="math inline">\(4\times4\)</span> matrix that expresses something about the curvature of spacetime at a given point (event) in spacetime, <span class="math inline">\(T^{\mu\nu}\)</span> is a <span class="math inline">\(4\times4\)</span> matrix that describes the density and flow of energy at that same point, and <span class="math inline">\(G\)</span> is the Newtonian universal gravitational constant. This and the <strong>geodesic equation</strong> <span class="math display">\[\frac{d^2x^\alpha}{d\tau^2} + \Gamma^\alpha_{\mu\nu}u^\mu u^\nu = 0\]</span> (which explains how to calculate the geodesics along which free particles move, and whose terms I will explain tomorrow) comprise the core equations of general relativity, playing roles analogous to the roles that Maxwell’s equations and the Lorentz force law play, respectively, in the theory of electrodynamics. The great theorist John Archibald Wheeler summarized the essence of these two equations (in reverse order) this way:</p>
-<blockquote>
-<p><em>Spacetime tells matter how to move; matter tells spacetime how to curve.</em></p>
-</blockquote>
-<p>What could be simpler?</p>
-<p>That’s it! You now know the essence of general relativity. What remains is to work out the mathematical meaning of these equations and their implications.</p>
-<h2 id="SGA">The Geometric Analogy and the Metric Equation</h2>
-<p>The first step in this process is to review some special relativity. A typical undergraduate treatment of special relativity starts by postulating the principle of relativity and the frame-independence of the speed of light, works from there to the phenomena of time dilation and length contraction (often carelessly expressed as “moving clocks run slow” and “moving objects are contracted”), and then uses those ideas to derive the Lorentz transformation and the Einstein velocity transformation.</p>
-<p>However, this approach has serious pedagogical flaws, particularly for students journeying toward general relativity. The core problem is that is that people too easily think that motion somehow physically causes clocks to slow down and objects to become compressed, and that misunderstanding leads people to paradoxes and errors. For example, one can easily devise situations where the time measured between a given pair of events is actually <em>longer</em> in a moving reference frame than in a frame at rest.</p>
-<p>Over the years I have found it more fruitful to begin with what I call the <strong>geometric analogy</strong>. Consider two points on a two dimensional plane (see Figure <a href="#GA" data-reference-type="ref" data-reference="GA">4</a>a). One can characterize the spatial separation of these points in three fundamentally different ways: (1) by projecting their separation on the axes of some Cartesian coordinate system, thereby determining their coordinate separations <span class="math inline">\(\Delta x\)</span> and <span class="math inline">\(\Delta y\)</span>, (2) by using a tape measure to determine the pathlength <span class="math inline">\(\Delta \ell\)</span> along a certain path between the points, and (3) by measuring the pathlength between them along a <em>straight</em> path between them, which yields the <em>distance</em> <span class="math inline">\(\Delta d\)</span> between the points. In this situation, no one is surprised that the coordinate separations measured in differently oriented coordinate systems are different. Nor is anyone surprised that the pathlength along a curved path between the points is different than the pathlength along a straight path (a geodesic). The results are different because <em>we are measuring these separations in physically distinct ways</em>.</p>
-<p>The analogy to spacetime is direct. The two-dimensional plane corresponds to spacetime (which, to make the analogy clearer, we will compress to two dimensions, one of space and one of time). Points on the plane correspond to <strong>events</strong> in spacetime (physical incidents, such as the collision of two particles or the emission of a flash, that mark a well-defined position in space and instant of time). Differently oriented Cartesian coordinate systems on the plane correspond to inertial reference frames moving at constant velocities relative to each other. Different paths between points correspond to different trajectories (called <strong>worldlines</strong>) between events. Just as we can characterize the separation of points by their coordinate separations <span class="math inline">\(\Delta x\)</span> and <span class="math inline">\(\Delta y\)</span>, the pathlength <span class="math inline">\(\Delta \ell\)</span> along a given path between them, or the distance <span class="math inline">\(\Delta d\)</span> between them, we can characterize the separation of events in spacetime by (1) their <strong>spacetime coordinate separations</strong> <span class="math inline">\(\Delta t\)</span> and <span class="math inline">\(\Delta x\)</span> in a given inertial reference frame, (2) the <strong>proper time</strong> <span class="math inline">\(\Delta \tau_w\)</span> measured by a clock traveling along a certain worldline (trajectory) between them, or (3) the <strong>spacetime interval</strong> <span class="math inline">\(\Delta \tau\)</span> measured by a clock traveling along a geodesic (inertial) worldline between them. We should no more be surprised the time-separations <span class="math inline">\(\Delta t, \Delta \tau_w,\)</span> and <span class="math inline">\(\Delta \tau\)</span> are different than we would be that the separations <span class="math inline">\(\Delta y, 
-\Delta \ell,\)</span> and <span class="math inline">\(\Delta d\)</span> are different in space. The three kinds of time (coordinate time, proper time, and spacetime interval), though all measured with clocks, are different not because motion somehow affects the clocks but because we are measuring these times <em>in entirely different ways</em>. Laying a tape measure along a curved path does not magically shrink the distance between its marks so that it yields a larger result than a tape measure laid along a straight path: the pathlength along the curved path is simply physically longer. Similarly, a clock following a curved worldline between two events is not magically slowed down by its motion: it simply accurately registers that the time measured along that worldline is physically different than the time measured along a geodesic worldline.</p>
-<figure>
-<embed src="Fig1-4.pdf" id="GA" /><figcaption>The geometric analogy: <em>points</em> in a 2D planar space are analogous to <em>events</em> in spacetime; <em>curves</em> correspond to trajectories (<em>worldlines</em>), Cartesian <em>coordinate systems</em> correspond to <em>inertial frames</em>; <em>pathlength</em> corresponds to <em>proper time</em>, and <em>distance</em> corresponds to <em>spacetime interval</em>. (For why the spacetime axes of the primed reference frame are not perpendicular and how we project coordinate separations on those axes, see Moore, <em>Six Ideas That Shaped Physics,</em> 3e, McGraw-Hill, 2017, Unit R, pp. 88-94.)</figcaption>
-</figure>
-<p>Part of the importance of this analogy is that it focuses our attention on what is relative and what is absolute. Measuring either the pathlength or the distance between points on a plane involves only laying out a tape measure and reading what it says, not projecting anything on a coordinate axis. Therefore, all observers will agree on what the tape measure says: pathlength and distance are <em>coordinate-independent quantities</em>. Similarly, measuring proper time and the spacetime interval between two events both involve sending a clock from one event to another along some trajectory and reading what that clock says is the time elapsed. Since every observer in every reference frame can read what the clock says, proper time and spacetime interval are <em>frame-independent</em> (absolute) <em>quantities</em> by definition.</p>
-<p>On the other hand, setting up a coordinate system on a plane involves a procedure for determining what points have the same projection on (say) the vertical axis so that we assign them all the same vertical coordinate as whichever such point actually lies on that axis. Obviously, reorienting the vertical axis changes the set of points that we consider to have the same vertical coordinate, so the coordinates of points depend on one’s choice of reference frame. Analogously, in a given inertial reference frame, we have a procedure (based on the frame-independence of the speed of light) that allows us to synchronize clocks in a given frame and thus determine which events we consider to occur at the same time. Going to a different reference frame changes the set of events we consider to be simultaneous, implying that spacetime coordinates are frame-<em>dependent</em> (relative).</p>
-<p>Indeed, I think that special relativity is entirely misnamed. The historically shocking element of the theory was that it established that time was not absolute, but rather behaved more like the <em>y</em>-coordinate of a rotatable coordinate axis, and the “relativity” of time is what a lot of popular treatments focus on. But the theory’s real value is that it tells us what is <em>absolute</em> about the physical reality that lies behind the arbitrary coordinate systems that we place upon it, and this anchor to reality becomes even more crucial in general relativity. So perhaps we ought to call the theories special and general absolutivity!</p>
-<p>The key to mathematically connecting coordinate systems to the coordinate-independent separation between points is the pythagorean theorem, which tells us that no matter what coordinate system we use, we can <em>calculate</em> the coordinate-independent distance <span class="math inline">\(\Delta d\)</span> between the points from the coordinate-dependent coordinate differences as follows: <span class="math display">\[\Delta d^2 = \Delta x^2 + \Delta y^2 = (\Delta x^\prime)^2 + (\Delta y^\prime)^2\]</span> We call the corresponding equation in spacetime that allows us to connect frame-dependent coordinate differences to the frame-independent spacetime interval <span class="math inline">\(\Delta \tau\)</span> between two events the <strong>metric equation</strong>: <span class="math display">\[\Delta \tau^2 = \Delta t^2 - \Delta x^2 - \Delta y^2 - \Delta z^2
-= (\Delta t^\prime)^2 - (\Delta x^\prime)^2 - (\Delta y^\prime)^2 - (\Delta z^\prime)^2\]</span> as long as we work in units where <span class="math inline">\(c = 1\)</span>, meaning that we express time intervals in meters (where 1 m of time <span class="math inline">\(\equiv\)</span> the time it takes light to travel 1 m of distance). We will use such units exclusively in what follows.</p>
-<p>The minus signs that appear in the metric equation (which follow from the requirement that the speed of light be the same in all frames) underlines the fact that our geometric analogy is not perfect, and reflects the reality that we experience time very differently than we experience space. (They are also responsible for the fact that the <span class="math inline">\(x^\prime\)</span> coordinate axis tilts upward rather than downward in Figure <a href="#GA" data-reference-type="ref" data-reference="GA">4</a>b and other subtle issues with the analogy that I won’t discuss here.)</p>
-<p>Note that we can also use the metric equation to calculate proper times along an arbitrary worldline in the same way that we use the pythagorean theorem to calculate pathlengths along arbitrary curves on a plane. We divide the worldline into segments so short that each segment is essentially straight. The proper time measured by a clock traveling along this segment of the should then be very nearly same as the spacetime interval between its endpoints, and the approximation becomes exact as the segment becomes infinitesimal: <span class="math inline">\((d\tau_w)^2 \approx d\tau^2 = dt^2 - dx^2 - dy^2 - dz^2\)</span>. To get the total proper time, we simply add up the infinitesimal spacetime intervals along each segment: <span class="math display">\[\Delta \tau_w = \int \sqrt{dt^2-dx^2-dy^2-dz^2}
-= \int \sqrt{1-\left(\frac{dx}{dt}\right)^2-\left(\frac{dy}{dt}\right)^2
--\left(\frac{dx}{dt}\right)^2}\ dt = \int \sqrt{1-v^2}\ dt\]</span> So if we know a clock’s speed <span class="math inline">\(v\)</span> as a function of coordinate time <span class="math inline">\(t\)</span> <em>as evaluated an arbitrary but specific inertial reference frame</em> as the clock moves along a given worldline, we can calculate the time that the clock will read at every event along that worldline.</p>
-<p>Now, the spacetime interval <span class="math inline">\(\Delta\tau\)</span> is physically meaningful only between events that can be connected by a clock moving at less than the speed of light. It is certainly possible to find a pair of events (say a pair of events that occur simultaneously in some inertial reference frame) where <span class="math inline">\(\Delta t^2 - \Delta x^2 - \Delta y^2 - \Delta z^2 &lt; 0\)</span>, meaning that <span class="math inline">\(\Delta \tau\)</span> would be imaginary. But (as we will see shortly) the value of <span class="math inline">\(\Delta t^2 - \Delta x^2 - \Delta y^2 - \Delta z^2\)</span> has a frame-independent value no matter what its sign might be. If its value is frame-independent, then so is its sign, so we can classify pairs of events into frame-independent categories as follows: <span class="math display">\[\begin{matrix}
-\text{\textbf{Timelike:}} &amp; \Delta t^2 - \Delta x^2 - \Delta y^2 - \Delta z^2 &gt; 0 \\
-\text{\textbf{Spacelike:}} &amp; \Delta t^2 - \Delta x^2 - \Delta y^2 - \Delta z^2 &lt; 0 \\
-\text{\textbf{Lightlike:}} &amp; \Delta t^2 - \Delta x^2 - \Delta y^2 - \Delta z^2 = 0
-\end{matrix}\]</span> When events have a timelike separation, we have seen that we can measure the spacetime interval <span class="math inline">\(\Delta\tau\)</span> between them using a clock that travels between them. If events have a spacelike separation, we can measure their <strong>spacetime separation</strong> <span class="math inline">\(\Delta s^2 \equiv
-- \Delta t^2 + \Delta x^2 + \Delta y^2 + \Delta z^2\)</span> by using a ruler to measure the distance between them in an inertial frame where they occur at the same time. Since all observers will agree whether or not a frame satisfies those criteria, and can look over each others’ shoulders to see what the ruler in that frame measures, this is still a frame-independent number (as claimed). Events having a lightlike separation can be connected by a traveling photon, and all observers can agree on whether that is possible too.</p>
-<p>Most (but not all) general relativity authors express the metric equation in terms of the spacetime separation <span class="math inline">\(\Delta s\)</span>, not the spacetime interval <span class="math inline">\(\Delta\tau\)</span> (though the term “spacetime interval” is often loosely applied to both <span class="math inline">\(\Delta s\)</span> and <span class="math inline">\(\Delta\tau\)</span>). Therefore, we usually write the metric equation as <span class="math display">\[\Delta s^2 = -\Delta t^2 + \Delta x^2 + \Delta y^2 + \Delta z^2 \quad
-( = -\Delta\tau^2)\]</span> and the event separation categories are <span class="math display">\[\begin{matrix}
-\text{\textbf{Timelike:}} &amp; \Delta s^2 &lt; 0 \\
-\text{\textbf{Spacelike:}} &amp; \Delta s^2 &gt; 0 \\
-\text{\textbf{Lightlike:}} &amp; \Delta s^2 = 0
-\end{matrix}\]</span></p>
-<p>Let me emphasize again the importance of the metric equation. It is the key to connecting our arbitrary human-defined coordinates to the physical reality that lies behind them. As our coordinate systems become even more arbitrary in general relativity, the metric equation plays an even more central role. The interval classifications also remain crucial, because they tell us whether a given pair of events can be connected by an object traveling at less than the speed of light or not.</p>
-<h3 id="exercise-the-three-kinds-of-time.">Exercise: The Three Kinds of Time.</h3>
-<p>Alice drives a race car around a track. Bob stands at a fixed position beside the track. Let event <span class="math inline">\(A\)</span> be Alice passing Bob the first time and event <span class="math inline">\(B\)</span> be Alice passing Bob the next time. Both Alice and Bob measure the time between these events with their watches. Now, Cara and David are riding a train whose track passes very close to Bob’s position and which is moving at a constant velocity. It happens that Cara passes Bob just as event <span class="math inline">\(A\)</span> occurs and David passes Bob just as event <span class="math inline">\(B\)</span> occurs. Cara and David note the times of these events on their watches, which have been previously synchronized in the train frame. They determine the time between the events by calculating the difference in the times they measure. (Assume that the ground frame is adequately inertial for events occurring in a plane perpendicular to the earth’s gravitational field.)</p>
-<p><strong>(a)</strong> Who measures a coordinate time between these events in some inertial reference frame?<br />
-<strong>(b)</strong> Who measures a proper time between these events along a worldline that connects the events?<br />
-<strong>(c)</strong> Who measures the spacetime interval between the events?<br />
-<strong>(d)</strong> Who measures the shortest time interval between these events?<br />
-<strong>(e)</strong> Who measures the longest time interval between these events?<br />
-<strong>Choices are:</strong> A. Alice B. Bob C. Cara and David (A question may have multiple answers.)</p>
-<h3 id="exercise-spacetime-intervals">Exercise: Spacetime Intervals</h3>
-<p>Let event <span class="math inline">\(A\)</span> be the emission of a pulse of light from a laser beam on the earth. Let event <span class="math inline">\(B\)</span> be that pulse bouncing off a mirror on the moon. Let event <span class="math inline">\(C\)</span> be that reflected pulse returning to a detector 10 m away from the laser. Let event <span class="math inline">\(D\)</span> be the laser emitting a second pulse at the same time (in the laboratory frame) as the first pulse is received by the detector. Specify the category of the interval between events</p>
-<ul>
-<li><p><span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>:</p></li>
-<li><p><span class="math inline">\(A\)</span> and <span class="math inline">\(C\)</span>:</p></li>
-<li><p><span class="math inline">\(A\)</span> and <span class="math inline">\(D\)</span>:</p></li>
-<li><p><span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>:</p></li>
-<li><p><span class="math inline">\(C\)</span> and <span class="math inline">\(D\)</span>:</p></li>
-</ul>
-<h2 id="index-notation">Index Notation</h2>
-<p>Consider now two inertial reference frames in <strong>standard orientation</strong> (each spatial axis of the primed frame points in the same spatial direction as the corresponding axis in the unprimed frame, and the primed frame moves along the common <span class="math inline">\(+x\)</span> direction relative to the unprimed frame with a velocity <span class="math inline">\(x\)</span>-component of <span class="math inline">\(\beta\)</span>). The Lorentz transformation equations state that, given an event, we can calculate its spacetime coordinates in the primed frame from its coordinates in the unprimed frame or vice-versa as follows: <span class="math display">\[\begin{aligned}
-t^\prime &amp;= \gamma t - \gamma \beta x \\
-x^\prime &amp;= -\gamma \beta t + \gamma x \\
-y^\prime &amp;= y \\
-z^\prime &amp;= z
-\end{aligned}
-\quad \quad \quad
-\begin{aligned}
-t &amp;= \gamma t^\prime + \gamma \beta x^\prime \\
-x &amp;= \gamma \beta t^\prime + \gamma x^\prime \\
-y &amp;= y^\prime\\
-z &amp;= z^\prime
-\end{aligned}\]</span> where <span class="math inline">\(\gamma \equiv 1/\sqrt{1-\beta^2}\)</span>. (Note that the fact that the inverse transformation simply involves flipping the sign of <span class="math inline">\(\beta\)</span> expresses the fundamental equivalence of the two frames: the <em>only</em> distinction between them is that we have arbitrarily defined <span class="math inline">\(\beta\)</span> to be the <span class="math inline">\(x\)</span>-velocity of the primed frame relative to the unprimed frame rather than the reverse.) Define 16-component objects labeled with two indices as follows <span class="math display">\[\begin{aligned}
-\Lambda^{\mu}_{\nu} =
-\begin{array}{c}
-\\
-t\\
-x\\
-y\\
-z\\
-\end{array}
+<h2 id="tensors">Tensors</h2>
+<p>Last time we introduced the concept of a four-vector <span class="math inline">\(\mathbf{A}\)</span> whose four components transform as follows: <span class="math display">\[\begin{aligned}
+    A&#39;^\alpha = \Lambda^{\alpha}_{\beta} A^\beta.\end{aligned}\]</span> (with a sum over the four values of the index <span class="math inline">\(\beta\)</span> implied by the Einstein summation convention. Consider now a frame-independent (<strong>scalar</strong>) field <span class="math inline">\(\Phi(t,x,y,z)\)</span> (describing something perhaps like temperature as a function of position and time). The <strong>four-gradient</strong> <span class="math inline">\(\partial_\alpha\Phi \equiv \partial\Phi/\partial x^\alpha\)</span> has four components, but how do these components transform as we change reference frames? Consider the time component of this object in the primed reference frame. According to the rules of multivariable calculus, we have <span class="math display">\[\frac{\partial\Phi}{\partial t^\prime} =
+\frac{\partial t}{\partial t^\prime} \frac{\partial\Phi}{\partial t}
++ \frac{\partial x}{\partial t^\prime} \frac{\partial\Phi}{\partial x}
++ \frac{\partial y}{\partial t^\prime} \frac{\partial\Phi}{\partial y}
++ \frac{\partial z}{\partial t^\prime} \frac{\partial\Phi}{\partial z}
+= (\Lambda^{-1})^{t}_{t}\frac{\partial\Phi}{\partial t}
++ (\Lambda^{-1})^{x}_{t}\frac{\partial\Phi}{\partial x}
++ (\Lambda^{-1})^{y}_{t}\frac{\partial\Phi}{\partial y}
++ (\Lambda^{-1})^{z}_{t}\frac{\partial\Phi}{\partial z}\]</span> since evaluating <span class="math inline">\(\partial t/\partial t^\prime, \partial t/\partial x^\prime,
+\partial t/\partial y^\prime,\)</span> and <span class="math inline">\(\partial t/\partial z^\prime\)</span> involves taking partial derivatives of the <em>inverse</em> Lorentz transformation equations and those partials yield simply the constant coefficients of that linear transformation. Similar expressions apply to the other components, so we can compactly write <span class="math display">\[\partial^{\:\prime}_{\alpha}\Phi = (\Lambda^{-1})^{\beta}_{\alpha}\:(\partial_{\beta}\,\Phi)\]</span></p>
+<p>So the gradient of a frame-independent field does not transform like a four-vector, but has a closely related and similarly simple transformation law. We call any set of four components that transform according to an <em>inverse</em> Lorentz transformation a <strong>covector</strong>.</p>
+<p>How does the four-gradient <span class="math inline">\(\partial_\alpha A^\beta\)</span> of a four-vector field <span class="math inline">\(\mathbf{A}\)</span> transform? The transformation rules imply that <span class="math display">\[\partial^{\:\prime}_{\alpha} A^{\prime\,\beta} =
+(\Lambda^{-1})^{\mu}_{\alpha}\frac{\partial}{\partial x^{\mu}}
+\left(\Lambda^{\beta}_{\nu}A^{\nu}\right)
+= (\Lambda^{-1})^{\mu}_{\alpha}\Lambda^{\beta}_{\nu}
+\left(\partial_{\mu} A^{\nu}\right)\]</span></p>
+<p>because the coefficients <span class="math inline">\(\Lambda^{\beta}_{\nu}\)</span> of the Lorentz transformation do not themselves depend on position. This 16-component quantity therefore also has a simple transformation law, which involves a Lorentz transformation factor for a superscript index and an inverse Lorentz transformation for the subscript index. We call such a quantity a <strong>second-rank tensor</strong>. By analogy, we define an <strong><em>n</em>th-rank tensor</strong> <span class="math inline">\(T^{\alpha\cdots}_{\beta\cdots}{}^{\gamma\cdots}\)</span> to be an <em>n</em>-index object (with <span class="math inline">\(4^n\)</span> components) that transforms according to <span class="math display">\[T&#39;^{\alpha\cdots}_{\beta\cdots}{}^{\gamma\cdots} =
+\Lambda^{\alpha}_{\mu}\cdots(\Lambda^{-1})^{\nu}_{\beta}\cdots
+\Lambda^{\gamma}_{\sigma}\cdots T^{\mu\cdots}_{\nu\cdots}{}^{\sigma\cdots}\]</span></p>
+<p>that is, a Lorentz-transformation factor for every upper (superscript) index and an inverse-Lorentz-transformation factor for every lower (subscript) index. The vertical position of tensor indices therefore carries very important information about how the tensor transforms. The horizontal position of the indices on some tensors can also be physically significant, an issue which we will consider in more depth later.</p>
+<p>The “tensor” concept generalizes and extends the four-vector/covector concept. Indeed, a four-vector is a rank-one tensor with one upper index. A covector is a rank-one tensor with one lower index. A scalar (frame-independent quantity) is a zero-rank tensor.</p>
+<p>The gradient of a four-vector is one example of an operation that combines tensors to yield another tensor. Another example is what we can call the <strong>tensor product</strong> <span class="math inline">\(A^\mu B^\nu\)</span> of two four-vectors <span class="math inline">\(A^\mu\)</span> and <span class="math inline">\(B^\nu\)</span>. This is a 16-component object whose <span class="math inline">\(\mu\text{-}\nu\)</span> component is the product of the <span class="math inline">\(\mu\)</span>th component of <span class="math inline">\(\mathbf{A}\)</span> and the <span class="math inline">\(\nu\)</span>th component of <span class="math inline">\(\mathbf{B}\)</span>. It transforms as follows: <span class="math display">\[T&#39;^{\mu\nu} \equiv A&#39;^{\mu}B&#39;^{\nu} =
+(\Lambda^{\mu}_{\alpha}A^{\alpha})(\Lambda^{\nu}_{\beta}B^{\beta}) =
+\Lambda^{\mu}_{\alpha}\Lambda^{\nu}_{\beta}(A^{\alpha} B^{\beta}) =
+\Lambda^{\mu}_{\alpha}\Lambda^{\nu}_{\beta}T^{\alpha\beta}\]</span></p>
+<p>So the tensor product of four-vectors is indeed a second-rank tensor with two upper indices.</p>
+<p>Another tensor operation is summing over an upper and lower index (a process we call <strong>contraction</strong> over those indices). Consider a second-rank tensor object <span class="math inline">\(T^{\alpha}_{\beta}\)</span> with one upper and one lower index, and suppose that we sum over the upper and lower index (if we imagine the components of <span class="math inline">\(\mathbf{T}\)</span> arranged in a matrix, this would be the same as summing the matrix’s diagonal elements). This operation produces a one-component object that transforms as <span class="math display">\[T&#39;^{\alpha}_{\alpha} =
+\Lambda^{\alpha}_{\mu}(\Lambda^{-1})^{\nu}_{\alpha}T^{\mu}_{\nu}
+= \delta^{\nu}_{\mu}T^{\mu}_{\nu}\]</span> because the matrix product of the inverse Lorentz transformation and the Lorentz transformation is the identity matrix, which in index notation is the Kronecker delta (summing the Lorentz transformation coefficients over the <span class="math inline">\(\alpha\)</span> index is equivalent to doing a matrix product in the order <span class="math inline">\([\Lambda^{-1}][\Lambda]\)</span>. But if we now sum over, say, the <span class="math inline">\(\mu\)</span> index, only the terms with <span class="math inline">\(\nu = \mu\)</span> are nonzero, meaning that the expression above reduces to <span class="math display">\[T&#39;^{\alpha}_{\alpha} = T^{\nu}_{\nu}\]</span></p>
+<p>So the value of the contracted tensor is <em>frame-independent</em>: it is indeed a zeroth-rank tensor (scalar). Generally, summing over an upper and lower index of a <em>n</em>th-rank tensor produces a new tensor with rank <span class="math inline">\(n-2\)</span>. This is why the Einstein summation convention is specific about summing over one upper and one lower index: as you can easily show, the sums <span class="math display">\[\sum T_{\mu}^{\mu} \quad \text{and} \quad \sum T^{\mu}_{\mu}\]</span></p>
+<p>produce single numbers, but these numbers are not frame-independent scalars (they are not tensors).</p>
+<p>Now, as its name indicates, the metric tensor <span class="math inline">\(\eta_{\mu \nu}\)</span> is a second-rank tensor with two lower indices. Here is how we can prove it. (The process will also nicely illustrate some issues about using index notation that will be useful to us as we go along.) The invariance of the spacetime separation implies that <span class="math display">\[\eta_{\mu \nu}\Delta x&#39;^{\mu}\Delta x&#39;^{\nu} =
+\eta_{\alpha \beta}\Delta x^{\alpha} \Delta x^{\beta} =
+\eta_{\alpha \beta}(\Lambda^{-1})^{\alpha}_{\gamma}\:
+\Delta x&#39;^{\gamma}
+(\Lambda^{-1})^{\beta}_{\sigma}\:\Delta x&#39;^{\sigma}
+= [(\Lambda^{-1})^{\alpha}_{\gamma}(\Lambda^{-1})^{\beta}_{\sigma}
+\eta_{\alpha \beta}]\Delta x&#39;^{\gamma}\Delta x&#39;^{\sigma}\]</span></p>
+<p>Note that we can freely rearrange the order of items because in each term of the implied sums, the items are simply numerical values, and multiplication is commutative. Also, because addition is associative, it does not matter in which order we perform the implied sums (over 16 terms on the left side, 256 terms on the right side). This flexibility is what makes index notation <em>much</em> easier than matrix notation for dealing with equations like this. Another flexibility is that the name we give to a summed index is completely arbitrary. It is good practice (as I have done initially) to keep index names distinct. But one can take advantage of the arbitrary nature of index names to rename summed indices in convenient ways, as long as we don’t give indices that describe distinct sums the same index names (as then it becomes ambiguous about what exactly we are summing over). In this particular case, we can rename the sum over the <span class="math inline">\(\gamma\)</span> index on the right side so that it becomes a sum over a <span class="math inline">\(\mu\)</span> index, and similarly rename <span class="math inline">\(\sigma \rightarrow \nu\)</span>: <span class="math display">\[\eta_{\mu \nu}\Delta x&#39;^{\mu}\Delta x&#39;^{\nu}
+= [(\Lambda^{-1})^{\alpha}_{\mu}(\Lambda^{-1})^{\beta}_{\nu}
+\eta_{\alpha \beta}]\Delta x&#39;^{\mu}\Delta x&#39;^{\nu}
+\quad \text{or} \quad
+0 = [\eta_{\mu \nu}-(\Lambda^{-1})^{\alpha}_{\mu}
+(\Lambda^{-1})^{\beta}_{\nu}
+\eta_{\alpha \beta}]\Delta x&#39;^{\mu}\Delta x&#39;^{\nu}\]</span></p>
+<p>In this case, renaming allows us to subtract the left side from the right side and pull out the common factor of <span class="math inline">\(\Delta x^{\prime\,\mu}\Delta x^{\prime\,\nu}\)</span> from both terms. We cannot simply now divide through by <span class="math inline">\(\Delta x^{\prime\,\mu}\Delta x^{\prime\,\nu}\)</span> because we are summing over <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\nu\)</span> and a sum can be zero even though individual terms in the sum are not. But in this case, we know that the sum must be zero no matter what the values of the coordinate differences <span class="math inline">\(\Delta x^{\prime\,\mu}\)</span> and <span class="math inline">\(\Delta x^{\prime\,\nu}\)</span> might actually have. Indeed, we can judiciously choose pairs of events to isolate terms in the sums to prove that in fact the quantity in square brackets must be zero for every possible choice of <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\nu\)</span>. For example, suppose that I choose a pair of events that have coordinate separation in the primed frame that is purely in the <span class="math inline">\(t^\prime\)</span>-direction: <span class="math inline">\(\Delta x^\prime
+= \Delta y^\prime = \Delta z^\prime = 0\)</span>. Then all terms in the sum above except the term with <span class="math inline">\(\mu = \nu = t\)</span> are zero, and we see that the <em>t-t</em> component of the term in the bracket must be zero. We can similarly constrain all the other components. So because the original equation must work for all possible event coordinate-separations, we must have <span class="math display">\[0 = \eta_{\mu \nu}-(\Lambda^{-1})^{\alpha}_{\mu}
+(\Lambda^{-1})^{\beta}_{\nu}
+\eta_{\alpha \beta} \quad \Rightarrow \quad
+\eta_{\mu \nu} =
+(\Lambda^{-1})^{\alpha}_{\mu}
+(\Lambda^{-1})^{\beta}_{\nu}
+\eta_{\alpha \beta}\]</span> The metric tensor <span class="math inline">\(\eta_{\mu\nu}\)</span> by definition has the same components in every inertial reference frame, and the equation above shows that this is consistent with its being a second-rank tensor with two lower indices.</p>
+<p>In a similar way, one can show that the Kronecker delta <span class="math inline">\(\delta^{\mu}_{\nu}\)</span> transforms like a second-rank tensor with one upper and one lower index, and that the matrix inverse <span class="math inline">\(\eta^{\mu\nu}\)</span> of the metric tensor, defined such that <span class="math display">\[\eta^{\mu\alpha}\eta_{\alpha\nu} =
+\delta^{\mu}_{\nu}\]</span> (and which happens in special relativity to have the same components as <span class="math inline">\(\eta_{\mu\nu}\)</span>) transforms like a second-rank tensor with two upper indices. Finally, since the tensor product and contraction operations produce tensors, we see that the operations <span class="math display">\[A_{\mu} = \eta_{\mu \nu} A^{\nu} \quad \text{and} \quad
+B^{\mu} = \eta^{\mu \nu} B_{\nu}\]</span></p>
+<p>produce a covector representation of the four-vector <span class="math inline">\(\mathbf{A}\)</span> and a four-vector representation of the covector <span class="math inline">\(\mathbf{B}\)</span>.</p>
+<p>We can also add tensors that have the same rank and index position. For example, the set of four components <span class="math inline">\(C^\mu \equiv A^\mu + B^\mu\)</span> transforms like <span class="math display">\[C&#39;^{\mu} = A&#39;^{\mu} + B&#39;^{\mu}
+= \Lambda^{\mu}_{\nu} A^{\nu} + \Lambda^{\mu}_{\alpha} B^{\alpha}
+= \Lambda^{\mu}_{\nu} (A^{\nu} + B^{\nu}) = \Lambda^{\mu}_{\nu} C^{\nu}\]</span> In the next-to-last step, I renamed the summed <span class="math inline">\(\alpha\)</span> index to <span class="math inline">\(\nu)\)</span> so that I could pull out the common Lorentz transformation coefficient. We see that this equation implies that the four components <span class="math inline">\(C^\mu\)</span> really do transform like the components of a first-rank tensor <span class="math inline">\(\mathbf{C}\)</span>. You can see that a similar proof will apply to other tensor sums as long as the number and positions of the indices are the same.</p>
+<p>So, to summarize, we have a well-defined set of operations on tensors that produce tensors:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Tensor Addition:</strong></td>
+<td style="text-align: left;">example: <span class="math inline">\(p_\text{tot}^\mu = p_1^\mu + p_2^\mu\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Tensor Product:</strong></td>
+<td style="text-align: left;">example: <span class="math inline">\(A^\mu B^\nu = T^{\,\mu\nu}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Contraction:</strong></td>
+<td style="text-align: left;">example: <span class="math inline">\(\delta^{\mu}_{\mu}=4\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Lowering indices:</strong></td>
+<td style="text-align: left;">example: <span class="math inline">\(A_\mu = \eta_{\mu\nu}A^\nu\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Raising indices:</strong></td>
+<td style="text-align: left;">example: <span class="math inline">\(B^\mu = \eta^{\mu\nu}B_\nu\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Renaming summed indices:</strong></td>
+<td style="text-align: left;">example: <span class="math inline">\(\delta^{\mu}_{\mu} = \delta^{\nu}_{\nu} = 4\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The importance of all of this is that if we create a tensor equation (for example <span class="math inline">\(A^\mu = B^\mu\)</span> or any of the equations above), we can be assured that if it is true in any one inertial reference frame it is true in <em>every</em> inertial reference frame. This is because if we change reference frames, the component(s) on the right side of the equation transform in exactly the same way as the components on the left side. (Of course, the tensor on the right side of the equation must have the same number of indices and in the same positions for this to work: equating a second-rank tensor to a scalar, for example, would make no sense.) This means that we can write absolute physics equations that work in <em>every</em> inertial reference frame. For example, the tensor equation <span class="math inline">\(d(\eta_{\mu\nu}p^\mu p^\nu)/d\tau = d(p_\mu p^\nu)/d\tau = 0\)</span>, which says that the magnitude of a particle’s four-momentum (its mass) does not change in time, works in every inertial frame, no matter what the components of the four-momentum might be in that particular frame. This allows us to compactly and generally state physical laws that are <em>automatically</em> consistent with the principle of relativity. This is extremely powerful, as we will see shortly.</p>
+<p>But before we get to that, I want to point out that if you are new to index notation, one can easily write equations that superficially look good but are nonsense, or perform operations that turn perfectly good equations into nonsense.</p>
+<p>In a moment, I will give you some rules that will help you avoid making mistakes. But first of all, let me define some terms. A <strong>summed index</strong> in an equation is an index that we are summing over, while a <strong>free index</strong> can take on any of its four possible values that we choose. For example in the equation <span class="math inline">\(A_\mu = \eta_{\mu\nu}A^\nu\)</span>, the <span class="math inline">\(\mu\)</span> index is free while the <span class="math inline">\(\nu\)</span> index is summed. The fact that we can arbitrarily choose the value of the <span class="math inline">\(\mu\)</span> index means that this compact tensor equation stands for four component equations: <span class="math display">\[\begin{aligned}
+A_t = \eta_{t\nu}A^\nu &amp;= \eta_{tt}A^t + \eta_{tx}A^x
++ \eta_{tx}A^y + \eta_{tz}A^z \\
+A_x = \eta_{x\nu}A^\nu &amp;= \eta_{xt}A^t + \eta_{xx}A^x
++ \eta_{xy}A^y + \eta_{xz}A^z \\
+A_y = \eta_{y\nu}A^\nu &amp;= \eta_{yt}A^t + \eta_{yx}A^x
++ \eta_{yy}A^y + \eta_{yz}A^z \\
+A_z = \eta_{z\nu}A^\nu &amp;= \eta_{zt}A^t + \eta_{zx}A^x
++ \eta_{zy}A^y + \eta_{zz}A^z
+\end{aligned}\]</span> Secondly, in an equation in which there is an explicit sum, for example <span class="math display">\[\frac{d}{d\tau}(\eta_{\mu\nu}p^{\,\mu} p^\nu) =
+\eta_{\mu\nu}\frac{dp^{\,\mu}}{d\tau}p^\nu + \eta_{\mu\nu}p^{\,\mu}\frac{dp^\nu}{d\tau}\]</span> (which expresses the product rule of calculus in a case where we are evaluating the time derivative of the squared magnitude of a particle’s four-momentum), we call the two items in the right-most expression <strong>terms</strong>, and the three quantities that are multiplied together in each of those two terms <strong>factors</strong>.</p>
+<p>Now we are ready to state the rules.</p>
+<ol>
+<li><p><strong>Free indices.</strong> We cannot add tensor or equate tensor quantities that do not have the same number of indices: it makes no sense to equate or add quantities that have different numbers of components. Similarly, it makes no sense if the free indices are not in the same vertical positions, because then the quantities will not transform alike. Therefore the free indices on the right side of an equation must be have the same number and vertical positions as those on the left, and the same applies to any added terms. Moreover, all free indices should have the same names as their counterparts in other terms or on other sides of the equation. Examples of bad equations are: <span class="math display">\[\text{\textbf{Bad: }} A^2 = \eta_{\mu\nu}A^{\alpha\beta}, \quad
+A^\mu = B^\nu, \quad A_\mu = B^\mu\]</span> The <strong>only exception</strong>: by convention, setting a tensor equal to zero is allowed. For example <span class="math inline">\(p_{\text{tot}}^\mu = 0\)</span> means that all the components of the total momentum of a system are zero. This is because any tensor whose components are all zero in some frame (no matter how many indices it has and no matter what the positions of those indices are) will transform to all zeros in any other coordinate system. So there is no point in attaching indices to such a zero-valued tensor.</p></li>
+<li><p><strong>Renaming free indices.</strong> One can legally rename any <em>free</em> index with a different Greek letter (the choice of letter names is arbitrary) as long as (1) you avoid names already in use by free or summed indices, and (2) you rename <em>every</em> occurrence of that index. For example: <span class="math display">\[\text{\textbf{Bad: }} A&#39;^{\mu} = \Lambda^{\mu}_{\nu}A^{\nu}
+\quad \rightarrow \quad A&#39;^{\alpha} = \Lambda^{\mu}_{\nu}A^{\nu}
+\quad \quad
+\text{\textbf{Good: }} A&#39;^{\mu} = \Lambda^{\mu}_{\nu}A^{\nu}
+\quad \rightarrow \quad A&#39;^{\alpha} = \Lambda^{\alpha}_{\nu}A^{\nu}\]</span></p></li>
+<li><p><strong>Renaming summed indices.</strong> One can legally rename any <em>summed</em> index in a term as long as (1) you rename both occurrences of the index and (2) you avoid names <em>already appearing in the same term</em>. This avoids ambiguities. For example renaming the <span class="math inline">\(\nu\)</span> index in the equation below to <span class="math inline">\(\mu\)</span> <span class="math display">\[\text{\textbf{Bad: }} A&#39;^{\mu} = \Lambda^{\mu}_{\nu}A^{\nu}
+\quad \rightarrow \quad A&#39;^{\mu} = \Lambda^{\mu}_{\mu}A^{\mu}\]</span> confuses what the sums really are. The first equation clearly has four implicit terms on the left, but the second equation is ambiguous: is the <span class="math inline">\(\mu\)</span> index free or summed? Are we doing a sum or not?</p>
+<p>On the other hand, renaming summed indices to agree with the same name in <em>different</em> terms is not only allowed, but can be very useful. For example renaming the summed index <span class="math inline">\(\alpha\)</span> to <span class="math inline">\(\nu\)</span> in the last term in the middle equality below <span class="math display">\[\text{\textbf{Good: }}
+C&#39;^{\mu} \equiv A&#39;^{\mu} + B&#39;^{\mu}
+= \Lambda^{\mu}_{\nu}A^{\nu} + \Lambda^{\mu}_{\alpha}B^{\alpha}
+= \Lambda^{\mu}_{\nu}(A^{\nu} + B^{\nu})
+\equiv \Lambda^{\mu}_{\nu}C^{\nu}\]</span> not only is legal but allows us to group common terms together and simplify the equation.</p></li>
+<li><p><strong>When in doubt, write it out.</strong> If you are ever uncertain about what is legal and what is not, write out the implicit sums (if practical). You all have lots of practice with complicated equations that don’t involve implicit sums. It may even help to just insert the implied summation symbols.</p></li>
+</ol>
+<h3 id="exercise-good-or-bad">Exercise: Good or Bad?</h3>
+<p>Consider the equations listed below. Answer A = Violates Rule 1, B = Violates Rule 2, C = Violates Rule 3, D = OK for each equation. For each acceptable equation, specify how many equations it implicitly represents (A = 1, B = 4, C = 16, D = 64, E = 256).</p>
+<ol>
+<li><p><span class="math inline">\(\eta_{\mu\nu}u^{\mu} u^{\nu} = -1\)</span></p></li>
+<li><p><span class="math inline">\(p^{\alpha} = m u^{\alpha}\delta^{\mu}_{\beta}\)</span></p></li>
+<li><p><span class="math inline">\(\Lambda^{\alpha}_{\beta}A^{\beta} = A&#39;^{\alpha}
+\quad \text{renamed to} \quad
+\Lambda^{\alpha}_{\beta}A^{\beta} = A&#39;^{\mu}\)</span></p></li>
+<li><p><span class="math inline">\(\eta_{\mu\nu}(\Lambda^{-1})^{\nu}_{\alpha} =
+\eta_{\mu\beta}\Lambda^{\beta}_{\alpha}\)</span></p></li>
+<li><p><span class="math inline">\(\eta_{\mu\nu}A^{\mu} B^{\nu} = 0 \quad \text{renamed to} \quad
+\eta_{\mu\mu}A^{\mu} B^{\mu} = 0\)</span></p></li>
+<li><p><span class="math inline">\(\dfrac{dp^{\alpha}}{d\tau} = q F^{\mu\nu}u^{\alpha}\)</span></p></li>
+<li><p><span class="math inline">\(T_{\mu\nu\alpha} + T_{\alpha\mu\nu} + T_{\nu\alpha\mu} = 0\)</span></p></li>
+<li><p><span class="math inline">\(0 = \eta_{\mu\nu}A^{\mu} B^{\nu} + \eta_{\alpha\beta}A^{\alpha} C^{\beta}
+\quad \text{renamed to} \quad
+0 = \eta_{\mu\nu}A^{\mu} B^{\nu} + \eta_{\mu\nu}A^{\mu} C^{\nu}\)</span></p></li>
+</ol>
+<h2 id="maxwells-equations">Maxwell’s Equations</h2>
+<p>If we can write a law of physics as a tensor equation, it will have exactly the same form in all inertial reference frames. Such a <strong>manifestly covariant</strong> equation automatically satisfies the principle of relativity. The tensor formalism therefore provides a powerful tool for finding relativistic generalizations of pre-relativistic laws of physics. In this section, I will illustrate the process by “deriving” Maxwell’s equations by seeking tensor expressions of Gauss’s law and the definition of the electric field for a particle at rest.</p>
+<p>This section assumes that you already know Maxwell’s equations and for static electric fields, we can define an electromagnetic potential <span class="math inline">\(\phi\)</span> such that <span class="math inline">\(\vec{E} = -\vec{\nabla}\phi\)</span>.</p>
+<p>Start with the Newtonian equation for the force on a particle with charge <span class="math inline">\(q\)</span> at rest: <span class="math display">\[\frac{d\vec{p}}{dt} = q\vec{E} = -q\vec{\nabla}\phi\]</span> where <span class="math inline">\(\phi\)</span> is the electrostatic potential, and the Gauss’s law expressed in terms of the potential: <span class="math display">\[\label{Poisson}
+    \vec{\nabla} \cdot \vec{E} = -\nabla^2\phi
+    = \frac{\rho}{\varepsilon_0}\]</span> where <span class="math inline">\(\vec{\nabla}^2 = \vec{\nabla} \cdot \vec{\nabla}
+= \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2}\)</span>. Let’s assume that we know experimentally that these laws are true in static situations.</p>
+<p>The first step to finding a tensor generalization of these laws is to determine the transformation properties of <span class="math inline">\(\rho\)</span>: is this a scalar, a component of a four-vector, a component of a second-rank tensor or what? Charge itself must be a relativistic <em>scalar</em>: if the charge of a particle were not frame-independent, then the charges an atom’s electrons (which orbit the nucleus at all kinds of different speeds) would not exactly cancel the charge of the protons at rest in the atom’s nucleus, meaning that different atoms would have different nonzero net charges, something we do not observe. So let’s assume that charge is a relativistic scalar.</p>
+<p>What does this mean about the charge <em>density</em>? Consider a small box of volume <span class="math inline">\(V\)</span> filled with a total charge <span class="math inline">\(q\)</span> that is at rest the unprimed inertial frame. Suppose we look at the box in the primed frame, where the box is moving with <span class="math inline">\(x\)</span>-velocity <span class="math inline">\(-\beta\)</span>. In this frame, the box has the same total charge <span class="math inline">\(q\)</span> (because charge is a relativistic scalar), but it will be observed to have a smaller volume <span class="math inline">\(V^\prime = V\sqrt{1-\beta^2}\)</span> because the box’s length in the <span class="math inline">\(x\)</span> direction is observed to be Lorentz-contracted by a factor of <span class="math inline">\(\sqrt{1-\beta^2}\)</span>. Therefore, the charge <em>density</em> in the primed frame is <span class="math display">\[\rho^\prime = \frac{q}{V^\prime} = \frac{q}{V\sqrt{1-\beta^2}} = \gamma \rho\]</span> Moreover, in the primed frame, the charge is moving with a velocity <span class="math inline">\(\vec{v}^{\,\prime} = -\vec{\beta}\)</span> in the -<span class="math inline">\(x\)</span> direction, so it has a nonzero current density whose <span class="math inline">\(x\)</span> component should be <span class="math inline">\(-\rho^\prime\beta\)</span>.</p>
+<p>Now, suppose we define a <strong>four-current</strong> <span class="math inline">\(\mathbf{J}\)</span> so that its components in any inertial reference frame are <span class="math inline">\(J^t \equiv \rho,
+J^x = \rho v_x, J^y = \rho v_y, J^z = \rho v_z\)</span>. According to the Lorentz transformation equations, if we have <span class="math inline">\(J^t = \rho, J^x = J^y =
+J^z = 0\)</span>, then in the primed frame we should have <span class="math display">\[\begin{aligned}
+\rho^\prime = J^{\prime\,t} &amp;= \gamma J^t - \gamma \beta J^x
+= \gamma \rho - 0 = \gamma \rho\\
+J^{\prime\,x} &amp;= -\gamma \beta J^t + \gamma J^x = -\gamma \beta \rho + 0
+= -\rho^\prime \beta\\
+J^{\prime\,y} &amp;= J^y = 0 \\
+J^{\prime\,z} &amp;= J^z = 0
+\end{aligned}\]</span> consistent with our earlier results. So we see that the charge density <span class="math inline">\(\rho\)</span> transforms as the time component of a four-vector.</p>
+<p>But this means that the right side of the relativistic generalization of <span class="math inline">\(-\vec{\nabla}^2\phi = \rho/\varepsilon_0\)</span> must be the four-vector <span class="math inline">\(\mathbf{J}/\varepsilon_0\)</span>. What about the left side? A plausible tensor generalization of is <span class="math inline">\(-\partial_\mu \partial^\mu \equiv -\eta^{\mu\nu}\partial_\mu\partial_\nu=\)</span> : for a static potential field, the added time-derivative will be zero, so the two expressions are equivalent. But <span class="math inline">\(-\partial_\mu \partial^\mu\)</span> transforms as a relativistic scalar, so if the left side is to transform as the time component of a four-vector, then <span class="math inline">\(\phi\)</span> must be the time component of a four-vector. Let’s call the components of that four-vector <span class="math inline">\(A^\alpha\)</span>. Therefore, the natural relativistic generalization of the Poisson equation is <span class="math display">\[-\partial_\mu \partial^\mu A^\alpha = \frac{1}{\varepsilon_0}J^\alpha\]</span> However, this is not the most general equation, because in a static situation any time-derivatives of the four-potential will be zero. Therefore the more general equation <span class="math display">\[\label{PoisGen}
+-\partial_\mu (\partial^\mu A^\alpha + b\,\partial^\alpha A^\mu)
+= \frac{1}{\varepsilon_0}J^\alpha\]</span> where <span class="math inline">\(b\)</span> is any frame-independent constant, is also possible, because the time component of the above in a static situation becomes <span class="math display">\[-\partial_\mu (\partial^\mu A^t + b\,\partial^{\,t} A^\mu)
+= \frac{1}{\varepsilon_0}J^t  \quad \Rightarrow \quad
+-\partial_\mu (\partial^\mu \phi + b\cdot 0) = \frac{1}{\varepsilon_0}\rho
+\quad \Rightarrow \quad
+-\nabla^2\phi = \frac{1}{\varepsilon_0}\rho\]</span> consistent with equation <a href="#Poisson" data-reference-type="ref" data-reference="Poisson">[Poisson]</a>. So we will take equation <a href="#PoisGen" data-reference-type="ref" data-reference="PoisGen">[PoisGen]</a> to be its relativistic generalization.</p>
+<p>Now let’s look at the force equation. Since we know that the electrostatic potential is the time component of a four-vector, the generalization of the force equation must look something like <span class="math display">\[\frac{dp^\alpha}{d\tau} = -q\,\partial^\alpha A^\mu\]</span> But this can’t be right, because the free indexes don’t match. We need an additional covector on the right to contract with the <span class="math inline">\(A^\mu\)</span> in such a way that for a particle at rest, only the time component <span class="math inline">\(A^t = \phi\)</span> survives. The natural choice is the covector version of the particle’s four-velocity <span class="math inline">\(u_\mu = \eta_{\mu\nu}u^\nu\)</span>, because for a particle at rest, <span class="math inline">\(u^t = 1, u^x = u^y = u^z = 0 \quad \Rightarrow \quad
+u_t = \eta_{t\nu}u^\nu = \eta_{tt}u^t + 0 = -1, u_x = \eta_{x\nu}u^\nu
+= \eta_{xx}u^x = 0\)</span>, and similarly <span class="math inline">\(u_y = u_z = 0\)</span>. So a more credible generalization of the equation above would be <span class="math display">\[\frac{dp^\alpha}{d\tau} = +q\,\partial^\alpha A^\mu u_\mu\]</span> However, this is again not the most general form, because <span class="math display">\[\label{Fwh}
+\frac{dp^\alpha}{d\tau} = q(\partial^\alpha A^\mu
++ h\,\partial^{\,\mu} A^\alpha) u_\mu\]</span> (where <span class="math inline">\(h\)</span> is another scalar constant) because for a particle at rest, the new term involves only a time-derivative of <span class="math inline">\(A^\alpha\)</span>, which would be zero in a static situation.</p>
+<p>However, in this case, we can constrain the value of <span class="math inline">\(h\)</span>. The time-derivative of the squared magnitude of the particle’s four-momentum (that is, the square of its rest-energy <span class="math inline">\(m\)</span>) must be zero no matter what is happening with the electromagnetic potentials. Therefore we must have <span class="math display">\[0 = \frac{d}{d\tau}(-m^2) = \frac{d}{d\tau}(p^\alpha \eta_{\alpha\beta}p^\beta) =
+\frac{dp^\alpha}{d\tau}\eta_{\alpha\beta}p^\beta
++ p^\alpha\eta_{\alpha\beta}\frac{dp^\beta}{d\tau} =
+\frac{dp^\alpha}{d\tau}\eta_{\alpha\beta}p^\beta
++ p^\beta\eta_{\beta\alpha}\frac{dp^\alpha}{d\tau} =
+2\frac{dp^\alpha}{d\tau}\eta_{\alpha\beta}p^\beta\]</span> where in the next-to-last step, I renamed the summed index <span class="math inline">\(\alpha\)</span> to <span class="math inline">\(\beta\)</span> and the summed index <span class="math inline">\(\beta\)</span> to <span class="math inline">\(\alpha\)</span> in the second term I used the fact that the metric tensor is symmetric, so that <span class="math inline">\(\eta_{\alpha\beta} = \eta_{\beta\alpha}\)</span>. If we note that <span class="math inline">\(\eta_{\alpha\beta}p^\beta = p_\alpha = mu_\alpha\)</span>, and substitute in equation <a href="#Fwh" data-reference-type="ref" data-reference="Fwh">[Fwh]</a>, we see that <span class="math display">\[0 = 2qm(\partial^\alpha A^\mu
++ h\,\partial^{\,\mu} A^\alpha) u_\alpha  u_\mu\]</span> Now, at first this looks impossible, because the particle’s four-velocity could be anything and the field derivatives could be anything, so how could we be sure that this is zero? But note that if we choose <span class="math inline">\(h = -1\)</span>, <span class="math display">\[(\partial^\alpha A^\mu -\,\partial^{\,\mu} A^\alpha) u_\alpha  u_\mu = 
+\partial^\alpha A^\mu u_\alpha u_\mu -
+\partial^{\,\mu} A^\alpha u_\alpha  u_\mu = 
+\partial^\alpha A^\mu u_\alpha u_\mu -
+\partial^{\,\alpha} A^\mu u_\mu  u_\alpha = 0\]</span> where in the next-to-last step, I renamed the summed indices <span class="math inline">\(\mu \leftrightarrow \alpha\)</span> in the second term, and in the last step I recognized that the order in which we multiply <span class="math inline">\(u_\alpha u_\mu\)</span> is irrelevant. So we see that we can ensure that the fields have no effect on a particle’s rest mass by choosing <span class="math inline">\(h = -1\)</span> in equation <a href="#Fwh" data-reference-type="ref" data-reference="Fwh">[Fwh]</a>, yielding <span class="math display">\[\frac{dp^\alpha}{d\tau} = q(\partial^\alpha A^\mu
+- \,\partial^{\,\mu} A^\alpha) u_\mu\]</span></p>
+<p>We can also constrain <span class="math inline">\(b\)</span> in equation <a href="#PoisGen" data-reference-type="ref" data-reference="PoisGen">[PoisGen]</a>. Suppose we multiply both sides by <span class="math inline">\(\partial_\alpha\)</span> and sum over <span class="math inline">\(\alpha\)</span>: <span class="math display">\[\frac{1}{\varepsilon_0}\partial_\alpha J^\alpha
+= -\partial_\alpha\partial_\mu (\partial^\mu A^\alpha + b\,\partial^\alpha A^\mu)
+= -\partial_\alpha\partial_\mu \partial^\mu A^\alpha
+- b\,\partial_\mu\partial_\alpha \partial^\mu A^\alpha
+= -(1+b)\partial_\alpha\partial_\mu \partial^\mu A^\alpha\]</span> where in the next-to-last step I have renamed the summed indices <span class="math inline">\(\mu \leftrightarrow \alpha\)</span> in the second term, and in the last step I noted that the order in which we take the partial derivatives does not matter. But charge conservation requires that <span class="math inline">\(\partial_\alpha J^\alpha = 0 \Rightarrow \frac{\partial \rho}{\partial t} = -\vec{\nabla} \cdot \vec{J}\)</span> (which basically says that when charge is conserved, the rate of change of the charge in a tiny box must be equal to negative the outflow of charge through the box’s faces). The only way to ensure that charge is conserved no matter how the fields vary is to insist that <span class="math inline">\(b = -1\)</span>.</p>
+<p>So our final proposed tensor equations for electrodynamics are <span class="math display">\[\frac{dp^\alpha}{d\tau} = q(\partial^\alpha A^\mu
+- \,\partial^{\,\mu} A^\alpha) u_\mu
+\quad \text{and} \quad
+\partial_\mu (\partial^\alpha A^\mu - \partial^\mu A^\alpha)
+= \frac{1}{\varepsilon_0}J^\alpha\]</span> where I have flipped the terms in the second equation to get rid of the overall minus sign. Note that quantity in parentheses is a second-rank antisymmetric tensor that appears in both equations. We can give its six independent components (arranged as a square matrix below) letter names <span class="math inline">\(E_x, E_y, E_z, B_x, B_y, B_z\)</span> as follows: <span class="math display">\[\begin{aligned}
+F^{\mu\nu} &amp;=
 \begin{pmatrix}
-\gamma &amp; - \gamma\beta &amp; 0 &amp; 0 \\
--\gamma\beta &amp; \gamma &amp; 0 &amp; 0 \\
-0 &amp; 0 &amp; 1 &amp; 0 \\
-0 &amp; 0 &amp; 0 &amp; 1 \\
-\end{pmatrix}
-\quad \quad \quad
-(\Lambda^{-1})^{\mu}_{\nu} =
-\begin{array}{c}
-\\
-t\\
-x\\
-y\\
-z\\
-\end{array}
+\partial^tA^t - \partial^tA^t &amp; \partial^tA^x - \partial^xA^t &amp; \partial^tA^y - \partial^yA^t &amp; \partial^tA^z - \partial^zA^t \\
+\partial^xA^t - \partial^tA^x &amp; \partial^xA^x - \partial^xA^x &amp; \partial^xA^y - \partial^yA^x &amp; \partial^xA^z - \partial^zA^x \\
+\partial^yA^t - \partial^tA^y &amp; \partial^yA^x - \partial^xA^y &amp; \partial^yA^y - \partial^yA^y &amp; \partial^yA^z - \partial^zA^y \\
+\partial^zA^t - \partial^tA^z &amp; \partial^zA^x - \partial^xA^z &amp; \partial^zA^y - \partial^yA^z &amp; \partial^zA^z - \partial^zA^z
+\end{pmatrix}\\
+&amp;\equiv
 \begin{pmatrix}
-\gamma &amp;  \gamma\beta &amp; 0 &amp; 0 \\
-\gamma\beta &amp; \gamma &amp; 0 &amp; 0 \\
-0 &amp; 0 &amp; 1 &amp; 0 \\
-0 &amp; 0 &amp; 0 &amp; 1 \\
+0&amp;E_x &amp; E_y &amp; E_z \\
+-E_x &amp; 0 &amp; B_z &amp; -B_y \\
+-E_y &amp; -B_z &amp; 0 &amp; B_x \\
+-E_z &amp; B_y &amp; -B_x &amp; 0
 \end{pmatrix}
 \end{aligned}\]</span></p>
-<p>where each greek index ranges over the four possible values <span class="math inline">\(t, x, y, z\)</span>. (The reason that one index is super-scripted as opposed to sub-scripted will be clearer shortly.) Similarly, we can abstractly write one of the coordinates in the form <span class="math inline">\(x^\mu\)</span>, where <span class="math inline">\(x^t \equiv t, x^x \equiv x, x^y \equiv y, z^z \equiv z\)</span>. (Again, these are super-scripted indices, not exponents.) We can therefore write the Lorentz transformation equations in compact form as follows: <span class="math display">\[x&#39;^{\mu} = \sum_{\nu \in \{t, x, y, z\}}\Lambda^{\mu}_{\nu}\;x^{\nu}
-\quad \quad \text{and} \quad \quad
-x^{\mu} = \sum_{\nu \in \{t, x, y, z\}}(\Lambda^{-1})^{\mu}_{\nu}\;x&#39;^{\nu}\]</span></p>
-<p>We can write this even more compactly if we adopt the <strong>Einstein summation convention</strong>, which states that when the same index appears in both an upper and lower position, we should <em>assume</em> that we are summing over that index. Adopting this convention means that we can write the Lorentz transformation and its inverse using this <strong>index notation</strong> in the very compact form <span class="math display">\[x&#39;^{\mu} = \Lambda^{\mu}_{\nu} x^{\nu}
-\quad \quad \text{and} \quad \quad
-x^{\mu} = (\Lambda^{-1})^{\mu}_{\nu} x&#39;^{\nu}\]</span></p>
-<p>Since the Lorentz transformation is linear, the same equations apply to the coordinate <em>differences</em> between an arbitrary pair of events: <span class="math display">\[\Delta x&#39;^{\mu} = \Lambda^{\mu}_{\nu} \Delta x^{\nu}
-\quad \quad \text{and} \quad \quad
-\Delta x^{\mu} = (\Lambda^{-1})^{\mu}_{\nu} \Delta x&#39;^{\nu}\]</span></p>
-<p>These equations are equivalent to the matrix equations <span class="math display">\[\begin{bmatrix}
-\Delta t^\prime \\ \Delta x^\prime \\ \Delta y^\prime \\ \Delta z^\prime
-\end{bmatrix} =
-\begin{bmatrix}
-\gamma &amp; - \gamma\beta &amp; 0 &amp; 0\phantom{/} \\
--\gamma\beta &amp; \gamma &amp; 0 &amp; 0 \phantom{/} \\
-0 &amp; 0 &amp; 1 &amp; 0 \phantom{/} \\
-0 &amp; 0 &amp; 0 &amp; 1 \phantom{/}
-\end{bmatrix}
-\begin{bmatrix}
-\Delta t \\ \Delta x \\ \Delta y \\ \Delta z
-\end{bmatrix}
-\quad \quad \text{and} \quad \quad
-\begin{bmatrix}
-\Delta t \\ \Delta x \\ \Delta y \\ \Delta z
-\end{bmatrix} =
-\begin{bmatrix}
-\gamma &amp; \gamma\beta &amp; 0 &amp; 0 \phantom{/} \\
-\gamma\beta &amp; \gamma &amp; 0 &amp; 0 \phantom{/} \\
-0 &amp; 0 &amp; 1 &amp; 0 \phantom{/}\\
-0 &amp; 0 &amp; 0 &amp; 1 \phantom{/}
-\end{bmatrix}
-\begin{bmatrix}
-\Delta t^\prime \\ \Delta x^\prime \\ \Delta y^\prime \\ \Delta z^\prime
-\end{bmatrix}\]</span> but are more compact, the index notation offers more flexibility for defining the sums than matrix notation, flexibility that we will need in general relativity. But with the matrix equivalent in mind, you can easily show that the inverse is really an inverse: <span class="math display">\[\Delta x^{\mu} = (\Lambda^{-1})^{\mu}_{\nu} (\Lambda^{\nu}_{\alpha} \Delta x^{\alpha})
-\quad \text{which in turn implies that} \quad
-(\Lambda^{-1})^{\mu}_{\nu}\Lambda^{\nu}_{\alpha} = \delta^{\mu}_{\alpha}\]</span></p>
-<p>where the <strong>Kronecker delta</strong> <span class="math inline">\(\delta^{\mu}_{\alpha}\)</span> is defined to be 1 when <span class="math inline">\(\mu = \alpha\)</span> and 0 otherwise, making it the index-notation equivalent to the identity matrix.</p>
-<p>We can write the metric equation in a similarly compact form if we define a matrix object called the <strong>metric tensor</strong> to be <span class="math display">\[\eta_{\mu\nu} \equiv 
-\begin{bmatrix}
--1 &amp; 0 &amp; 0 &amp; 0 \phantom{/} \\
-0 &amp; 1 &amp; 0 &amp; 0 \phantom{/} \\
-0 &amp; 0 &amp; 1 &amp; 0 \phantom{/}\\
-0 &amp; 0 &amp; 0 &amp; 1 \phantom{/}
-\end{bmatrix}\]</span> We can then write the metric equation using index notation simply as <span class="math display">\[\Delta s^2 = \eta_{\mu\nu} \Delta x^{\mu} \Delta x^{\nu}\]</span></p>
-<p>One might consider this overkill for such a simple equation, but we will see this to be essential in general relativity.</p>
-<h3 id="exercise-writing-out-the-sums-i">Exercise: Writing Out the Sums I</h3>
-<p>Set <span class="math inline">\(\mu = x\)</span> in the first part of equation 1.15, write out the sixteen terms in the implied sum, and show that the left side of the equation is equal to the right side of the equation in this case.</p>
-<h3 id="exercise-writing-out-the-sums-ii">Exercise: Writing Out the Sums II</h3>
-<p>Write out the sixteen terms in equation 1.17 and compare them with equation 1.7.</p>
-<h2 id="four-vectors">Four-Vectors</h2>
-<p>Now, just as we can consider the set of coordinate differences <span class="math inline">\(\Delta x, \Delta y, \text{and} \Delta z\)</span> to be the three components of a an ordinary displacement vector <span class="math inline">\(\Delta\vec{r}\)</span>, we can consider the set of coordinate differences <span class="math inline">\(\Delta t, \Delta x, \Delta y,
-\text{and} \Delta z\)</span> to be the four components of a <strong>four-displacement</strong> vector <span class="math inline">\(\mathbf{\Delta s}\)</span>. Indeed, we can <em>define</em> an arbitrary <strong>four-vector</strong> <span class="math inline">\(\mathbf{A}\)</span> to be any set of four components <span class="math inline">\(A^t, A^x, A^y, A^z\)</span> that transform in the same way that the components of the four-displacement do: <span class="math display">\[A&#39;^{\mu} = \Lambda^{\mu}_{\nu} A^{\nu}\]</span></p>
-<p>(Note that it is conventional to use a <span class="math inline">\(\mathbf{bold\;italic\;sans\text{-}serif}\)</span> font for four-vector symbols.) For the same mathematical reason that the squared spacetime separation <span class="math inline">\(\Delta s^2 = \eta_{\mu\nu} \Delta x^{\mu} \Delta x^{\nu}\)</span> is a frame-independent combination of the components of the four-displacement <span class="math inline">\(\mathbf{\Delta s}\)</span>, the squared magnitude <span class="math display">\[A^2 \equiv \eta_{\mu\nu}A^{\mu} A^{\nu} \equiv \mathbf{A} \cdot \mathbf{A}\]</span></p>
-<p>of the four-vector <span class="math inline">\(\mathbf{A}\)</span> is also a frame-independent number.</p>
-<p>Perhaps the most important four-vector for our future purposes is the <strong>four-velocity</strong> <span class="math inline">\(\mathbf{u}\)</span> of a particle, whose components we define (in index notation) to be <span class="math display">\[u^\alpha \equiv \frac{dx^\alpha}{d\tau}\]</span> Since the differential proper time <span class="math inline">\(d\tau\)</span> between infinitesimally separated events along any world-line is frame independent, the ratio <span class="math inline">\(dx^\alpha/d\tau\)</span> must transform as its numerator does, and since the numerator is a differential four-displacement component; it (and thus the whole ratio) transforms as the components of a four-vector should when we change the reference frames. The frame-independent squared magnitude of this four-vector is <span class="math display">\[u \cdot u = \eta_{\mu\nu} u^{\mu} u^{\nu} = \eta_{\mu\nu} \frac{dx^{\mu}}{d\tau}\frac{dx^{\nu}}{d\tau} = \frac{\eta_{\mu\nu} dx^{\mu} dx^{\nu}}{d\tau^2} = \frac{-d\tau^2}{d\tau^2} = -1\]</span> <span class="math display">\[u \cdot u = \eta_{\mu\nu} u^{\mu} u^{\nu} = \eta_{\mu\nu} \frac{dx^{\mu}}{d\tau}\frac{dx^{\nu}}{d\tau} = \frac{\eta_{\mu\nu} dx^{\mu} dx^{\nu}}{d\tau^2} = \frac{-d\tau^2}{d\tau^2} = -1\]</span></p>
-<p>by the definition of <span class="math inline">\(d\tau\)</span>. In a coordinate system where the particle’s ordinary speed is <span class="math inline">\(v\)</span>, note that <span class="math display">\[d\tau = \sqrt{dt^2-dx^2-dy^2-dz^2}
-= dt\sqrt{1-\left(\frac{dx}{dt}\right)^2-\left(\frac{dy}{dt}\right)^2-
-\left(\frac{dz}{dt}\right)^2} = dt\sqrt{1-v^2}\]</span> so the components of the four-vector are <span class="math display">\[u^t = \frac{dt}{d\tau} = \frac{dt}{dt\sqrt{1-v^2}} = \frac{1}{\sqrt{1-v^2}}, \quad
-u^x = \frac{dx}{d\tau} = \frac{dx}{dt\sqrt{1-v^2}} = \frac{v_x}{\sqrt{1-v^2}}\]</span> and similarly for <span class="math inline">\(u^y\)</span> and <span class="math inline">\(u^z\)</span>. Note that for low speeds, <span class="math inline">\(u^t \rightarrow 1\)</span> and the spatial components become approximately equal to the components of the particle’s ordinary velocity. In a frame where the particle is at rest, we have strictly <span class="math inline">\(u^t = 1, u^x = u^y = u^z = 0\)</span>.</p>
-<p>Another important four vector is a particle’s <strong>four-momentum</strong> <span class="math inline">\(\mathbf{p}\)</span>, defined as <span class="math display">\[\mathbf{p} = m\mathbf{u} \quad \Rightarrow \quad
-p^{\alpha} = mu^{\alpha} = m\frac{dx^{\alpha}}{d\tau}
-\quad \Rightarrow \quad
-\mathbf{p \cdot p} = m^2(\mathbf{u \cdot u}) = m^2(-1) = -m^2\]</span></p>
-<p>where <span class="math inline">\(m\)</span> is the particle’s frame-independent <em>mass</em> (rest-energy). The time component of this vector in a given frame is the particle’s relativistic energy <span class="math inline">\(E \equiv m/\sqrt{1-v^2}\)</span> in that frame, while its spatial components are the components of its relativistic momentum 3-vector <span class="math inline">\(\vec{p} \equiv m\vec{v}/\sqrt{1-v^2}\)</span>.</p>
-<h3 id="exercise-ordinary-velocity">Exercise: Ordinary velocity</h3>
-<p>How can we calculate components of a particle’s ordinary velocity <span class="math inline">\(\vec{v}\)</span> from components of its four-velocity <span class="math inline">\(\mathbf{u}\)</span>?</p>
-<h3 id="exercise-a-different-kind-of-four-velocity">Exercise: A Different Kind of Four-Velocity?</h3>
-<p>Why are the set of four components <span class="math inline">\(1, v_x, v_y, v_z\)</span> <em>not</em> the components of a four-vector?</p>
+<p>Note that <span class="math inline">\(\partial^\alpha \equiv \eta^{\alpha\beta}\partial_\beta\)</span> implies that <span class="math inline">\(\partial^t = \eta^{t\beta}\partial^\beta = \eta^{tt}\partial_t
+= -\partial_t, \partial^x = \eta^{x\beta}\partial^\beta = \eta^{xx}\partial_t
+= +\partial_x,\)</span> and similarly that <span class="math inline">\(\partial^y = \partial_y\)</span> and <span class="math inline">\(\partial^z = \partial_z\)</span> (because <span class="math inline">\(\eta^{\mu\nu}\)</span> has the same components as <span class="math inline">\(\eta_{\mu\nu}\)</span>). This means that the definitions stated above imply that <span class="math display">\[\vec{E} = -\vec{\nabla}\phi - \frac{\partial\vec{A}}{\partial t},
+    \quad \quad \vec{B} = \vec{\nabla} \times \vec{A}\]</span> (We see that consistency with relativity implies that an electric field must be accompanied by a new field <span class="math inline">\(\vec{B}\)</span> that we can calculate in terms of the spatial components of the four-potential <span class="math inline">\(\mathbf{A}\)</span>!).</p>
+<p>In terms of the field tensor <span class="math inline">\(\mathbf{F}\)</span>, our electromagnetic field equations become <span class="math display">\[\frac{dp^\alpha}{d\tau} = qF^{\alpha\mu} u_\mu
+    \quad \text{and} \quad
+    \partial_\mu F^{\alpha\mu}
+    = \frac{1}{\varepsilon_0}J^\alpha\]</span> We can easily see that the first of these equations is the Lorentz force law: for example, its <span class="math inline">\(x\)</span> component is <span class="math display">\[\begin{aligned}[b]
+\frac{dp^x}{d\tau} &amp;= q(F^{xt}u_t + F^{xx}u_x = F^{xy}u_y + F^{xz}u_z)
+= q\frac{1}{\sqrt{1-v^2}}(-E_x(-1) + 0 + B_z v_y - B_y v_z)
+\\ &amp;\Rightarrow \quad
+\frac{dp^x}{dt}
+= q(-E_x(-1) + 0 + B_z v_y - B_y v_z) = qE_x + q(\vec{v}\times\vec{B})_x
+\end{aligned}\]</span> because <span class="math inline">\(d\tau = dt\sqrt{1-v^2}\)</span> and this allows us to cancel out the <span class="math inline">\(\sqrt{1-v^2}\)</span> factors from both sides. The time component of <span class="math inline">\(\partial_\mu F^{\alpha\mu} = J^\alpha/\varepsilon_0\)</span> is Gauss’s law: <span class="math display">\[\partial_t F^{tt} + \partial_x F^{tx} + \partial_y F^{ty} + \partial_z F^{tz}
+= 0 + \frac{\partial E_x}{\partial x}+ \frac{\partial E_y}{\partial y}
++ \frac{\partial E_y}{\partial y}
+= \frac{J^t}{\varepsilon_0} = \frac{\rho}{\varepsilon_0}\]</span> The other components of <span class="math inline">\(\partial_\mu F^{\alpha\mu} = 
+J^\alpha/\varepsilon_0\)</span> are the three components of the Ampere-Maxwell law.</p>
+<p>What of the other Maxwell equations? It turns out that the definition of the field tensor in terms of potentials implies the identity <span class="math display">\[\label{FId}
+\partial^\alpha F^{\mu\nu} + \partial^\nu F^{\alpha\mu}
++ \partial^\mu F^{\nu\alpha} = 0\]</span> Most of the 64 component equations implied by this tensor relation are trivially zero, but the components equations that are not yield Gauss’s law for the magnetic field and components of Faraday’s law.</p>
+<p>The point is that we have “derived” Maxwell’s equations simply by finding generalizations of the Newtonian equation for electrostatic that are (1) covariant tensor equations (expressing consistency with the principle of relativity) (2) consistent with the idea that charge is a relativistic scalar, (3) consistent with charge conservation and (4) consistent with the requirement that electromagnetic fields don’t mess with a charged particle’s mass. I say “derived” in quotes, because we have not shown that our solution is unique, only that it works. Still, this is an amazing illustration of both the idea that Maxwell’s equations are relativistically necessary consequences of electrostatics and more generally the power of covariant tensor equations to expose consequences of the principle of relativity.</p>
+<h3 id="exercise-the-ampere-maxwell-law.">Exercise: The Ampere-Maxwell Law.</h3>
+<p>Show that <span class="math inline">\(\partial_\mu F^{\alpha\mu} = J^\alpha/\varepsilon_0\)</span> with <span class="math inline">\(\alpha = x\)</span> yields the <span class="math inline">\(x\)</span>-component of the Ampere-Maxwell law, which (in the unit system we are using) is <span class="math inline">\(\vec{\nabla}\times\vec{B}
+-\partial\vec{E}/\partial t = \vec{J}/\varepsilon_0\)</span>.</p>
+<h3 id="exercise-checking-equation-fid.">Exercise: Checking Equation <a href="#FId" data-reference-type="ref" data-reference="FId">[FId]</a>.</h3>
+<p>Show that equation <a href="#FId" data-reference-type="ref" data-reference="FId">[FId]</a> follows from the definition of the field tensor components.</p>
+<h3 id="exercise-gausss-law-for-the-magnetic-field.">Exercise: Gauss’s law for the Magnetic Field.</h3>
+<p>Find one choice of values for the indices <span class="math inline">\(\alpha, \mu,\)</span> and <span class="math inline">\(\nu\)</span> in equation <a href="#FId" data-reference-type="ref" data-reference="FId">[FId]</a> that yields Gauss’s law for the magnetic field. Are there other choices that yield the same? How many copies of this equation do you think we have in equation <a href="#FId" data-reference-type="ref" data-reference="FId">[FId]</a>?</p>
+<h3 id="exercise-the-time-component-of-the-force-law.">Exercise: The Time Component of the Force Law.</h3>
+<p>What does the time component of <span class="math inline">\(dp^\alpha/d\tau = qF^{\alpha\beta}u_\beta\)</span> tell us?</p>
 <h2 id="homework-problems">Homework Problems</h2>
 <ol>
-<li><p>The USS Enterprise fires a photon torpedo at Romulan spacecraft that is approaching in the -<span class="math inline">\(x\)</span>-direction at a speed <span class="math inline">\(v = 3/5\)</span>. If the photon torpedo’s total rest mass-energy is zero (a property of all good photons), and it has energy <span class="math inline">\(E\)</span> in the Enterprise’s frame, what is its energy in the Romulans’ frame? (<em>Hint:</em> Use the fact that the squared magnitude of the torpedo’s four-momentum is zero to find the <span class="math inline">\(x\)</span> component of its four-momentum.)</p></li>
-<li><p>Suppose that the function <span class="math inline">\(x(\tau) = \frac{1}{g}\left[\,
-\cosh(g\tau)\,\right]\)</span> where <span class="math inline">\(g\)</span> is a constant with units of <span class="math inline">\(m^{-1}\)</span>, describes the worldline of an object moving along the <span class="math inline">\(x\)</span> axis of a certain inertial frame by specifying its <span class="math inline">\(x\)</span>-position as a function of the object’s proper time <span class="math inline">\(\tau\)</span>. (This function happens to describe an object whose acceleration has the constant value <span class="math inline">\(g\)</span> in its own instantaneous rest frame.)</p>
-<ol>
-<li><p>Calculate <span class="math inline">\(u^x\)</span> as a function of <span class="math inline">\(\tau\)</span> for this object.</p></li>
-<li><p>Use the requirement that <span class="math inline">\(\mathbf{u \cdot u} = -1\)</span> to determine <span class="math inline">\(u^t\)</span> as a function of <span class="math inline">\(\tau\)</span>.</p></li>
-<li><p>What is the object’s speed <span class="math inline">\(v\)</span> in our given reference frame? Is it ever greater than 1?</p></li>
-<li><p>Show that <span class="math inline">\(gt = \sinh(g\tau)\)</span>, where <span class="math inline">\(t\)</span> is the coordinate time measured in our given frame.</p></li>
-<li><p>Use the result of the previous part to find expressions for <span class="math inline">\(u^x, u^t,\text{ and }v\)</span> in terms of <span class="math inline">\(gt\)</span>.</p></li>
-</ol></li>
+<li><p>Prove that the Kronecker delta <span class="math inline">\(\delta^{\mu}_{\nu}\)</span>, which is defined in <em>all</em> inertial frames to be 1 if <span class="math inline">\(\mu = \nu\)</span> and zero otherwise, correctly obeys the tensor transformation law for a tensor with one upper and one lower index.</p></li>
+<li><p>Consider a second-rank tensor <span class="math inline">\(\mathbf{T}\)</span> that is symmetric in some inertial reference frame: <span class="math inline">\(T_{\mu\nu}
+= T_{\nu\mu}\)</span>. Prove that it is symmetric in <em>all</em> inertial reference frames. Show that the property of antisymmetry <span class="math inline">\(F^{\mu\nu} = - F^{\nu\mu}\)</span> is similarly frame-independent.</p></li>
+<li><p>Find a combination of values for the indices <span class="math inline">\(\alpha, \mu,\)</span> and <span class="math inline">\(\nu\)</span> that yield a component of Faraday’s law, which in our unit system is <span class="math inline">\(\vec{\nabla}\times\vec{E} + \partial{\vec{B}}/\partial t = 0.\)</span></p></li>
 </ol>
 </body>
 </html>

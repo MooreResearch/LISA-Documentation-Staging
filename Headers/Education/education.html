@@ -50,6 +50,7 @@
                     <!-- Add your nav links here. This is just an example. -->
                     <!-- They will scroll horizontally when there are too many to fit in the viewport. -->
                     <a class="nav-link load-content" href="ResearchPrep1/ResearchPrep1.html">Research Prep 1</a>
+					<a class="nav-link load-content" href="ResearchPrep2/ResearchPrep2.html">Research Prep 2</a>
                     <!-- Repeat the above line as necessary -->
                 </div>
             </div>
@@ -69,14 +70,13 @@
 		$('.load-content').click(function(e) {
 			e.preventDefault(); // prevent default link click action
 			var url = $(this).attr('href'); // get the href of the clicked link
+			var arr = url.split("/")
 			$('#content-container').load(url, function() {
 				// Replace img src attribute with new path
-				console.log("test")
 
 				$('#content-container embed').each(function() {
-					console.log("test")
 					var imgSrc = $(this).attr('src');
-					var newImgSrc = 'ResearchPrep1/' + imgSrc; // Add your new path here
+					var newImgSrc = arr[0]+'/' + imgSrc; // Add your new path here
 					$(this).attr('src', newImgSrc);
 				});
 				MathJax.typesetPromise();

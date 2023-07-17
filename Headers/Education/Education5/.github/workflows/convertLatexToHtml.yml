@@ -1,0 +1,49 @@
+name: Convert Latex to HTML and Move Files to Another Repo
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout initial repository
+      uses: actions/checkout@v2
+      with:
+        path: initial-repo
+
+    - name: Install Pandoc
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y pandoc
+
+    - name: Convert main.tex to HTML
+      run: |
+        cd initial-repo
+        pandoc -s --mathjax main.tex -o Education5.html
+
+    - name: Checkout secondary repository
+      uses: actions/checkout@v2
+      with:
+        repository: MooreResearch/LISA-Documentation-Staging
+        token: ${{ secrets.GH_TOKEN }}  
+        path: secondary-repo
+
+    - name: Move testout.html to secondary repository
+      run: mv initial-repo/Education5.html secondary-repo/Headers/Education/Education5
+
+    - name: Copy non-tex, non-sty and non-workflow files to secondary repository
+      run: |
+        cd initial-repo
+        find . -type f ! -name "*.tex" ! -name "*.sty" ! -name "*.workflow" -exec cp --parents \{\} ../secondary-repo/Headers/Education/Education5 \;
+
+    - name: Commit and push changes
+      run: |
+        cd secondary-repo
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git commit -m "Add updated HTML file and other files from initial repository"
+        git push

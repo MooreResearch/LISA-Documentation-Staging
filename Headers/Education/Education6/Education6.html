@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>main</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <script src="/usr/share/javascript/mathjax/tex-mml-chtml.js" type="text/javascript"></script>
+</head>
+<body>
+<p><strong>General Relativity and Gravitational Waves</strong></p>
+<p><strong>Session 6: Gravitational Waves</strong></p>
+<h2 id="SOver">Overview of this Session</h2>
+<p>In the last session, we constructed the Einstein equation, which we saw is not just <em>a</em> core equation in general relativity but <em>the</em> core equation (even the geodesic hypothesis follows from it). However, solving the set coupled nonlinear second-order differential equations that it represents is no easy task. But we also explored a “weak-field” version of the equation that is much easier to solve. In this class, we will use that equation to explore gravitational wave solutions.</p>
+<p>An overview of this session’s sections follows:</p>
+<ol>
+<li><p><strong>Are Gravitational Waves Real?</strong> Not all wavelike solutions of the weak-field Einstein equation are actual waves. This section discusses how we can discover which waves are real and which are “fake.”</p></li>
+<li><p><strong>The Transverse Traceless Gauge.</strong> In this section, we will see that we can find a coordinate system that displays <em>only</em> the physically real parts of the gravitational wave. We will also see that gravitational waves have two independent polarizations.</p></li>
+<li><p><strong>How the Waves Affect Matter.</strong> This section explores how a gravitational wave affects objects floating in space.</p></li>
+</ol>
+<h2 id="are-gravitational-waves-real">Are Gravitational Waves Real?</h2>
+<p>We begin where we left off last time. We seek to solve the weak-field Einstein equation in nearly cartesian coordinates, where it has the form <span class="math display">\[\partial^\alpha\partial_\alpha H^{\mu\nu} = -16\pi G T^{\mu\nu}
+    \quad \text{where}
+    \ h^{\mu\nu} \equiv H^{\mu\nu} - \tfrac{1}{2}\eta^{\mu\nu}H
+    \quad \text{and} \ g_{\mu\nu} \equiv \eta_{\mu\nu} + h_{\mu\nu}
+    \quad \text{with}\ \vert h_{\mu\nu} \vert \ll 1
+    \label{EEE4H}\]</span> subject to the <strong>Lorenz gauge condition</strong> <span class="math display">\[\partial_\mu H^{\mu\nu} = 0.\]</span> For complicated and unilluminating historical reasons, a given coordinate choice in the weak-field limit is called a “gauge.” The Lorenz gauge condition restrict our choice of coordinates (and thus is a condition our “gauge” must satisfy), but even the combination of the Einstein equation and the Lorenz gauge condition does not completely specify the metric and thus the coordinate system, as we will see.</p>
+<p>Now, in empty space, the weak-field Einstein equation has the form <span class="math inline">\(\partial^\alpha\partial_\alpha H^{\mu\nu} = 0\)</span>. Let’s attempt a plane-wave solution of the form <span class="math display">\[H^{\mu\nu} = A^{\mu\nu}\cos k_\sigma x^\sigma
+    = A^{\mu\nu}\cos (\vec{k}\cdot[2pt]\vec{r}-\omega t)\]</span> where <span class="math inline">\(A^{\mu\nu}\)</span> is a constant matrix and <span class="math inline">\(k_\sigma\)</span> is a constant covector with components <span class="math inline">\(k_t = -\omega, k_x, k_y, k_z\)</span>. Such a wave is a plane wave whose crests are perpendicular to the direction and which move in the + direction with phase speed <span class="math inline">\(v = \omega/k\)</span>. The Einstein equation, the Lorenz gauge condition, and the symmetry of <span class="math inline">\(H^{\mu\nu}\)</span> (which follows from the symmetry of <span class="math inline">\(h_{\mu\nu}\)</span>) imply that <span class="math display">\[\begin{aligned}
+{3}
+&amp;\text{Einstein equation:} \quad &amp;\Rightarrow\quad &amp; &amp; &amp;k^\alpha k_\alpha = 0\\
+&amp;\text{Lorenz gauge:} \quad &amp;\Rightarrow\quad &amp; &amp; &amp;k_\mu A^{\mu\nu} = 0\\
+&amp;\text{Symmetry:} \quad &amp;\Rightarrow\quad &amp; &amp; &amp;A^{\mu\nu} = A^{\nu\mu}\end{aligned}\]</span> The first equation implies that the wave moves with a speed <span class="math inline">\(v = 1\)</span>: <span class="math display">\[\begin{aligned}[b]
+    0 &amp;= k^\alpha k_\alpha = \eta^{\alpha\beta}k_\alpha k_\beta
+    = \eta^{tt}(-\omega)^2 + \eta^{xx}(k_x)^2 + \eta^{yy}(k_y)^2 + \eta^{zz}(k_z)^2\\
+    &amp;\Rightarrow \quad 0 = -\omega^2 + k^2 \quad \Rightarrow \quad \omega = k
+    \quad \Rightarrow \quad v = \frac{\omega}{k} = 1
+\end{aligned}\]</span></p>
+<p>However, just because we have a plane wave solution to the weak-field Einstein equation in empty space does not necessarily mean that we have an actual gravitational wave. In this case, a wavy metric perturbation may describe a physical wavelike distortion of spacetime, but it may just as easily describe a wavy coordinate system on top of a flat spacetime. How can we tell which is which?</p>
+<p>The one true way to tell whether you have a physical gravitational wave or just a wavy coordinate system is to <em>look at the Riemann tensor</em>. According to a chart that we constructed on Monday, we have 21 potentially independent Riemann tensor components (updated for our particular coordinate system): <span class="math display">\[\begin{array}{rccccccc}
+&amp;\mu\nu\rightarrow &amp; tx &amp; ty &amp; tz &amp; xy &amp; xz &amp; yz \\
+\alpha\beta\downarrow &amp; tx &amp; R_{txtx} &amp; R_{txty} &amp; R_{txtz}
+&amp; R_{txxy} &amp; R_{txxz} &amp; R_{txyz} \\
+&amp; ty &amp; &amp; R_{tyty} &amp; R_{tytz}
+&amp; R_{tyxy} &amp; R_{tyxz} &amp; R_{tyyz} \\
+&amp; tz &amp; &amp; &amp; R_{tztz}
+&amp; R_{tzxy} &amp; R_{tzxz} &amp; R_{tzyz} \\
+&amp; xy &amp; &amp; &amp; 
+&amp; R_{xyxy} &amp; R_{xyxz} &amp; R_{xyyz} \\
+&amp; xz &amp; &amp; &amp; &amp; &amp; R_{xzxz} &amp; R_{xzyz} \\
+&amp; yz &amp; &amp; &amp; &amp; &amp; &amp; R_{yzyz} \label{ERTable}
+\end{array}\]</span> subject to the additional constraint that <span class="math inline">\(0 = R_{txyz} + R_{tzxy}
++ R_{tyzx}\)</span>, to leave 20 truly independent components. Now, to make the math easier, let’s assume that our plane wave is moving purely in the <span class="math inline">\(z\)</span> direction so that <span class="math inline">\(k_t = -\omega,\ k_x = 0,\ k_y = 0,
+\ k_z = \omega\ \ (k_t = -k_z\)</span> ensures that the condition <span class="math inline">\(k^\alpha
+k_\alpha = 0\)</span> is satisfied). The Lorenz condition in this case requires that <span class="math inline">\(0 = k_\mu A^{\mu\nu}
+= -\omega A^{t\nu} + \omega A^{z\nu}\)</span>, implying that <span class="math display">\[\begin{aligned}
+\quad A^{tt} &amp;= A^{zt}\ (= A^{tz})\label{EAtt}\\
+\quad A^{tx} &amp;= A^{zx}\ (= A^{xt} = A^{xz})\\
+\quad A^{ty} &amp;= A^{zy}\ (= A^{yt} = A^{yz})\\
+\quad A^{tz} &amp;= A^{zz}\ (= A^{zt} = A^{tt}\ \text{from above})
+\label{EAzz}\end{aligned}\]</span> where the equalities in parentheses follow from the symmetry of <span class="math inline">\(A^{\mu\nu}\)</span>. Also note that <span class="math display">\[\partial_\beta\partial_\mu h_{\alpha\nu} = 
+\partial_\beta\partial_\mu(H_{\alpha\nu}
+-\tfrac{1}{2}\eta_{\alpha\nu}H)
+= -k_\beta k_\mu(A_{\alpha\nu}
+-\tfrac{1}{2}\eta_{\alpha\nu}A)\cos k_\sigma x^\sigma\]</span> where <span class="math inline">\(A \equiv \eta_{\mu\nu}A^{\mu\nu} = -A^{tt} + A^{xx}
++ A^{yy} + A^{zz} = A^{xx} + A^{yy}\)</span> because the Lorenz condition requires that <span class="math inline">\(A^{tt} = A^{zz}\)</span> (see equations <a href="#EAtt" data-reference-type="ref" data-reference="EAtt">[EAtt]</a> and <a href="#EAzz" data-reference-type="ref" data-reference="EAzz">[EAzz]</a>). Finally, note that <span class="math display">\[A_{\alpha\nu} = \eta_{\alpha\beta}\eta_{\nu\mu}A^{\beta\mu} =
+\begin{cases}
+-A^{\alpha\nu}\ \text{if \textit{either} }\alpha = t
+\text{ or }\nu = t\text{ but not both}\\
++A^{\alpha\nu}\text{ otherwise}
+\end{cases}\]</span></p>
+<p>We are now ready to evaluate components of the Riemann tensor, which in this weak-field limit is <span class="math display">\[\begin{aligned}[b]
+R_{\alpha\beta\mu\nu} &amp;= \tfrac{1}{2}(
+\partial_\beta\partial_\mu h_{\alpha\nu}
++ \partial_\alpha\partial_\nu h_{\beta\mu}
+- \partial_\alpha\partial_\mu h_{\beta\nu}
+- \partial_\beta\partial_\nu h_{\alpha\mu})\\
+&amp;= -\tfrac{1}{2}(
+k_\beta k_\mu [A_{\alpha\nu}-\tfrac{1}{2}\eta_{\alpha\nu}A]
++ k_\alpha k_\nu [A_{\beta\mu}-\tfrac{1}{2}\eta_{\beta\mu}A]\\
+&amp;\quad\quad - k_\alpha k_\mu [A_{\beta\nu}-\tfrac{1}{2}\eta_{\beta\nu}A]
+- k_\beta k_\nu [A_{\alpha\mu}-\tfrac{1}{2}\eta_{\alpha\mu}A])
+\cos k_\sigma x^\sigma
+\end{aligned}\]</span> Now let’s start calculating components of this tensor. For example: <span class="math display">\[\begin{aligned}[b]
+R_{txtx} &amp;= -\tfrac{1}{2}(
+k_x k_t [A_{tx}-\tfrac{1}{2}\eta_{tx}A]
++ k_t k_x [A_{xt}-\tfrac{1}{2}\eta_{xt}A]\\
+&amp;\quad\quad - k_t k_t [A_{xx}-\tfrac{1}{2}\eta_{xx}A]
+- k_x k_x [A_{tt}-\tfrac{1}{2}\eta_{tt}A])\cos k_\sigma x^\sigma\\
+&amp;= -\tfrac{1}{2}(0 + 0 - \omega^2[A_{xx}
+-\tfrac{1}{2}(A_{xx} + A_{yy})] - 0)
+\cos k_\sigma x^\sigma\\
+&amp;= +\tfrac{1}{4}\omega^2(A_{xx} - A_{yy})\cos k_\sigma x^\sigma
+\end{aligned}\]</span> This term will be nonzero (indicating a physically curved spacetime, and thus a real gravitational wave) if and only if <span class="math inline">\(A_{xx} - A_{yy}\)</span> is nonzero. Now let’s look at <span class="math display">\[\begin{aligned}[b]
+R_{txty} &amp;= -\tfrac{1}{2}(
+k_x k_t [A_{ty}-\tfrac{1}{2}\eta_{ty}A]
++ k_t k_y [A_{xt}-\tfrac{1}{2}\eta_{xt}A]\\
+&amp;\quad\quad - k_t k_t [A_{xy}-\tfrac{1}{2}\eta_{xy}A]
+- k_x k_y [A_{tt}-\tfrac{1}{2}\eta_{tt}A])\cos k_\sigma x^\sigma\\
+&amp;= -\tfrac{1}{2}(0 + 0 - \omega^2A_{xy} - 0)\cos k_\sigma x^\sigma
+= +\tfrac{1}{2}\omega^2A_{xy}\cos k_\sigma x^\sigma
+\end{aligned}\]</span> So this term will be nonzero if and only if <span class="math inline">\(A_{xy}\)</span> is nonzero. Similarly, <span class="math display">\[\begin{aligned}[b]
+R_{txtz} &amp;= -\tfrac{1}{2}(
+k_x k_t [A_{tz}-\tfrac{1}{2}\eta_{tz}A]
++ k_t k_z [A_{xt}-\tfrac{1}{2}\eta_{xt}A]\\
+&amp;\quad\quad - k_t k_t [A_{xz}-\tfrac{1}{2}\eta_{xz}A]
+- k_x k_z [A_{tt}-\tfrac{1}{2}\eta_{tt}A])\cos k_\sigma x^\sigma\\
+&amp;= -\tfrac{1}{2}(0 -\omega^2A_{xt} - \omega^2A_{xz} - 0)\cos k_\sigma x^\sigma\\
+&amp;= +\tfrac{1}{2}\omega^2(A_{xt}+A_{xz})\cos k_\sigma x^\sigma = 0
+\end{aligned}\]</span> because the Lorenz condition requires that <span class="math inline">\(A^{xt} = A^{xz}\)</span>, so <span class="math inline">\(A_{xt} = -A_{xz}\)</span>, meaning that this term is identically zero, no matter what <span class="math inline">\(A^{xt}\)</span> is. Similarly, <span class="math inline">\(R_{tytz} = 0\)</span> no matter what <span class="math inline">\(A^{yt}\)</span> is. Now let’s look at <span class="math display">\[\begin{aligned}[b]
+R_{txxy} &amp;= -\tfrac{1}{2}(
+k_x k_x [A_{ty}-\tfrac{1}{2}\eta_{ty}A]
++ k_t k_y [A_{xx}-\tfrac{1}{2}\eta_{xx}A]\\
+&amp;\quad\quad - k_t k_x [A_{xy}-\tfrac{1}{2}\eta_{xy}A]
+- k_x k_y [A_{tx}-\tfrac{1}{2}\eta_{tx}A])\cos k_\sigma x^\sigma\\
+&amp;= -\tfrac{1}{2}(0 + 0 - 0 - 0)\cos k_\sigma x^\sigma = 0
+\end{aligned}\]</span> This one is identically zero because we need at least two <span class="math inline">\(t\)</span> and/or <span class="math inline">\(z\)</span> indices for at least one pair of <span class="math inline">\(k\)</span>’s to be nonzero. The same reasoning also eliminates <span class="math inline">\(R_{tyxy}, R_{xyxy}, R_{xyxz},\)</span> and <span class="math inline">\(R_{xyyz}\)</span>. Finally, consider <span class="math display">\[\begin{aligned}[b]
+R_{txyz} &amp;= -\tfrac{1}{2}(
+k_x k_y [A_{tz}-\tfrac{1}{2}\eta_{tz}A]
++ k_t k_z [A_{xy}-\tfrac{1}{2}\eta_{xy}A]\\
+&amp;\quad\quad - k_t k_y [A_{xz}-\tfrac{1}{2}\eta_{xz}A]
+- k_x k_z [A_{ty}-\tfrac{1}{2}\eta_{ty}A])\cos k_\sigma x^\sigma\\
+&amp;= -\tfrac{1}{2}(0 - \omega^2A_{xy} - 0 - 0)\cos k_\sigma x^\sigma
+= \tfrac{1}{2}\omega^2A_{xy}\cos k_\sigma x^\sigma
+\end{aligned}\]</span> which again tells us that the gravitational wave is real when <span class="math inline">\(A_{xy}\neq 0\)</span>.</p>
+<p>In a similar way, you can easily analyze the remaining terms yourself. Here is a complete list of the 21 Riemann tensor terms: <span class="math display">\[\begin{array}{rccccccc}
+&amp;\mu\nu\rightarrow &amp; tx &amp; ty &amp; tz &amp; xy &amp; xz &amp; yz \\
+\alpha\beta\downarrow &amp; tx &amp; R_{txtx} = a &amp; R_{txty} = b &amp; R_{txtz}=0
+&amp; R_{txxy} = 0 &amp; R_{txxz} = a &amp; R_{txyz} = b \\
+&amp; ty &amp; &amp; R_{tyty} = -a &amp; R_{tytz} = 0
+&amp; R_{tyxy} = 0 &amp; R_{tyxz} = b &amp; R_{tyyz} = a \\
+&amp; tz &amp; &amp; &amp; R_{tztz} = 0
+&amp; R_{tzxy} = 0 &amp; R_{tzxz} = 0 &amp; R_{tzyz} = 0 \\
+&amp; xy &amp; &amp; &amp; 
+&amp; R_{xyxy} = 0 &amp; R_{xyxz} = 0 &amp; R_{xyyz} = 0 \\
+&amp; xz &amp; &amp; &amp; &amp; &amp; R_{xzxz} = a &amp; R_{xzyz} = b \\
+&amp; yz &amp; &amp; &amp; &amp; &amp; &amp; R_{yzyz} = -a\label{ERList}
+\end{array}\]</span> where <span class="math inline">\(a \equiv \tfrac{1}{4}\omega^2(A_{xx}-A_{yy})\cos k_\sigma x^\sigma\)</span> and <span class="math inline">\(b \equiv \tfrac{1}{2}\omega^2 A_{xy}\cos k_\sigma x^\sigma\)</span>. You can also see that the symmetry condition <span class="math inline">\(0 = R_{txyz} + R_{tzxy}
++ R_{tyzx}\)</span> imposes no additional constraints.</p>
+<h3 id="exercise-other-riemann-components">Exercise: Other Riemann Components</h3>
+<p>Verify the results in equations <a href="#ERList" data-reference-type="ref" data-reference="ERList">[ERList]</a> for <span class="math inline">\(R_{tyty}, R_{tztz,}\)</span> and <span class="math inline">\(R_{txxz}\)</span>.</p>
+<h2 id="the-transverse-traceless-gauge.">The Transverse-Traceless Gauge.</h2>
+<p>The point of this is that for a wave moving in the <span class="math inline">\(z\)</span> direction, the only parts of <span class="math inline">\(A^{\mu\nu}\)</span> that actually matter physically are two values: the value of <span class="math inline">\(A^{xx}-A^{yy}\)</span> and the value of <span class="math inline">\(A^{xy} = A^{yx}\)</span>. All of the other components have no physical consequences, meaning that we should be able to find a coordinate transformation that sets them to zero. Also, since only the <em>difference</em> between <span class="math inline">\(A^{xx}\)</span> and <span class="math inline">\(A^{yy}\)</span> matters, we should be able to go to a coordinate system where we subtract the remaining trace <span class="math inline">\(A = A^{xx} + A^{yy}\)</span> of the metric from each component:</p>
+<p><span class="math display">\[\begin{aligned}
+A^{xx}_\text{new} &amp;= A^{xx} - \tfrac{1}{2}A
+= A^{xx} - \tfrac{1}{2}(A^{xx}+A^{yy}) = \tfrac{1}{2}(A^{xx}-A^{yy})\\
+A^{yy}_\text{new} &amp;= A^{yy} - \tfrac{1}{2}A
+= A^{yy} - \tfrac{1}{2}(A^{xx}+A^{yy}) = -\tfrac{1}{2}(A^{xx}-A^{yy})\end{aligned}\]</span></p>
+<p>This will make the <span class="math inline">\(A\)</span>-matrix traceless (<span class="math inline">\(A_{new} = 0\)</span>) without affecting the difference between these components: <span class="math inline">\(A^{xx}_\text{new}-A^{yy}_\text{new} =
+\tfrac{1}{2}(A^{xx}-A^{yy})+\tfrac{1}{2}(A^{xx}-A^{yy}) = A^{xx}-A^{yy}\)</span>. We call the gauge where waves traveling in the <span class="math inline">\(+z\)</span> direction have the metric perturbation <span class="math display">\[H^{\mu\nu}_{TT} = \left(A_+
+\begin{bmatrix}
+0 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; -1 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{bmatrix}
++ A_\times\begin{bmatrix}
+0 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 1 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{bmatrix}\right)\cos k_\sigma x^\sigma\]</span> the <strong>transverse traceless gauge</strong> for that wave (because the only nonzero spatial components are transverse to the wave’s direction of motion and the matrix also has zero trace). We see that the general physically relevant wave is a linear combination (with small but otherwise arbitrary values of the coefficents <span class="math inline">\(A_+\)</span> and <span class="math inline">\(A_\times\)</span>) of two independent types of waves, which we call <strong>polarizations</strong> of the gravitational wave (in analogy to the two linear polarizations of electromagentic waves). We call these polarization states “upright” and “diagonal,” or “plus” and “cross” (for reasons that will become clear shortly).</p>
+<p>Note also that in transverse-traceless gauge, there is no distinction between <span class="math inline">\(H^{\mu\nu}\)</span> and <span class="math inline">\(h^{\mu\nu}\)</span>: <span class="math display">\[h^{\mu\nu}_{TT} = H^{\mu\nu}_{TT} - \tfrac{1}{2}\eta^{\mu\nu}H_{TT}
+= H^{\mu\nu}_{TT}\]</span> The equality of <span class="math inline">\(H^{\mu\nu}_{TT}\)</span> and <span class="math inline">\(h^{\mu\nu}_{TT}\)</span> is one of the reasons it is convenient to set the trace to zero.</p>
+<h2 id="how-the-waves-affect-matter.">How the Waves Affect Matter.</h2>
+<p>To determine the physical effects of the wave, consider a particle at rest (<span class="math inline">\(u^x = u^y = u^z = 0\)</span>). The geodesic equation becomes <span class="math display">\[\frac{d^2x^\alpha}{d\tau^2} = -\Gamma^\alpha_{\mu\nu}u^\mu u^\nu
+= -\Gamma^\alpha_{tt}u^tu^t
+= -\tfrac{1}{2}\eta^{\alpha\beta}(\partial_th^{TT}_{t\beta}
++ \partial_th^{TT}_{\beta t} - \partial_\beta h^{TT}_{tt})u^tu^t
+= 0\:!\]</span> because the metric perturbation in transverse-traceless gauge has no nonzero components with a <span class="math inline">\(t\)</span> in one or more index. This <em>looks</em> like it says that the wave has no physical effect on the particle after all! But this is <em>not</em> what the equation is really saying. Just because the coordinates have the names <span class="math inline">\(t,x,y,z\)</span> does not make them cartesian coordinates. What the equation is actually saying is that in this case, the coordinates are simply <em>comoving</em> with a free particle so that the coordinates of that particle remain fixed.</p>
+<p>To see that this does not imply that the wave has no effect, we need (as always!) to go back to the metric to see what our physical coordinates actually <em>mean</em>. Rather than one particle, consider a set of particles in the <span class="math inline">\(xy\)</span> plane that (before the wave comes by) are arranged in a ring of radius <span class="math inline">\(R\)</span> that a purely “uprightly” or “plus” polarized gravitational plane wave (<span class="math inline">\(A_\times = 0\)</span>) moves in the <span class="math inline">\(+z\)</span> direction through this ring. The displacements <span class="math inline">\(\Delta x = R\cos\theta\)</span> and <span class="math inline">\(\Delta y = R\sin\theta\)</span> will be fixed in the transverse-traceless gauge, as we have seen. But their distances <span class="math inline">\(\Delta s\)</span> from the center at a given instant of time <span class="math inline">\(t\)</span> (<span class="math inline">\(\Delta t = 0\)</span> from the center) on the <span class="math inline">\(xy\)</span> plane (<span class="math inline">\(\Delta z = 0\)</span>) are <em>not</em> fixed: according to the metric equation, we have <span class="math display">\[\begin{aligned}[b]
+\Delta s^2 &amp;= (\eta_{xx} + h^{TT}_{xx})\Delta x^2
++ (\eta_{yy} + h^{TT}_{yy})\Delta y^2\\
+&amp;= (1 + A_+\cos\omega t)R^2\cos^2\theta
++ (1 - A_+\cos\omega t)R^2\sin^2\theta\\
+&amp;= R^2[1 + A_+(\cos^2\theta - \sin^2\theta)\cos\omega t]
+= R^2(1+A_+\cos 2\theta\cos\omega t)\\
+\Rightarrow\quad \Delta s &amp;= R(1+A_+\cos 2\theta\cos\omega t)^{1/2}
+\approx R(1+\tfrac{1}{2}A_+\cos 2\theta\cos\omega t)
+\end{aligned}\]</span> where in the last step I have used the binomial approximation, since <span class="math inline">\(A_+ \ll 1\)</span>. Similarly, you can show that for a “diagonally” or “cross” polarized wave, we have <span class="math display">\[\Delta s \approx R(1+\tfrac{1}{2}A_\times\sin 2\theta\cos\omega t)
+\label{ECross}\]</span> We see that the distance that each particle is from the center oscillates as the wave passes and is proportional to the displacement <span class="math inline">\(R\)</span> that the particle is from the center when no wave is present. The wave deforms the ring as shown in figure <a href="#FRings" data-reference-type="ref" data-reference="FRings">1</a>.</p>
+<figure>
+<embed src="Fig6-1.pdf" id="FRings" /><figcaption>This diagram shows how a gravitational wave moving in the +<span class="math inline">\(z\)</span> direction deforms a ring of free particles floating in space. The <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> coordinates here are coordinates of a LIF, where coordinate displacements are the same as distance displacements.</figcaption>
+</figure>
+<p>The deformation for the “upright” or “plus” polarization has the long axis of the ellipse oscillating between the <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> axes (in LIF coordinates that correspond to the actual distances), while that for the “diagonal” or “cross” polarization is the same except rotated <span class="math inline">\(45 \degree\)</span>. You can now see why the subscripts on <span class="math inline">\(A_+\)</span> and <span class="math inline">\(A_\times\)</span> make sense.</p>
+<p>We will see that a wide variety of astrophysical sources produce gravitational waves with amplitudes <span class="math inline">\(A_+\)</span> and/or <span class="math inline">\(A_\times\)</span> on the order of <span class="math inline">\(10^{-18}\)</span> or smaller at the earth. This means that free particles separated by <span class="math inline">\(R \approx 1 \times 10^{6} m = 1000 km\)</span></p>
+<p>would oscillate back and forth with amplitudes on the order of magnitude of <span class="math inline">\(10^{-12}\)</span> m (about a hundredth of the size of an atom) even for waves with the largest likely amplitudes. The implication is that gravitational waves from astrophysical sources are extremely hard to even detect, much less harm someone.</p>
+<p>But humans have in fact detected gravitational waves, as you know! The basic design of almost any detector involves a set of floating masses which have been extraordinarily well-isolated from their surroundings, and some kind of laser-ranging system that accurately measures the physical distance between the floating objects using interferometry. (One might think that this would be impossible with visible-light lasers, since the displacement of each mass when the wave comes by will be such a tiny fraction of the wavelength of light. But if the laser light is bright enough, one can detect a shift in the interference pattern from complete destructive interference to just less than complete destructive interference, even if the shift is only a tiny fraction of the wavelength of light.</p>
+<p>In spite of the fact that LISA’s arms are much longer than those of the ground-based detectors LIGO and VIRGO, the sensitivity would be about the same, because the interferometer must be much more robust (there is no ability to tinker with it once it is launched!) and also the power available to the lasers would be much smaller (particularly considering the distances involved). The advantage of a space-based detector is that the floating masses will be isolated from seismic noise, which is the main limit on LIGO’s noise curve at low frequencies. While LIGO is sensitive to waves in an essentially audio frequency range of about 10 Hz to 1000 Hz, LISA will be sensitive to waves in the <span class="math inline">\(10^{-4}\)</span> Hz to <span class="math inline">\(10^{-2}\)</span> Hz (periods of hours to minutes). There are <em>many</em> such sources of gravitational waves in that frequency range, from close binaries in our own galaxy to coalescing supermassive black holes (which would be bright enough to be registered anywhere in the universe). Indeed the limit on LISA’s noise curve at the low-frequency end is that there are so many binary star systems in our galaxy with periods of hours or longer that isolated sources will be lost in the “crowd noise.”</p>
+<h3 id="exercise-cross-polarization">Exercise: Cross Polarization</h3>
+<p>Verify equation <a href="#ECross" data-reference-type="ref" data-reference="ECross">[ECross]</a> for the deformation of a ring of particles due to a cross-polarized wave. (You will need a double-angle trig identity that you can easily look up online.)</p>
+<p>One can very crudely estimate the maximum strength of gravitational waves generated by an astrophysical source as follows. At the source (say, for example, a pair of coalescing black holes), the metric perturbations right at the source will be at most of order of magnitude 1 (note that <span class="math inline">\(g_{tt} = -(1-2GM/r) = -1 + 1\)</span> at <span class="math inline">\(r = 2GM\)</span>, which is the radius of a black hole’s event horizon). The coalescing black holes that LIGO detected in 2015 had a total mass of about 60 solar masses, for a total <span class="math inline">\(GM \approx 10^5\)</span> m. Since gravitational waves, like light waves, fall off in amplitude as <span class="math inline">\(1/r\)</span>, such waves would have the observed amplitude of <span class="math inline">\(A \approx 10^{-21}\)</span> at a distance of about <span class="math inline">\(10^{26}\)</span> m <span class="math inline">\(\approx 10^{10}\)</span> ly. Since the actual estimate of that source’s distance was 1.3 Gy, our crude estimate is actually not bad at all.</p>
+<p>This means that if our sun were to become a black hole and coalesce with another solar-mass black hole, for a total <span class="math inline">\(GM \approx 3000\)</span> m, the gravitational waves at the earth at a distance of <span class="math inline">\(r \approx 1.5^{11}\)</span> m would have an amplitude on the order of magnitude of <span class="math inline">\(1/(1.5^{11}/3000) \approx 2^{-8}\)</span>. While this would probably blow LIGO’s gaskets, I don’t think that you would even feel your body want to stretch and shrink by about 200 atom-widths.</p>
+<h3 id="exercise-waves-from-a-typical-binary-star-source.">Exercise: Waves from a Typical Binary Star Source.</h3>
+<p>Estimate the amplitude of waves from a coalescing pair of neutron stars (<span class="math inline">\(M\)</span> for each = 1.4 solar masses) about 100,000 ly away. Can LIGO detect such a source? (1 ly <span class="math inline">\(\approx 10^{16}\)</span> m.)</p>
+<h2 id="homework-problems">Homework Problems</h2>
+<ol>
+<li><p>Suppose that in a certain region of spacetime, we have <span class="math inline">\(H^{\mu\nu} = 0\)</span> except for <span class="math inline">\(H^{tt} = Br^2 + C\)</span>, where <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span> are constants (<span class="math inline">\(B\)</span> has units of <span class="math inline">\({m^{-2}}\)</span>) and <span class="math inline">\(r^2\equiv x^2+y^2+z^2\)</span>.</p>
+<ol>
+<li><p>Show that <span class="math inline">\(H^{\mu\nu}\)</span> satisfies the Lorenz condition.</p></li>
+<li><p>Use equation <a href="#EEE4H" data-reference-type="ref" data-reference="EEE4H">[EEE4H]</a> to argue that this could be a solution to the weak-field Einstein equation <em>inside</em> a spherical star centered on the origin whose fluid has a <em>uniform and constant</em> energy density <span class="math inline">\(\rho\)</span>, negligible pressure, and has zero bulk velocity. Also determine how the constant <span class="math inline">\(B\)</span> must be related to <span class="math inline">\(\rho\)</span>.</p></li>
+<li><p>Define <span class="math inline">\(m(r) = \tfrac{4}{3}\pi r^3\rho =\)</span> the Newtonian mass-energy enclosed by the radius <span class="math inline">\(r\)</span>. Calculate all of the metric components of <span class="math inline">\(g_{\mu\nu}\)</span> as a function of <span class="math inline">\(r\)</span> in terms of <span class="math inline">\(m(r)\)</span> and <span class="math inline">\(C\)</span>.</p></li>
+<li><p>At the star’s surface <span class="math inline">\(r = R\)</span>, the solution must match the exterior solution <span class="math inline">\(h_{tt} = +2GM/r\)</span> we have seen previously (note that <span class="math inline">\(m(R) = M\)</span>. Use this to determine the value of <span class="math inline">\(C\)</span> and right out the final metric equation for the star’s interior in these coordinates.</p></li>
+<li><p>Sketch or plot a graph of <span class="math inline">\(h_{tt}\)</span> (in terms of <span class="math inline">\(GM/R\)</span>) as a function of <span class="math inline">\(r\)</span> from <span class="math inline">\(r = 0\)</span> to <span class="math inline">\(r = 4R.\)</span></p></li>
+<li><p>What condition must be satisfied if all points inside such a star are to satisfy the weak-field condition that <span class="math inline">\(\vert h_{\mu\nu} \vert \ll 1\)</span>? Is this plausible for normal matter?</p></li>
+</ol></li>
+<li><p>Consider a rigid rod that separates two small spheres of mass <span class="math inline">\(m\)</span> so that they are a distance <span class="math inline">\(L\)</span> apart along the <span class="math inline">\(X\)</span> axis in a LOF observation frame. (I am using <span class="math inline">\(X\)</span> to distinguish the LOF frame coordinate from the comoving TT-coordinate <span class="math inline">\(x\)</span>, but assume that these axes point in the same direction.) Define the origin of that axis so that the centers of the spheres are at <span class="math inline">\(X = \pm\tfrac{1}{2}L\)</span>. Suppose a plus-polarized gravitational wave with amplitude <span class="math inline">\(A_+\)</span> and angular frequency <span class="math inline">\(\omega\)</span> moves in the <span class="math inline">\(+z\)</span> direction through this object. Determine the <span class="math inline">\(X\)</span> component of the force that the rod must exert on each mass to hold it in place. (<em>Hints:</em> We know that the distances between freely-floating objects will change as the gravitational wave passes, so objects that are held a fixed distance apart are not following geodesics. Answer: <span class="math inline">\(|F_X| = \tfrac{1}{4}\omega^2LA_+\cos\omega t,\)</span> but also check that your direction comes out correctly.)</p></li>
+</ol>
+</body>
+</html>

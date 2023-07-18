@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>main</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <script src="/usr/share/javascript/mathjax/tex-mml-chtml.js" type="text/javascript"></script>
+</head>
+<body>
+<p><strong>General Relativity and Gravitational Waves</strong></p>
+<p><strong>Session 5: The Einstein Equation</strong></p>
+<h2 id="SOver">Overview of this Session</h2>
+<p>In the last session, we learned how to write tensor equations that apply in arbitrary coordinate systems (at least those with coordinate bases) and we also learned how to calculate geodesics in an arbitrary spacetime, one of the two core equations of general relativity. In this session, we will use tensor mathematics to construct the other core equation, which we call the Einstein Equation. The process that we use will be similar to the process that we used in the first session to derive Maxwell’s equations.</p>
+<p>An overview of this session’s sections follows:</p>
+<ol>
+<li><p><strong>The Stress-Energy Tensor.</strong> In this section, we will argue that the source of the gravitational field is not a four-vector (as is the source of the electromagnetic field) but rather a second-rank tensor <span class="math inline">\(\mathbf{T}\)</span> we call the <strong>stress-energy tensor,</strong> and develop some expressions for this tensor in certain cases. We will also see how the tensor divergence of this field expresses local conservation of energy.</p></li>
+<li><p><strong>Constructing the Einstein Equation.</strong> Here we will construct the simplest self-consistent tensor equation to describe how the curvature of spacetime can be connected to its source (the stress-energy tensor) in a way that is consistent with local conservation of energy.</p></li>
+<li><p><strong>The Weak-Field Approximation.</strong> This section explores an approach to solving the Einstein equation where we assume that the field is weak enough that we can ignore nonlinear terms in the equation. This approach will be crucial to us as we explore gravitational waves.</p></li>
+</ol>
+<h2 id="the-stress-energy-tensor.">The Stress-Energy Tensor.</h2>
+<p>In the first section, in the context of “deriving” Maxwell’s equations, we sought to find a tensor generalization of the Poisson equation <span class="math inline">\(-\nabla^2\phi = \rho/\varepsilon_0\)</span>, which expresses Gauss’s law in the context of a static electric field (<span class="math inline">\(\phi\)</span> is the electrostatic potential and <span class="math inline">\(\rho\)</span> is the charge density). Our first step involved determining what kind of tensor quantity has the charge density <span class="math inline">\(\rho\)</span> as a component. (We found that <span class="math inline">\(\rho\)</span> was the time component of a four-vector <span class="math inline">\(J^\mu\)</span>).</p>
+<p>Similarly, our task in this section is to find a tensor generalization of the analogous Newtonian equation for gravity, which is <span class="math inline">\(\nabla^2\Phi = 4\pi G\rho\)</span>, where <span class="math inline">\(\Phi\)</span> is the gravitational potential (gravitational potential energy per unit mass), <span class="math inline">\(G\)</span> is Newton’s gravitational constant and <span class="math inline">\(\rho\)</span> here is <em>mass</em> density. Our first task is analogously to determine what kind of tensor quantity has <span class="math inline">\(\rho\)</span> as a component.</p>
+<p>Part of what we need to resolve is whether <span class="math inline">\(\rho\)</span> is this situation is actually <em>mass</em> density or <em>energy</em> density. In Newtonian situations (even in the fiery heart of the sun), particles’ kinetic energies are so small that the energy of those particles is virtually entirely rest energy, so the distinction between mass density and energy density is negligible. This means that this distinction would be difficult to investigate experimentally.</p>
+<p>But we can resolve the question theoretically using a simple thought experiment. Consider a small mirrored box that contains a positron and an electron bouncing around inside it. These particles will create a (very tiny) gravitational field outside the box, and suppose that this field accelerates a particle outside the box toward the box’s center, increasing the latter particle’s kinetic energy. But suppose that just as the particle is passing the box, the electron and positron meet and annihilate, creating two photons, which subsequently still bounce around inside the mirrored box.</p>
+<p>If the source of the gravitational field was the positron and electron’s rest mass, then because that mass is now gone, the gravitational field vanishes. The particle then passes the box and carries the kinetic energy it gained out to infinity without losing any of it due to the effects of the now nonexistent gravitational field. Therefore, we will have created energy (the particle’s kinetic energy) from nothing (the box still contains the same total energy as it did initially).</p>
+<p>On the other hand, if the source of the gravitational field is energy, then since the box’s energy is conserved, its gravitational field is constant. Therefore the particle does not gain any net kinetic energy from its gravitational encounter with the box, and the paradox is avoided. This argument is by no means a rigorous proof, but it does make make plausible the idea that we should choose energy over mass as being the source of the gravitational field.</p>
+<p><strong>The Stress-Energy of Dust.</strong> Now we can turn our attention to what tensor quantity might represent the energy density <span class="math inline">\(\rho\)</span>. Consider a very simple fluid that consists of identical particles that (at least within a certain small neighborhood of a given event <span class="math inline">\(\mathcal{P}\)</span>) have roughly the same four-velocity (that is, the particles’ random thermal velocities are negligible). We call this fluid model <strong>dust</strong>, because the particles behave like airborne dust particles illuminates by a shaft of sunlight: the dust particles in a given small region move along together in the direction of the ambient airflow.</p>
+<p>The dust model means that at every event, we can find a locally inertial reference frame (LIF) in which the particles in a given small volume are essentially at rest. Consider <span class="math inline">\(N\)</span> identical particles, each with mass <span class="math inline">\(m\)</span> at rest inside a tiny box of volume <span class="math inline">\(V_0\)</span>. The number density of particles in the box is thus <span class="math inline">\(n_0 = N/V_0\)</span>, and since a particle’s energy at rest is simply its mass <span class="math inline">\(m\)</span>, the total energy density is <span class="math inline">\(\rho_0 = n_0m\)</span>.</p>
+<p>Suppose that we now view this box in a different LIF centered at the same event but in which the box and all the particles inside move together with an ordinary velocity <span class="math inline">\(\vec{v}\)</span>. The box as viewed in this new frame still has <span class="math inline">\(N\)</span> particles in it (as every observer who can count will agree) but the box’s volume is now <span class="math inline">\(V = V_0\sqrt{1-v^2}\)</span> because the box is Lorentz-contracted by that factor. The number density of the particles in the box in this frame is therefore <span class="math inline">\(n = N/V = N/V_0\sqrt{1-v^2} = n_0/\sqrt{1-v^2}\)</span>.</p>
+<p>Now, note that the particles’ four-velocity in this frame (assuming the LIF uses <span class="math inline">\(t, x, y, z\)</span> coordinates) is <span class="math display">\[u^\mu = 
+\begin{bmatrix}
+1/\sqrt{1-v^2}\\
+v_x/\sqrt{1-v^2}\\
+v_y/\sqrt{1-v^2}\\
+v_z/\sqrt{1-v^2}
+\end{bmatrix}
+=
+\begin{bmatrix}
+u^t\\ v_xu^t\\ v_yu^t\\ v_zu^t
+\end{bmatrix}\]</span> Therefore, we can write the particle number density in this frame in the form <span class="math display">\[n = \frac{N}{V} = \frac{N}{V_0\sqrt{1-v^2}} = n_0u^t\]</span> Since the energy of each particle in this frame is <span class="math inline">\(p^t \equiv mu^t\)</span> the total energy density measured in this frame is <span class="math display">\[\rho \equiv np^t = (n_0u^t)(mu^t) = (n_0m)u^tu^t = \rho_0u^tu^t\]</span> Now the energy density <span class="math inline">\(\rho_0\)</span> of the dust in its own frame is a relativistic scalar, because all observers know which LIF is at rest with respect to the dust and what an observer in that frame will measure. So the quantity in the equation above is a scalar multiple by the time components of two four-vectors. We see that in this case, the energy density of the fluid is the time-time component of the second-rank tensor <span class="math display">\[T^{\,\mu\nu} = \rho_0u^\mu u^\nu \quad \text{(for dust)}\]</span> Note that this tensor is symmetric: <span class="math inline">\(T^{\,\mu\nu} = T^{\,\nu\mu}\)</span>.</p>
+<p><strong>The Components of</strong> <span class="math inline">\(\mathbf{T}\)</span>. What are the other components of this tensor? We can write <span class="math inline">\(T^{\,tx}\)</span> in the form <span class="math display">\[T^{\,tx} = \rho_0u^tu^x = (n_0m)u^tu^x = (n_0u^t)mu^x
+= x\text{-momentum density}\]</span> Similarly, <span class="math inline">\(T^{\,ty}\)</span> and <span class="math inline">\(T^{\,tz}\)</span> correspond to <span class="math inline">\(y\)</span>- and <span class="math inline">\(z\)</span>-momentum density, respectively. Since <span class="math inline">\(\mathbf{T}\)</span> is symmetric, the same interpretations also apply to <span class="math inline">\(T^{\,xt}, T^{\,yt},\)</span> and <span class="math inline">\(T^{\,zt}\)</span>.</p>
+<p>The components of <span class="math inline">\(\mathbf{T}\)</span> with purely spatial indices are harder to interpret, and I really don’t want to get into the details. In most astrophysical objects other than neutron stars, these components are small anyway, because the rotational and thermal particle velocities in such an object are typically much smaller than light and the components with spatial indices involve the squares of particle velocities. But it is important to recognize that an object’s stress-energy tensor <span class="math inline">\(\mathbf{T}\)</span> depends not only on the overall energy of its particles but also how the particles are moving.</p>
+<h2 id="constructing-the-einstein-equation.">Constructing the Einstein Equation.</h2>
+<p>Our goal in this section is to find the appropriate tensor generalization of the Newtonian gravitational field equation <span class="math inline">\(\nabla^2\Phi = 4\pi G\rho\)</span>. We now know that the appropriate generalization of the right side is the stress-energy tensor <span class="math inline">\(T^{\mu\nu}\)</span>, so the appropriate tensor generalization might look something like <span class="math display">\[G^{\mu\nu} = \kappa T^{\mu\nu}\]</span> where <span class="math inline">\(\kappa\)</span> is a scalar constant and <span class="math inline">\(G^{\mu\nu}\)</span> is a second-rank tensor that tells us something about the curvature of spacetime. Now, we know that the Riemann tensor describes the curvature of spacetime, but we can’t set a fourth-rank tensor equal to a second-rank tensor. Therefore <span class="math inline">\(G^{\mu\nu}\)</span> must be constructed out of the Riemann tensor in such a way as to leave only two free indices.</p>
+<p>The number of indices is not the only constraint on <span class="math inline">\(G^{\mu\nu}\)</span>. Since <span class="math inline">\(T^{\mu\nu}\)</span> is a symmetric tensor (<span class="math inline">\(T^{\mu\nu} = T^{\nu\mu}\)</span>), the <span class="math inline">\(G^{\mu\nu}\)</span> must also be symmetric. Also, just as <span class="math inline">\(\nabla_\mu J^\mu = 0\)</span> expresses conservation of charge, it turns out that <span class="math inline">\(\nabla_\nu T^{\mu\nu} = 0\)</span> expresses conservation of energy and momentum. This means that (because taking the tensor divergence of both sides of the equation should still yield a valid tensor equation) we must also have <span class="math inline">\(\nabla_\nu G^{\mu\nu} = 0\)</span>. Finally, we want to build <span class="math inline">\(G^{\mu\nu}\)</span> out of the Riemann tensor and the metric tensor, as only these tensors are directly connected to the curvature of spacetime.</p>
+<p>An obvious candidate for <span class="math inline">\(G^{\mu\nu}\)</span> is the so-called <strong>Ricci tensor</strong>, which we construct by contracting the Riemann tensor over its first and third indices: <span class="math display">\[R_{\beta\nu} \equiv R^\alpha_{\beta\alpha\nu}\]</span> The form of the Ricci tensor with both indices raised is <span class="math display">\[\label{ERicciUp}
+R^{\mu\nu} = g^{\mu\beta}g^{\nu\sigma} R_{\alpha\beta\alpha\sigma} = g^{\mu\beta}g^{\nu\sigma}g^{\alpha\gamma} R_{\alpha\beta\gamma\sigma}\]</span></p>
+<p>Because the Riemann tensor is symmetric under exchange of the two pairs of indices (<span class="math inline">\(R_{\gamma\sigma\alpha\beta} =
++R_{\alpha\beta\gamma\sigma}\)</span>), the Ricci tensor is symmetric: <span class="math display">\[R^{\nu\mu}
+= g^{\nu\beta}g^{\mu\sigma}g^{\alpha\gamma} R_{\gamma\sigma\alpha\beta}
+= g^{\nu\sigma}g^{\mu\beta}g^{\gamma\alpha} R_{\alpha\beta\gamma\sigma}
+= g^{\mu\beta}g^{\nu\sigma}g^{\alpha\gamma} R_{\alpha\beta\gamma\sigma}
+\equiv R^{\mu\nu}\]</span></p>
+<p>where I started with equation <a href="#ERicciUp" data-reference-type="ref" data-reference="ERicciUp">[ERicciUp]</a>, then I swapped the first pair of indices with the second pair in the Riemann tensor, then I renamed the bound indices <span class="math inline">\(\beta\leftrightarrow\sigma\)</span> and <span class="math inline">\(\alpha\leftrightarrow\gamma\)</span>, then used the symmetry of the metric and commutativity of multiplication, and then finally, applied equation <a href="#ERicciUp" data-reference-type="ref" data-reference="ERicciUp">[ERicciUp]</a> again. Other possible terms include <span class="math inline">\(g^{\mu\nu}R\)</span> (where <span class="math inline">\(R\equiv R^\mu_\mu\equiv g^{\beta\mu}
+R^\alpha_{\beta\alpha\mu}\)</span> and <span class="math inline">\(g^{\mu\nu}\)</span> itself. In fact, <span class="math inline">\(R^{\mu\nu}, g^{\mu\nu}R\)</span>, and <span class="math inline">\(g^{\mu\nu}\)</span> are the <em>only</em> second-rank symmetric tensors that one can construct out of the Riemann tensor and the metric tensor that are linear in the Riemann tensor. So the most general expression for <span class="math inline">\(G^{\mu\nu}\)</span> that is linear in the Riemann tensor is <span class="math display">\[\begin{aligned}
+    G^{\mu\nu} = R^{\mu\nu} + bg^{\mu\nu}R + \Lambda g^{\mu\nu},\end{aligned}\]</span> where <span class="math inline">\(b\)</span> and <span class="math inline">\(\Lambda\)</span> are scalar constants. It turns out that requiring that <span class="math inline">\(\nabla_\mu T^{\mu\nu} = 0\)</span> requires <span class="math inline">\(b = -\tfrac{1}{2}\)</span> (see Moore, <em>A General Relativity Workbook</em>, University Science Books, 2013, p. 245 if you are really interested). The simplest field equation for gravity that satisfies all our constraints is therefore: <span class="math display">\[R^{\mu\nu} - \tfrac{1}{2}g^{\mu\nu}R + \Lambda g^{\mu\nu}
+= \kappa T^{\mu\nu},
+\label{EPUEE}\]</span></p>
+<p>The invariant constant <span class="math inline">\(\Lambda\)</span> (which is called the <strong>cosmological constant</strong> is not constrained by any theoretical argument and therefore can only be determined by experiment. When Einstein first proposed his theory of general relativity, the accepted model of the universe was that it was static. Einstein proposed a value of <span class="math inline">\(\Lambda\)</span> that would yield a static universe as a solution to equation <a href="#EPUEE" data-reference-type="ref" data-reference="EPUEE">[EPUEE]</a>. But later, Einstein learned that his static universe solution was unstable, meaning that it wouldn’t <em>stay</em> static, and in the meantime, Hubble and others showed that the universe wasn’t static, but rather expanding, something Einstein might have <em>predicted</em> if he had been so bold. Since data from within the solar system were perfectly consistent with <span class="math inline">\(\Lambda = 0\)</span>, Einstein famously retracted his proposed value for <span class="math inline">\(\Lambda\)</span>, calling it “the worst mistake I ever made.” His subsequent work assumed that <span class="math inline">\(\Lambda = 0\)</span>. The <strong>Einstein equation</strong> is therefore <span class="math display">\[\begin{aligned}
+    G^{\mu\nu}\equiv R^{\mu\nu} - \tfrac{1}{2}g^{\mu\nu}R = \kappa T^{\mu\nu}.
+    \label{EEEE}\end{aligned}\]</span></p>
+<p>However, this is not the end of the story. Starting in 1998, astrophysicists published convincing evidence from a number of different observations that the rate of the universe’s rate of expansion was actually <em>increasing</em>. Einstein’s equations with <span class="math inline">\(\Lambda = 0\)</span> predicts that the rate of expansion should decrease, not increase, with time. But a positive value of <span class="math inline">\(\Lambda\)</span> essentially makes the vacuum the source of a repulsive gravitational field, and a value of <span class="math inline">\(\Lambda\)</span> such that <span class="math inline">\(\Lambda/\kappa = 0.7 \times 10^{-26}\, \text{kg/m}^3\)</span> (the equivalent of about 5 hydrogen atoms per cubic meter!) nicely fits the data. Astrophysicists now consider the <span class="math inline">\(\Lambda g^{\mu\nu}\)</span> term to be a “vacuum energy” or “dark energy” term and put it on the <em>right</em> side of Einstein equation along with the stress-energy tensor for matter (ordinary matter and dark matter).</p>
+<p>However, the experimental value of this “vacuum energy” is so small that its effects are completely negligible unless we are dealing with scales larger than the largest galactic superclusters, and so has nothing to do with either generating or receiving gravitational waves. We will therefore ignore this term entirely in what follows and use the Einstein equation in its classic form given in equation <a href="#EEEE" data-reference-type="ref" data-reference="EEEE">[EEEE]</a>.</p>
+<p>The last step is to find the value of <span class="math inline">\(\kappa\)</span>. We can do this by ensuring that the Einstein equation yields the same physical results as Newton’s theory in the appropriate (weak-field) limit. Doing this will be easier after we go through the next section, but (spoiler alert!) the result is <span class="math inline">\(\kappa =
+8\pi G\)</span>. This means that the final form of the Einstein equation is <span class="math display">\[\begin{aligned}
+    G^{\mu\nu}\equiv R^{\mu\nu} - \tfrac{1}{2}g^{\mu\nu}R = 8\pi GT^{\mu\nu}.
+    \label{EEEF}\end{aligned}\]</span></p>
+<h3 id="exercise-the-vacuum-stress-energy">Exercise: The Vacuum Stress-Energy</h3>
+<p>If we move the vacuum energy term <span class="math inline">\(\Lambda g^{\mu\nu}\)</span> that appears on the left side of equation <a href="#EPUEE" data-reference-type="ref" data-reference="EPUEE">[EPUEE]</a> to the side with the stress-energy and treat it as if it were just another kind of stress-energy, argue that we would want to define the vacuum’s stress-energy to be <span class="math inline">\(T^{\,\mu\nu}_\text{vac} = -\Lambda g^{\mu\nu}/8\pi G\)</span>.</p>
+<h2 id="the-weak-field-approximation.">The Weak-Field Approximation.</h2>
+<p>The Einstein equation, because it represents 10 coupled, nonlinear, second-order partial differential equations, is very difficult to solve in general, and only a relative handful of exact solutions are known. But a trick that makes finding solutions a lot easier is to use an approximation known as the <strong>weak-field limit</strong>. “Weak” fields in this context are actually not all that weak by astrophysical standards. One would actually need to be close to a black hole or a neutron star for the weak-field approximation to break down. No gravitational field in the solar system would even come close to violating this approximation. This is also the path to understanding both the generation and detection of gravitational waves, so it is central to our context.</p>
+<p>We describe a gravitational field as "weak" in a region of spacetime if we can describe the spacetime using almost-cartesian coordinates <span class="math inline">\(t,x,y,z\)</span> whose metric is such that <span class="math display">\[g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu} \quad \quad
+\text{where}\quad h_{\mu\nu} = h_{\nu\mu}\ \text{and}
+\ \vert h_{\mu\nu}\vert \ll 1\]</span> where <span class="math inline">\(\eta_{\mu\nu}\)</span> is the flat-spacetime metric. Not that the “almost-cartesian” coordinates here are not the same as true cartesian coordinates (for which the metric would be exactly <span class="math inline">\(\eta_{\mu\nu}\)</span>).</p>
+<p>Taking the “weak-field limit” means that we will drop terms of order <span class="math inline">\(\vert h_{\mu\nu}\vert^2\)</span> and higher in all the equations that follow. To this level of approximation, the inverse metric <span class="math inline">\(g^{\mu\nu}\)</span> turns out to be <span class="math display">\[g^{\mu\nu} = \eta^{\mu\nu} - h^{\mu\nu} \quad \text{where}
+    \ h^{\mu\nu} \equiv \eta^{\mu\alpha}\eta^{\nu\beta}h_{\alpha\beta}\]</span> To see this, note that</p>
+<p><span class="math display">\[\begin{aligned}
+    g^{\mu\nu}g_{\nu\sigma}
+    &amp;= (\eta^{\mu\nu} - h^{\mu\nu})(\eta_{\nu\sigma} + h^{\nu\sigma})
+    = \eta^{\mu\nu}\eta_{\nu\sigma} - h^{\mu\nu}\eta_{\nu\sigma}
+    + \eta^{\mu\nu}h_{\nu\sigma} + h^{\mu\nu}h_{\nu\sigma} \\
+    &amp;= \delta^\mu_\sigma
+    - \eta_{\nu\sigma}(\eta^{\mu\alpha}\eta^{\nu\beta}h_{\alpha\beta})
+    + \eta^{\mu\nu}h_{\nu\sigma} + \text{(dropped)}\\
+    &amp;= \delta^\mu_\sigma
+    - \eta^{\mu\alpha}(\eta_{\sigma\nu}\eta^{\nu\beta})h_{\alpha\beta})
+    + \eta^{\mu\nu}h_{\nu\sigma} \\
+    &amp;= \delta^\mu_\sigma
+    - \eta^{\mu\alpha}\delta^\beta_\sigma h_{\alpha\beta}
+    + \eta^{\mu\nu}h_{\nu\sigma}
+    = \delta^\mu_\sigma
+    - \cancel{\eta^{\mu\alpha}h_{\alpha\sigma}}
+    + \cancel{\eta^{\mu\nu}h_{\nu\sigma}} = \delta^\mu_\sigma\end{aligned}\]</span></p>
+<p>implying that the stated inverse does satisfy its definition equation to the order in question.</p>
+<p>This means that we can raise or lower the indices of any quantity that is of order of <span class="math inline">\(h_{\mu\nu}\)</span> using the <em>flat-space</em> inverse metric <span class="math inline">\(\eta^{\mu\nu}\)</span> or metric <span class="math inline">\(\eta_{\mu\nu}\)</span>, respectively. For example <span class="math display">\[h^\mu_\nu \equiv g^{\mu\alpha} h_{\alpha\nu}
+    \approx (\eta^{\mu\alpha} - h^{\mu\alpha})h_{\alpha\nu}
+    = \eta^{\mu\alpha}h_{\alpha\nu} + \text{(dropped)}\]</span> since the dropped term is of order <span class="math inline">\(\vert h_{\alpha\nu}\vert^2\)</span>. This will be very important to keep in mind in what follows.</p>
+<p>In particular, note that Christoffel symbols in this limit become <span class="math display">\[\Gamma^\alpha_{\mu\nu} = \tfrac{1}{2}g^{\alpha\sigma}
+    (\partial_\mu g_{\nu\sigma} + \partial_\nu g_{\sigma\mu}
+    - \partial_\sigma g_{\mu\nu})
+    \approx \tfrac{1}{2}\eta^{\alpha\sigma}
+    (\partial_\mu h_{\nu\sigma} + \partial_\nu h_{\sigma\mu}
+    - \partial_\sigma h_{\mu\nu})\]</span> because the <span class="math inline">\(\eta_{\mu\nu}\)</span> matrix is a constant, and we can throw away the correction to the inverse metric because it will only lead to terms of order <span class="math inline">\(\vert h_{\alpha\nu}\vert^2\)</span>. Similarly, the expression for the Riemann tensor in this limit is <span class="math display">\[R_{\alpha\beta\mu\nu} = \tfrac{1}{2}(
+    \partial_\beta\partial_\mu h_{\alpha\nu}
+    + \partial_\alpha\partial_\nu h_{\beta\mu}
+    - \partial_\alpha\partial_\mu h_{\beta\nu}
+    - \partial_\beta\partial_\nu h_{\alpha\mu})
+    \label{ER4WF}\]</span> (The proof is not difficult, but a bit off-topic, so I have left that as a homework problem you can try.)</p>
+<p>Therefore, the Einstein tensor in this limit is <span class="math display">\[\begin{aligned}
+    G^{\gamma\sigma} &amp;= R^{\gamma\sigma} - \tfrac{1}{2}\eta^{\gamma\sigma}R
+    = \eta^{\gamma\beta}\eta^{\sigma\nu}\eta^{\alpha\mu}R_{\alpha\beta\mu\nu}
+    - \tfrac{1}{2}\eta^{\gamma\sigma}\eta^{\beta\nu}\eta^{\alpha\mu}
+    R_{\alpha\beta\mu\nu}
+    \notag\\
+    &amp;= \tfrac{1}{2}(\eta^{\gamma\beta}\eta^{\sigma\nu}\eta^{\alpha\mu}
+    -\tfrac{1}{2}\eta^{\gamma\sigma}\eta^{\beta\nu}\eta^{\alpha\mu})
+    (\partial_\beta\partial_\mu h_{\alpha\nu}
+    + \partial_\alpha\partial_\nu h_{\beta\mu}
+    - \partial_\alpha\partial_\mu h_{\beta\nu}
+    - \partial_\beta\partial_\nu h_{\alpha\mu})
+    \notag\\
+    &amp;=\tfrac{1}{2}
+    (\partial^\gamma\partial_\mu h^{\mu\sigma}
+    + \partial_\alpha\partial^\sigma h^{\gamma\alpha}
+    - \partial^\mu\partial_\mu h^{\gamma\sigma}
+    - \eta^{\gamma\beta}\partial_\beta\partial^\sigma h)
+    \notag\\
+    &amp;- \tfrac{1}{4}\eta^{\gamma\sigma}
+    (\partial_\beta\partial_\mu h^{\mu\beta}
+    + \partial_\alpha\partial_\nu h^{\nu\alpha}
+    - \partial^\mu\partial_\mu h
+    - \partial^\nu\partial_\nu h)
+    \notag\\
+    &amp;=\tfrac{1}{2}
+    (\partial^\gamma\partial_\mu h^{\mu\sigma}
+    + \partial_\alpha\partial^\sigma h^{\gamma\alpha}
+    - \partial^\mu\partial_\mu h^{\gamma\sigma}
+    - \eta^{\gamma\beta}\partial_\beta\partial^\sigma h
+    - \eta^{\gamma\sigma}\partial_\mu\partial_\nu h^{\mu\nu}
+    + \eta^{\gamma\sigma}\partial^\mu\partial_\mu h)
+    \label{E4GWF}\end{aligned}\]</span> where <span class="math inline">\(h\equiv\eta^{\mu\nu}h_{\mu\nu}\)</span>. This expression is <em>much</em> better than the full expression for the Einstein tensor (which if written in terms of the derivatives of the metric could have several pages-worth of terms) and is also <em>linear</em> in the metric perturbation (which the full Einstein tensor is not). But it is still pretty complicated.</p>
+<p>Though it will not look like it at first, it helps to define the <strong>trace-reversed metric perturbation</strong> <span class="math display">\[H_{\mu\nu} \equiv h_{\mu\nu} - \tfrac{1}{2}\eta_{\mu\nu}h\]</span> This is called “trace-reversed” because <span class="math display">\[H \equiv \eta^{\mu\nu}H_{\mu\nu} = \eta^{\mu\nu}h_{\mu\nu}
+- \eta^{\mu\nu}\eta_{\mu\nu}h = h - \tfrac{1}{2}\delta^\mu_\mu h
+= h - 2h = -h\]</span> This also means that <span class="math display">\[h_{\mu\nu} = H_{\mu\nu} + \tfrac{1}{2}\eta_{\mu\nu}h
+= H_{\mu\nu} - \tfrac{1}{2}\eta_{\mu\nu}H
+\label{EhFromH}\]</span> If we substitute this last expression into equation <a href="#E4GWF" data-reference-type="ref" data-reference="E4GWF">[E4GWF]</a>, we find that <span class="math display">\[\begin{aligned}
+    G^{\gamma\sigma} &amp;= \tfrac{1}{2}
+    \big(\partial^\gamma\partial_\mu [H^{\mu\sigma}
+    - \tfrac{1}{2}\eta^{\mu\sigma}H]
+    + \partial_\alpha\partial^\sigma[H^{\gamma\alpha}
+    -\tfrac{1}{2}\eta^{\gamma\alpha}H]
+    - \partial^\mu\partial_\mu[H^{\gamma\sigma}
+    -\tfrac{1}{2}\eta^{\gamma\sigma}H]
+    \notag\\
+    &amp;\quad - \eta^{\gamma\beta}\partial_\beta\partial^\sigma (-H)
+    - \eta^{\gamma\sigma}\partial_\mu\partial_\nu
+    [H^{\mu\nu}-\tfrac{1}{2}\eta^{\mu\nu}H]
+    + \eta^{\gamma\sigma}\partial^\mu\partial_\mu (-H)\big)
+    \notag\\
+    &amp;=\tfrac{1}{2}\big(\partial^\gamma\partial_\mu H^{\mu\sigma}
+    - \cancel{\tfrac{1}{2}\partial^\gamma\partial^\sigma H}
+    + \partial_\alpha\partial^\sigma H^{\gamma\alpha}
+    - \cancel{\tfrac{1}{2}\partial^\gamma\partial^\sigma H}
+    - \partial^\mu\partial_\mu H^{\gamma\sigma}
+    + \bcancel{\tfrac{1}{2}\partial^\mu\partial_\mu\eta^{\gamma\sigma}H}
+    \notag\\
+    &amp;\quad + \cancel{\partial^\gamma\partial^\sigma H}
+    - \eta^{\gamma\sigma}\partial_\mu\partial_\nu H^{\mu\nu}
+    + \bcancel{\tfrac{1}{2}\eta^{\gamma\sigma}\partial^\mu\partial_\mu H}
+    - \bcancel{\eta^{\gamma\sigma}\partial^\mu\partial_\mu H}\big)
+    \notag\\
+    &amp;= \tfrac{1}{2}\big(\partial^\gamma\partial_\mu H^{\mu\sigma}
+    + \partial_\alpha\partial^\sigma H^{\gamma\alpha}
+    - \partial^\mu\partial_\mu H^{\gamma\sigma}
+    - \eta^{\gamma\sigma}\partial_\mu\partial_\nu H^{\mu\nu}\big)\end{aligned}\]</span> and the Einstein equation becomes <span class="math display">\[\begin{aligned}
+    \partial^\gamma\partial_\mu H^{\mu\sigma}
+    + \partial_\alpha\partial^\sigma H^{\gamma\alpha}
+    - \partial^\mu\partial_\mu H^{\gamma\sigma}
+    - \eta^{\gamma\sigma}\partial_\mu\partial_\nu H^{\mu\nu}
+    = 16\pi G T^{\gamma\sigma}\end{aligned}\]</span> This seems a <em>bit</em> better, as now we have partial derivative terms instead of six. But this is actually <em>huge</em>, because we have freedom to choose coordinates (subject to the restriction <span class="math inline">\(|h_{\mu\nu}|\ll 1\)</span>), and one can show that you can <em>always</em> choose coordinates so that <span class="math inline">\(\partial_\mu H^{\mu\nu} = 0\)</span>. Therefore, we can write the Einstein equation in the form of two much simpler equations <span class="math display">\[\begin{aligned}
+    \partial^\mu\partial_\mu H^{\gamma\sigma}
+    = -16\pi G T^{\gamma\sigma}
+    \quad\textrm{and}\quad \partial_\mu H^{\mu\nu} = 0
+    \label{EEE4WF}\end{aligned}\]</span> Once we have found the function <span class="math inline">\(H^{\gamma\sigma}\)</span> that satisfies these equations, we can calculate <span class="math inline">\(H_{\mu\nu} = \eta_{\mu\gamma}\eta_{\nu\sigma}H^{\gamma\sigma}\)</span> and then use equation <a href="#EhFromH" data-reference-type="ref" data-reference="EhFromH">[EhFromH]</a> to calculate <span class="math inline">\(h_{\mu\nu}\)</span>.</p>
+<p>Now this is actually not so bad. We can compare this equation to the analogous time-dependent equation for the electric potential based on Gauss’s law: <span class="math display">\[\partial^\mu\partial_\mu\phi
+= \left(-\frac{\partial^2}{\partial t^2} + \nabla^2\right)\phi
+= -\frac{\rho_c}{\varepsilon_0} = -4\pi k\rho_c \label{EElecPot}\]</span> where <span class="math inline">\(\rho_c\)</span> is the charge density and <span class="math inline">\(k = 1/4\pi\varepsilon_0\)</span> is the Coulomb constant (which is directly analogous to the gravitational constant <span class="math inline">\(G\)</span>). You may remember that in <em>static</em> situations, we can calculate the potential <span class="math inline">\(\phi(t,\vec{R})\)</span> at position <span class="math inline">\(\vec{R}\)</span> by dividing the source into tiny volume elements, treating each volume element as a point particle with charge <span class="math inline">\(q = \rho_c dV\)</span>, using the formula for the potential for a point charge <span class="math inline">\(\phi = kq/s\)</span> (where <span class="math inline">\(s \equiv \vert \vec{R} - \vec{r}\,\vert\)</span> is the distance between the field point at position <span class="math inline">\(\vec{R}\)</span> and the volume element’s position <span class="math inline">\(\vec{r}\)</span>), and summing over all volume elements. Such a potential will satisfy the time-<em>independent</em> version of equation <a href="#EElecPot" data-reference-type="ref" data-reference="EElecPot">[EElecPot]</a>. The solution to the time-<em>dependent</em> equation is the same thing except we must account for the light travel time from the source-element’s position <span class="math inline">\(\vec{r}\)</span> and the field point position <span class="math inline">\(\vec{R}\)</span>. By analogy, then, the solution to the weak-field Einstein equation (equation <a href="#EEE4WF" data-reference-type="ref" data-reference="EEE4WF">[EEE4WF]</a>) will be, quite generally, <span class="math display">\[H^{\mu\nu}(t, \vec{R}) = 4G \int_\text{src}
+    \frac{T^{\mu\nu}(t-s,\vec{r})\,dV}{s}
+    \quad\textrm{subject to the condition that}\quad
+    \partial_\mu H^{\mu\nu} = 0.
+    \label{ES4H}\]</span></p>
+<h3 id="exercise-a-static-spherical-star.">Exercise: A Static Spherical Star.</h3>
+<p>Consider a static spherical star with total mass <span class="math inline">\(M\)</span>. Assume that pressure is negligible, so that its only nonzero stress-energy component is <span class="math inline">\(T^{tt}
+= \rho\)</span>, where <span class="math inline">\(\rho\)</span> is a function of radius alone.</p>
+<ol>
+<li><p>We know from electrostatics that the potential outside a spherical source is the same as that for particle with same charge located at the source’s center. Using that analogy, find all components of <span class="math inline">\(H^{\mu\nu}\)</span> at a point outside the star that is a distance <span class="math inline">\(r\)</span> from the star’s center.</p></li>
+<li><p>Show that <span class="math inline">\(\partial_\mu H^{\mu\nu} = 0.\)</span></p></li>
+<li><p>What is <span class="math inline">\(h_{\mu\nu}\)</span> outside the star? (<em>Hint:</em> <span class="math inline">\(h_{tt} = +2GM/r.\)</span>)</p></li>
+</ol>
+<p>We are finally in a place where we can verify that the constant <span class="math inline">\(\kappa = 8\pi G\)</span> appearing in the Einstein equation (and therefore the <span class="math inline">\(-16\pi G\)</span> in equation <a href="#EEE4WF" data-reference-type="ref" data-reference="EEE4WF">[EEE4WF]</a>) is correct. Consider a free particle initially at rest a distance <span class="math inline">\(r\)</span> from the center of a static spherical star of mass <span class="math inline">\(M\)</span>. Assume that we define the <span class="math inline">\(z\)</span> axis of our nearly Cartesian coordinate system to point in the direction of increasing <span class="math inline">\(r\)</span>, so that <span class="math inline">\(r\approx z\)</span>. The geodesic equation then tells us that the particle’s radial acceleration is <span class="math display">\[\begin{aligned}
+    \frac{d^2z}{d\tau^2} = -\Gamma^z_{\mu\nu}u^\mu u^\nu\end{aligned}\]</span> But if the particle is at rest, the spatial components of its four-velocity are zero and in our pseudo-Cartesian coordinate system <span class="math inline">\(u^t = dt/d\tau
+\approx 1\)</span>, so <span class="math inline">\(t\approx \tau\)</span> and the geodesic equation reduces to <span class="math display">\[\begin{aligned}
+    \frac{d^2z}{dt^2} \approx -\Gamma^z_{tt}
+    \approx -\tfrac{1}{2}\eta^{z\sigma}\big[
+    \partial_t h_{t\sigma} + \partial_t h_{\sigma t}
+    - \partial_\sigma h_{tt}\big]
+    = -\tfrac{1}{2}\eta^{zz}\big[0 + 0 - \partial_z h_{tt}]
+    = \tfrac{1}{2}\partial_z h_{tt}\end{aligned}\]</span> But we found in the exercise above that <span class="math inline">\(h_{tt} = 2GM/r = 2GM/z\)</span>, so <span class="math display">\[\begin{aligned}
+    \frac{d^2z}{dt^2} \approx \frac{1}{2}\frac{\partial}{\partial z}
+    \left(\frac{2GM}{z}\right) = -\frac{GM}{z^2} = -\frac{GM}{r^2}\end{aligned}\]</span> We see that with our choice of <span class="math inline">\(\kappa = 8\pi G\)</span>, we get the right Newtonian acceleration, which certifies that choice as being correct.</p>
+<h2 id="homework-problems">Homework Problems</h2>
+<ol>
+<li><p>Find the stress-energy tensor as a function of position inside a spherical ball of dust rotating around the <span class="math inline">\(z\)</span> axis. (Assume that the ball of dust has only a weak gravitational field, so that the spacetime is essentially flat, and assume that the particles are essentially rotating as a solid sphere so that that <span class="math inline">\(\vec{v} =
+\vec{r}\times\vec{\omega}.\)</span>)</p></li>
+<li><p>Prove that <span class="math inline">\(G^{\mu\nu} = 0\)</span> if and only if <span class="math inline">\(R^{\mu\nu} = 0\)</span>.</p></li>
+<li><p>Verify equation <a href="#ER4WF" data-reference-type="ref" data-reference="ER4WF">[ER4WF]</a> for the Riemann tensor in the weak-field limit. (<em>Hint:</em> Argue that because we are throwing away terms of order <span class="math inline">\(|h_{\mu\nu}|^2\)</span>, we can ignore the products of Christoffel symbols.)</p></li>
+<li><p>What are the components of the vacuum stress-energy in a LIF? What is unusual about these components? Will all observers in LIFs with various relative velocities agree on these components?</p></li>
+<li><p>Redo example 5.4.1 with <span class="math inline">\(\rho = 0\)</span> but with a nonzero vacuum energy. Argue that vacuum energy would produce a repulsive gravitational field. (<em>Hint:</em> You can still use the idea that because the vacuum is spherically symmetric, the potential on the left side of equation <a href="#ES4H" data-reference-type="ref" data-reference="ES4H">[ES4H]</a> will be as if all of whatever is on the right side of equation <a href="#ES4H" data-reference-type="ref" data-reference="ES4H">[ES4H]</a>, integrated over the entire volume out to the radius <span class="math inline">\(r\)</span> where you are evaluating the field, was concentrated at the center.)</p></li>
+</ol>
+</body>
+</html>

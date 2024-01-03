@@ -23,4 +23,4 @@ If you encounter any problems or have suggestions for the documentation, please 
 
 ## Contact
 
-For further assistance or inquiries, contact [contact information or link to a contact page].
+For further assistance or inquiries, contact Will Metz @ williamesmetz@gmail.com.
